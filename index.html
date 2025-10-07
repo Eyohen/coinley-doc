@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coinley API Documentation</title>
+    <title>Coinley API Documentation - Accept Crypto Payments</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -28,6 +28,14 @@
             top: 0;
             z-index: 50;
         }
+        .step-badge {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -36,22 +44,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-lg flex items-center justify-center">
-                        <!-- <i class="fas fa-coins text-white text-sm"></i> -->
-                         <img src="./Logomark.png"/>
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-coins text-white text-sm"></i>
                     </div>
-                    <h1 class="text-xl font-bold ">Coinley API</h1>
+                    <h1 class="text-xl font-bold">Coinley API</h1>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#overview" class="text-gray-600 hover:text-blue-600 transition-colors">Overview</a>
-                    <a href="#authentication" class="text-gray-600 hover:text-blue-600 transition-colors">Authentication</a>
-                    <a href="#payments" class="text-gray-600 hover:text-blue-600 transition-colors">Payments</a>
-                    <a href="#networks" class="text-gray-600 hover:text-blue-600 transition-colors">Networks</a>
-                    <a href="#merchants" class="text-gray-600 hover:text-blue-600 transition-colors">Merchants</a>
+                    <a href="#quick-start" class="text-gray-600 hover:text-blue-600 transition-colors">Quick Start</a>
+                    <a href="#integration" class="text-gray-600 hover:text-blue-600 transition-colors">Integration</a>
+                    <a href="#wallets" class="text-gray-600 hover:text-blue-600 transition-colors">Wallet Support</a>
+                    <a href="#api-reference" class="text-gray-600 hover:text-blue-600 transition-colors">API Reference</a>
                 </nav>
-                <button class="md:hidden">
-                    <i class="fas fa-bars text-gray-600"></i>
-                </button>
             </div>
         </div>
     </header>
@@ -61,76 +64,125 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-5xl font-bold gradient-text mb-6">
                 Accept Crypto Payments
-                <span class="block">with Confidence</span>
+                <span class="block mt-2">In 5 Minutes</span>
             </h1>
             <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Coinley provides a secure, reliable payment gateway for accepting stablecoins across 8 major blockchain networks. 
-                Simple integration, automatic fee splitting, and real-time verification.
+                No blockchain experience needed. Coinley handles all the complexity - you just call our API.
+                Supports MetaMask, Coinbase Wallet, WalletConnect, and more.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
-                    Get Started
-                </button>
-                <button class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-600 transition-all">
-                    View Examples
-                </button>
+                <a href="#quick-start" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                    Start Integration
+                </a>
+                <a href="#live-demo" class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-600 transition-all">
+                    View Live Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">How It Works (Simple 3-Step Flow)</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="step-badge bg-blue-100 text-blue-600 font-bold text-lg mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-semibold mb-3">Create Payment</h3>
+                    <p class="text-gray-600">Call our API to create a payment request. We return the smart contract details.</p>
+                    <div class="mt-4 code-block rounded-lg p-3 text-left">
+                        <code class="text-green-400 text-xs">POST /api/payments/create</code>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="step-badge bg-purple-100 text-purple-600 font-bold text-lg mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-semibold mb-3">User Pays via Wallet</h3>
+                    <p class="text-gray-600">Customer connects their wallet (MetaMask, Coinbase, etc.) and approves the transaction.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" class="w-8 h-8">
+                        <i class="fab fa-ethereum text-3xl text-gray-700"></i>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="step-badge bg-green-100 text-green-600 font-bold text-lg mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-semibold mb-3">Verify & Complete</h3>
+                    <p class="text-gray-600">Send the transaction hash to our API. We verify on-chain and confirm payment.</p>
+                    <div class="mt-4 code-block rounded-lg p-3 text-left">
+                        <code class="text-green-400 text-xs">POST /api/payments/process</code>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Supported Networks -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Supported Networks</h2>
+            <h2 class="text-3xl font-bold text-center mb-4">Supported Networks & Stablecoins</h2>
+            <p class="text-center text-gray-600 mb-12">Accept USDT, USDC, and other stablecoins across 8 major blockchains</p>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
                         <i class="fab fa-ethereum text-blue-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">Ethereum</h3>
+                    <p class="text-xs text-gray-500 mt-1">High fees</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border-2 border-green-400">
                     <div class="w-12 h-12 bg-purple-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
                         <i class="fas fa-circle text-purple-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">Polygon</h3>
+                    <p class="text-xs text-green-600 mt-1 font-semibold">Recommended</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border-2 border-green-400">
                     <div class="w-12 h-12 bg-yellow-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
                         <i class="fas fa-coins text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">BSC</h3>
+                    <p class="text-xs text-green-600 mt-1 font-semibold">Low fees</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                        <i class="fas fa-cube text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm">Base</h3>
+                    <p class="text-xs text-gray-500 mt-1">Low fees</p>
+                </div>
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm">
                     <div class="w-12 h-12 bg-red-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
                         <i class="fas fa-fire text-red-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">Optimism</h3>
+                    <p class="text-xs text-yellow-600 mt-1">Medium fees</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
                         <i class="fas fa-mountain text-blue-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">Arbitrum</h3>
+                    <p class="text-xs text-yellow-600 mt-1">Medium fees</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm">
                     <div class="w-12 h-12 bg-red-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
                         <i class="fas fa-snowflake text-red-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">Avalanche</h3>
+                    <p class="text-xs text-gray-500 mt-1">Low fees</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-sun text-green-600 text-xl"></i>
+                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                        <i class="fas fa-bolt text-purple-600 text-xl"></i>
                     </div>
                     <h3 class="font-semibold text-sm">Solana</h3>
+                    <p class="text-xs text-gray-500 mt-1">Coming soon</p>
                 </div>
-                <div class="network-card bg-gray-50 rounded-xl p-4 text-center">
-                    <div class="w-12 h-12 bg-orange-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-bolt text-orange-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Tron</h3>
-                </div>
+            </div>
+            <div class="mt-8 bg-green-50 border border-green-200 rounded-lg p-4 max-w-2xl mx-auto">
+                <p class="text-sm text-green-800 text-center">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    <strong>Pro Tip:</strong> Use Polygon or BSC for transactions under $100 to minimize gas fees (~$0.01 vs $3-5 on Ethereum/Optimism)
+                </p>
             </div>
         </div>
     </section>
@@ -144,15 +196,17 @@
                     <div class="bg-gray-50 rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-3">Quick Navigation</h3>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="#overview" class="text-gray-600 hover:text-blue-600 transition-colors">Overview</a></li>
-                            <li><a href="#authentication" class="text-gray-600 hover:text-blue-600 transition-colors">Authentication</a></li>
-                            <li><a href="#create-payment" class="text-gray-600 hover:text-blue-600 transition-colors">Create Payment</a></li>
-                            <li><a href="#process-payment" class="text-gray-600 hover:text-blue-600 transition-colors">Process Payment</a></li>
-                            <li><a href="#get-payment" class="text-gray-600 hover:text-blue-600 transition-colors">Get Payment</a></li>
-                            <li><a href="#networks-api" class="text-gray-600 hover:text-blue-600 transition-colors">Networks API</a></li>
-                            <li><a href="#merchant-api" class="text-gray-600 hover:text-blue-600 transition-colors">Merchant API</a></li>
-                            <li><a href="#webhooks" class="text-gray-600 hover:text-blue-600 transition-colors">Webhooks</a></li>
-                            <li><a href="#errors" class="text-gray-600 hover:text-blue-600 transition-colors">Error Handling</a></li>
+                            <li><a href="#quick-start" class="text-gray-600 hover:text-blue-600 transition-colors">Quick Start</a></li>
+                            <li><a href="#config" class="text-gray-600 hover:text-blue-600 transition-colors">Configuration</a></li>
+                            <li><a href="#step1" class="text-gray-600 hover:text-blue-600 transition-colors">Step 1: Create Payment</a></li>
+                            <li><a href="#step2" class="text-gray-600 hover:text-blue-600 transition-colors">Step 2: Connect Wallet</a></li>
+                            <li><a href="#step3" class="text-gray-600 hover:text-blue-600 transition-colors">Step 3: Execute Payment</a></li>
+                            <li><a href="#step4" class="text-gray-600 hover:text-blue-600 transition-colors">Step 4: Verify Payment</a></li>
+                            <li><a href="#balance-check" class="text-gray-600 hover:text-blue-600 transition-colors">Balance Validation</a></li>
+                            <li><a href="#wallets" class="text-gray-600 hover:text-blue-600 transition-colors">Wallet Integration</a></li>
+                            <li><a href="#gas-optimization" class="text-gray-600 hover:text-blue-600 transition-colors">Gas Optimization</a></li>
+                            <li><a href="#error-handling" class="text-gray-600 hover:text-blue-600 transition-colors">Error Handling</a></li>
+                            <li><a href="#complete-example" class="text-gray-600 hover:text-blue-600 transition-colors">Complete Example</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -160,81 +214,100 @@
 
             <!-- Content -->
             <div class="lg:col-span-3 space-y-12">
-                <!-- Overview -->
-                <section id="overview">
-                    <h2 class="text-3xl font-bold mb-6">Overview</h2>
+                <!-- Quick Start -->
+                <section id="quick-start">
+                    <h2 class="text-3xl font-bold mb-6">Quick Start Guide</h2>
+                    
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
                         <h3 class="text-lg font-semibold text-blue-900 mb-3">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            Getting Started
+                            <i class="fas fa-rocket mr-2"></i>
+                            What You'll Build
                         </h3>
-                        <p class="text-blue-800">
-                            The Coinley API allows you to accept stablecoin payments on your platform. 
-                            Our PaymentSplitter technology automatically handles fee distribution using smart contracts, 
-                            ensuring secure and transparent transactions.
+                        <p class="text-blue-800 mb-4">
+                            A payment flow that lets customers pay with crypto wallets (MetaMask, Coinbase, WalletConnect, etc.) 
+                            without you needing to understand blockchain internals.
                         </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-white border border-gray-200 rounded-lg p-6 text-center">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-shield-alt text-green-600 text-xl"></i>
-                            </div>
-                            <h3 class="font-semibold mb-2">Secure</h3>
-                            <p class="text-gray-600 text-sm">Smart contract-based fee splitting with automated verification</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-6 text-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-bolt text-blue-600 text-xl"></i>
-                            </div>
-                            <h3 class="font-semibold mb-2">Fast</h3>
-                            <p class="text-gray-600 text-sm">Real-time payment verification across all supported networks</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-6 text-center">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-cogs text-purple-600 text-xl"></i>
-                            </div>
-                            <h3 class="font-semibold mb-2">Easy Integration</h3>
-                            <p class="text-gray-600 text-sm">Simple REST API with comprehensive documentation</p>
-                        </div>
+                        <ul class="text-blue-800 text-sm space-y-2">
+                            <li><i class="fas fa-check-circle mr-2 text-green-600"></i>No smart contract knowledge required</li>
+                            <li><i class="fas fa-check-circle mr-2 text-green-600"></i>Automatic fee splitting via smart contracts</li>
+                            <li><i class="fas fa-check-circle mr-2 text-green-600"></i>Real-time payment verification</li>
+                            <li><i class="fas fa-check-circle mr-2 text-green-600"></i>Support for 8 blockchain networks</li>
+                        </ul>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Base URL</h3>
+                    <h3 class="text-xl font-semibold mb-4">Prerequisites</h3>
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-key text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Coinley API Credentials</strong>
+                                    <p class="text-sm text-gray-600">Sign up at Coinley to get your API key and secret</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-code text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Basic JavaScript/HTML Knowledge</strong>
+                                    <p class="text-sm text-gray-600">You don't need blockchain experience</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-wallet text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Web3 Library</strong>
+                                    <p class="text-sm text-gray-600">We'll use Web3.js (auto-loaded from CDN)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4">Installation</h3>
                     <div class="code-block rounded-lg p-4 mb-6">
-                        <code class="text-green-400">https://talented-mercy-production.up.railway.app</code>
+                        <pre class="text-gray-300"><code>&lt;!-- Include required libraries in your HTML --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"&gt;&lt;/script&gt;</code></pre>
                     </div>
                 </section>
 
-                <!-- Authentication -->
-                <section id="authentication">
-                    <h2 class="text-3xl font-bold mb-6">Authentication</h2>
+                <!-- Configuration -->
+                <section id="config">
+                    <h2 class="text-3xl font-bold mb-6">Configuration</h2>
                     <p class="text-gray-600 mb-6">
-                        Coinley uses API key authentication. Include your API key and secret in the request headers.
+                        Set up your Coinley API credentials. Keep these secure on your backend.
                     </p>
-                    
-                    <h3 class="text-xl font-semibold mb-4">Headers Required</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>X-API-Key: your_api_key_here
-X-API-Secret: your_api_secret_here
-Content-Type: application/json</code></pre>
-                    </div>
 
-                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                         <div class="flex items-start">
-                            <i class="fas fa-exclamation-triangle text-yellow-600 mr-3 mt-1"></i>
+                            <i class="fas fa-exclamation-triangle text-red-600 mr-3 mt-1"></i>
                             <div>
-                                <h4 class="font-semibold text-yellow-900">Important</h4>
-                                <p class="text-yellow-800 text-sm">Keep your API credentials secure. Never expose them in client-side code.</p>
+                                <h4 class="font-semibold text-red-900">Security Warning</h4>
+                                <p class="text-red-800 text-sm">In production, store API credentials on your backend. The frontend should call your backend API, not Coinley directly.</p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="code-block rounded-lg p-4 mb-6">
+                        <pre class="text-gray-300"><code>// Coinley Configuration (Production)
+const COINLEY_CONFIG = {
+    baseURL: 'https://talented-mercy-production.up.railway.app',
+    apiKey: 'your_api_key_here',
+    apiSecret: 'your_api_secret_here'
+};
+
+// Store cart and payment state
+let cart = [];
+let currentPayment = null;
+let web3 = null;
+let userAccount = null;</code></pre>
+                    </div>
                 </section>
 
-                <!-- Create Payment -->
-                <section id="create-payment">
-                    <h2 class="text-3xl font-bold mb-6">Create Payment</h2>
+                <!-- Step 1: Create Payment -->
+                <section id="step1">
+                    <h2 class="text-3xl font-bold mb-6">Step 1: Create Payment</h2>
                     <p class="text-gray-600 mb-6">
-                        Create a new payment request to receive stablecoins from your customers.
+                        Call the Coinley API to create a payment request. You'll get back smart contract details.
                     </p>
 
                     <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
@@ -244,112 +317,365 @@ Content-Type: application/json</code></pre>
                         </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Request Parameters</h3>
-                    <div class="overflow-x-auto mb-6">
-                        <table class="min-w-full border border-gray-200 rounded-lg">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Parameter</th>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Type</th>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Required</th>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Description</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">amount</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Required</span></td>
-                                    <td class="px-4 py-3">Payment amount (e.g., "100.00")</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">currency</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Required</span></td>
-                                    <td class="px-4 py-3">Currency symbol (e.g., "USDT", "USDC")</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">network</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Required</span></td>
-                                    <td class="px-4 py-3">Network name (ethereum, polygon, bsc, etc.)</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">customerEmail</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">Optional</span></td>
-                                    <td class="px-4 py-3">Customer's email address</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">orderId</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">Optional</span></td>
-                                    <td class="px-4 py-3">Your internal order ID</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-3 font-mono text-blue-600">callbackUrl</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">Optional</span></td>
-                                    <td class="px-4 py-3">Webhook URL for payment notifications</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <h3 class="text-xl font-semibold mb-4">Example Request</h3>
                     <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>curl -X POST https://api.coinley.com/api/payments/create \
-  -H "X-API-Key: your_api_key" \
-  -H "X-API-Secret: your_api_secret" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "amount": "100.00",
-    "currency": "USDT",
-    "network": "ethereum",
-    "customerEmail": "customer@example.com",
-    "orderId": "order_12345",
-    "callbackUrl": "https://yoursite.com/webhook"
-  }'</code></pre>
+                        <pre class="text-gray-300"><code>async function createPayment(amount, currency, network, customerEmail) {
+    try {
+        const response = await axios.post(
+            `${COINLEY_CONFIG.baseURL}/api/payments/create`,
+            {
+                amount: amount.toFixed(2),
+                currency: currency,        // e.g., "USDT"
+                network: network,          // e.g., "polygon"
+                customerEmail: customerEmail,
+                orderId: `ORDER_${Date.now()}`,
+                metadata: {
+                    items: cart,
+                    platform: 'YourStore'
+                }
+            },
+            {
+                headers: {
+                    'X-API-Key': COINLEY_CONFIG.apiKey,
+                    'X-API-Secret': COINLEY_CONFIG.apiSecret,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        if (response.data.success) {
+            currentPayment = response.data.payment;
+            console.log('Payment created:', currentPayment);
+            return currentPayment;
+        } else {
+            throw new Error(response.data.message || 'Payment creation failed');
+        }
+    } catch (error) {
+        console.error('Create payment error:', error);
+        throw error;
+    }
+}</code></pre>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Example Response</h3>
+                    <h3 class="text-xl font-semibold mb-4">What You Get Back</h3>
                     <div class="code-block rounded-lg p-4 mb-6">
                         <pre class="text-gray-300"><code>{
   "success": true,
-  "requestId": "REQ-1234567890-abc123",
-  "amount": 100.00,
   "payment": {
-    "id": "uuid-payment-id",
-    "amount": 100.00,
-    "totalAmount": 100.00,
+    "id": "21870d6e-d53d-4e72-8761-e0208a8ceacb",
+    "amount": 1.99,
     "currency": "USDT",
-    "network": "ethereum",
+    "network": "optimism",
     "status": "pending",
-    "expiresAt": "2024-01-15T10:30:00Z",
-    "paymentMethod": "splitter",
-    "splitterPaymentId": "SPL_abc123def456",
     "contractAddress": "0x48E967d182F744EdB18AcA7092814f1FE17fcB2d",
-    "merchantWallet": "0x1234...5678",
-    "coinleyWallet": "0xabcd...ef01",
-    "merchantPercentage": 9700,
-    "coinleyPercentage": 300,
-    "contractCall": {
-      "contractAddress": "0x48E967d182F744EdB18AcA7092814f1FE17fcB2d",
-      "functionName": "splitPayment",
-      "tokenAddress": "0xA0b86a33E6...",
-      "approvalRequired": true,
-      "approvalAmount": "100000000"
-    }
+    "splitterPaymentId": "21870d6e-d53d-4e72-8761-e0208a8ceacb",
+    "merchantWallet": "0x9d961e093FFeC1577d124Cfe65233fE140E88Fc4",
+    "coinleyWallet": "0xEe9025Cc02c060C03ba5dba3d19C7ea2e752f44d",
+    "merchantPercentage": 9700,  // 97%
+    "coinleyPercentage": 300      // 3%
   }
 }</code></pre>
                     </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p class="text-blue-800 text-sm">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <strong>What's happening:</strong> Coinley creates a unique payment ID and tells you which smart contract to interact with. 
+                            The contract automatically splits funds between you (97%) and Coinley (3% fee).
+                        </p>
+                    </div>
                 </section>
 
-                <!-- Process Payment -->
-                <section id="process-payment">
-                    <h2 class="text-3xl font-bold mb-6">Process Payment</h2>
+                <!-- Step 2: Connect Wallet -->
+                <section id="step2">
+                    <h2 class="text-3xl font-bold mb-6">Step 2: Connect Wallet & Switch Network</h2>
                     <p class="text-gray-600 mb-6">
-                        Verify and process a payment using the transaction hash from the blockchain.
+                        Connect the user's crypto wallet and switch to the correct blockchain network.
+                    </p>
+
+                    <h3 class="text-xl font-semibold mb-4">Check for Wallet</h3>
+                    <div class="code-block rounded-lg p-4 mb-6">
+                        <pre class="text-gray-300"><code>async function connectWallet() {
+    // Check if user has a Web3 wallet installed
+    if (typeof window.ethereum === 'undefined') {
+        alert('Please install MetaMask or another Web3 wallet');
+        window.open('https://metamask.io/download/', '_blank');
+        return;
+    }
+
+    // Initialize Web3
+    web3 = new Web3(window.ethereum);
+
+    // Request account access
+    const accounts = await window.ethereum.request({
+        method: 'eth_requestAccounts'
+    });
+
+    if (!accounts || accounts.length === 0) {
+        throw new Error('No wallet accounts found');
+    }
+
+    userAccount = accounts[0];
+    console.log('Connected wallet:', userAccount);
+    return userAccount;
+}</code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4">Switch to Correct Network</h3>
+                    <div class="code-block rounded-lg p-4 mb-6">
+                        <pre class="text-gray-300"><code>async function switchToNetwork(networkShortName) {
+    // Get network details from Coinley
+    const response = await axios.get(
+        `${COINLEY_CONFIG.baseURL}/api/networks`
+    );
+    
+    const network = response.data.networks.find(
+        n => n.shortName === networkShortName
+    );
+    
+    if (!network) {
+        throw new Error('Network not found');
+    }
+
+    // Convert chainId to hex format
+    const chainIdHex = '0x' + parseInt(network.chainId).toString(16);
+
+    try {
+        // Ask wallet to switch networks
+        await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: chainIdHex }]
+        });
+        
+        console.log(`Switched to ${network.name}`);
+    } catch (error) {
+        if (error.code === 4902) {
+            // Network not added to wallet yet
+            alert(`Please add ${network.name} to your wallet`);
+        }
+        throw error;
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <p class="text-yellow-800 text-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>
+                            <strong>User Experience:</strong> The wallet will show a popup asking the user to switch networks. 
+                            This is automatic - you don't need to worry about network configurations.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Balance Check Section -->
+                <section id="balance-check">
+                    <h2 class="text-3xl font-bold mb-6">Balance Validation</h2>
+                    <p class="text-gray-600 mb-6">
+                        Always check if the user has enough tokens BEFORE attempting payment. This prevents confusing blockchain errors.
+                    </p>
+
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-exclamation-circle text-red-600 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-red-900">Common Error</h4>
+                                <p class="text-red-800 text-sm mb-2">"ERC20: transfer amount exceeds balance" means the user doesn't have enough tokens.</p>
+                                <p class="text-red-800 text-sm">Solution: Check balance first and show a friendly error message.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-block rounded-lg p-4 mb-6">
+                        <pre class="text-gray-300"><code>async function checkTokenBalance(tokenAddress, requiredAmount, decimals) {
+    // ERC20 standard ABI for balanceOf
+    const erc20ABI = [
+        {
+            "constant": true,
+            "inputs": [{"name": "_owner", "type": "address"}],
+            "name": "balanceOf",
+            "outputs": [{"name": "balance", "type": "uint256"}],
+            "type": "function"
+        }
+    ];
+
+    const tokenContract = new web3.eth.Contract(erc20ABI, tokenAddress);
+    
+    // Get user's token balance
+    const balanceWei = await tokenContract.methods
+        .balanceOf(userAccount)
+        .call();
+    
+    // Convert to decimal (e.g., USDT uses 6 decimals)
+    const balanceDecimal = parseFloat(balanceWei) / Math.pow(10, decimals);
+    
+    console.log(`Balance: ${balanceDecimal} ${currency}`);
+    console.log(`Required: ${requiredAmount} ${currency}`);
+    
+    // Check if sufficient
+    if (balanceDecimal < requiredAmount) {
+        const shortfall = (requiredAmount - balanceDecimal).toFixed(2);
+        throw new Error(
+            `Insufficient ${currency} balance!\n\n` +
+            `Required: ${requiredAmount} ${currency}\n` +
+            `Available: ${balanceDecimal.toFixed(2)} ${currency}\n` +
+            `Shortfall: ${shortfall} ${currency}\n\n` +
+            `Please add more ${currency} to your wallet.`
+        );
+    }
+    
+    return true;
+}</code></pre>
+                    </div>
+
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <p class="text-green-800 text-sm">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <strong>Pro Tip:</strong> Show the user's balance in your UI so they know if they need to add more funds before checkout.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Step 3: Execute Payment -->
+                <section id="step3">
+                    <h2 class="text-3xl font-bold mb-6">Step 3: Execute Payment</h2>
+                    <p class="text-gray-600 mb-6">
+                        Execute the smart contract payment. This involves two transactions: approve and pay.
+                    </p>
+
+                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-purple-900 mb-3">Why Two Transactions?</h3>
+                        <ol class="text-purple-800 space-y-2 text-sm">
+                            <li><strong>1. Approve:</strong> Give the smart contract permission to spend your tokens</li>
+                            <li><strong>2. Pay:</strong> The contract transfers tokens and splits the payment</li>
+                        </ol>
+                        <p class="text-purple-700 text-sm mt-3">This is a security feature of ERC20 tokens - contracts can't take your tokens without permission.</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4">Complete Payment Function</h3>
+                    <div class="code-block rounded-lg p-4 mb-6">
+                        <pre class="text-gray-300"><code>async function executePayment(payment, tokenData) {
+    const decimals = tokenData.decimals || 6;
+    const amount = parseFloat(payment.amount);
+    const amountWei = (amount * Math.pow(10, decimals)).toString();
+
+    // ERC20 contract ABI
+    const erc20ABI = [
+        {
+            "constant": false,
+            "inputs": [
+                {"name": "_spender", "type": "address"},
+                {"name": "_value", "type": "uint256"}
+            ],
+            "name": "approve",
+            "outputs": [{"name": "", "type": "bool"}],
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {"name": "_owner", "type": "address"}
+            ],
+            "name": "balanceOf",
+            "outputs": [{"name": "balance", "type": "uint256"}],
+            "type": "function"
+        }
+    ];
+
+    const tokenContract = new web3.eth.Contract(
+        erc20ABI, 
+        tokenData.contractAddress
+    );
+
+    // ✅ STEP 1: Check balance first
+    const userBalance = await tokenContract.methods
+        .balanceOf(userAccount)
+        .call();
+    const userBalanceDecimal = parseFloat(userBalance) / Math.pow(10, decimals);
+    
+    if (userBalanceDecimal < amount) {
+        const shortfall = (amount - userBalanceDecimal).toFixed(2);
+        throw new Error(
+            `Insufficient ${payment.currency} balance!\n\n` +
+            `Required: ${amount} ${payment.currency}\n` +
+            `Available: ${userBalanceDecimal.toFixed(2)} ${payment.currency}\n` +
+            `Shortfall: ${shortfall} ${payment.currency}`
+        );
+    }
+
+    // ✅ STEP 2: Approve token spending
+    console.log('Requesting token approval...');
+    
+    const approveTx = await tokenContract.methods
+        .approve(payment.contractAddress, amountWei)
+        .send({ from: userAccount });
+    
+    console.log('Approved! Tx:', approveTx.transactionHash);
+
+    // ✅ STEP 3: Execute payment via smart contract
+    const splitterABI = [{
+        "inputs": [{
+            "components": [
+                {"name": "token", "type": "address"},
+                {"name": "amount", "type": "uint256"},
+                {"name": "paymentId", "type": "string"},
+                {"name": "recipient1", "type": "address"},
+                {"name": "recipient2", "type": "address"},
+                {"name": "recipient3", "type": "address"},
+                {"name": "recipient1Percentage", "type": "uint256"},
+                {"name": "recipient2Percentage", "type": "uint256"},
+                {"name": "recipient3Percentage", "type": "uint256"}
+            ],
+            "name": "params",
+            "type": "tuple"
+        }],
+        "name": "splitPayment",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }];
+
+    const splitterContract = new web3.eth.Contract(
+        splitterABI, 
+        payment.contractAddress
+    );
+
+    const splitParams = {
+        token: tokenData.contractAddress,
+        amount: amountWei,
+        paymentId: payment.splitterPaymentId || payment.id,
+        recipient1: payment.merchantWallet,
+        recipient2: payment.coinleyWallet,
+        recipient3: '0x0000000000000000000000000000000000000000',
+        recipient1Percentage: payment.merchantPercentage,
+        recipient2Percentage: payment.coinleyPercentage,
+        recipient3Percentage: 0
+    };
+
+    console.log('Executing payment...');
+    
+    const paymentTx = await splitterContract.methods
+        .splitPayment(splitParams)
+        .send({ from: userAccount });
+
+    console.log('Payment successful! Tx:', paymentTx.transactionHash);
+    
+    return paymentTx.transactionHash;
+}</code></pre>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p class="text-blue-800 text-sm">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <strong>What happens:</strong> The wallet shows two popups - one to approve tokens, one to execute payment. 
+                            The smart contract automatically splits funds to merchant (97%) and Coinley (3%).
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Step 4: Verify Payment -->
+                <section id="step4">
+                    <h2 class="text-3xl font-bold mb-6">Step 4: Verify Payment</h2>
+                    <p class="text-gray-600 mb-6">
+                        Send the transaction hash to Coinley for verification. We check the blockchain to confirm payment.
                     </p>
 
                     <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
@@ -359,453 +685,475 @@ Content-Type: application/json</code></pre>
                         </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Request Parameters</h3>
-                    <div class="overflow-x-auto mb-6">
-                        <table class="min-w-full border border-gray-200 rounded-lg">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Parameter</th>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Type</th>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Required</th>
-                                    <th class="border-b px-4 py-3 text-left font-semibold">Description</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">paymentId</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Required</span></td>
-                                    <td class="px-4 py-3">Payment ID from create payment response</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">transactionHash</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Required</span></td>
-                                    <td class="px-4 py-3">Transaction hash from blockchain</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-3 font-mono text-blue-600">network</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Required</span></td>
-                                    <td class="px-4 py-3">Network where transaction was made</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-3 font-mono text-blue-600">senderAddress</td>
-                                    <td class="px-4 py-3">string</td>
-                                    <td class="px-4 py-3"><span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">Optional</span></td>
-                                    <td class="px-4 py-3">Customer's wallet address</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <h3 class="text-xl font-semibold mb-4">Example Request</h3>
                     <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>curl -X POST https://api.coinley.com/api/payments/process \
-  -H "X-API-Key: your_api_key" \
-  -H "X-API-Secret: your_api_secret" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "paymentId": "uuid-payment-id",
-    "transactionHash": "0xabcdef1234567890...",
-    "network": "ethereum",
-    "senderAddress": "0x9876...abcd"
-  }'</code></pre>
+                        <pre class="text-gray-300"><code>async function verifyPayment(paymentId, transactionHash, network) {
+    try {
+        const response = await axios.post(
+            `${COINLEY_CONFIG.baseURL}/api/payments/process`,
+            {
+                paymentId: paymentId,
+                transactionHash: transactionHash,
+                network: network,
+                senderAddress: userAccount
+            },
+            {
+                headers: {
+                    'X-API-Key': COINLEY_CONFIG.apiKey,
+                    'X-API-Secret': COINLEY_CONFIG.apiSecret,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        if (response.data.success) {
+            console.log('Payment verified!', response.data);
+            return response.data;
+        } else {
+            throw new Error(response.data.error || 'Verification failed');
+        }
+    } catch (error) {
+        console.error('Verification error:', error);
+        throw error;
+    }
+}</code></pre>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Example Response</h3>
+                    <h3 class="text-xl font-semibold mb-4">Verification Response</h3>
                     <div class="code-block rounded-lg p-4 mb-6">
                         <pre class="text-gray-300"><code>{
   "success": true,
   "message": "Payment processed successfully",
   "payment": {
-    "id": "uuid-payment-id",
+    "id": "21870d6e-d53d-4e72-8761-e0208a8ceacb",
     "status": "completed",
-    "amount": 100.00,
-    "transactionHash": "0xabcdef1234567890...",
-    "senderAddress": "0x9876...abcd"
+    "amount": 1.99,
+    "transactionHash": "0xabcdef...",
+    "senderAddress": "0x581c333..."
   },
   "onChainData": {
     "blockNumber": 18745123,
     "gasUsed": "65432",
     "confirmed": true
-  },
-  "verificationAttempts": 1
-}</code></pre>
-                    </div>
-                </section>
-
-                <!-- Get Payment -->
-                <section id="get-payment">
-                    <h2 class="text-3xl font-bold mb-6">Get Payment Details</h2>
-                    <p class="text-gray-600 mb-6">
-                        Retrieve detailed information about a specific payment.
-                    </p>
-
-                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
-                        <div class="flex">
-                            <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">GET</span>
-                            <code class="text-blue-800 font-mono">/api/payments/{payment_id}</code>
-                        </div>
-                    </div>
-
-                    <h3 class="text-xl font-semibold mb-4">Example Request</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>curl -X GET https://api.coinley.com/api/payments/uuid-payment-id \
-  -H "X-API-Key: your_api_key" \
-  -H "X-API-Secret: your_api_secret"</code></pre>
-                    </div>
-
-                    <h3 class="text-xl font-semibold mb-4">Example Response</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>{
-  "success": true,
-  "amount": 100.00,
-  "payment": {
-    "id": "uuid-payment-id",
-    "amount": 100.00,
-    "totalAmount": 100.00,
-    "currency": "USDT",
-    "status": "completed",
-    "transactionHash": "0xabcdef...",
-    "senderAddress": "0x9876...abcd",
-    "createdAt": "2024-01-15T09:30:00Z",
-    "expiresAt": "2024-01-15T10:30:00Z",
-    "Network": {
-      "id": "uuid",
-      "name": "Ethereum",
-      "shortName": "ethereum",
-      "chainId": "1",
-      "explorerUrl": "https://etherscan.io"
-    },
-    "Token": {
-      "symbol": "USDT",
-      "contractAddress": "0xA0b86a33E6...",
-      "decimals": 6
-    }
   }
 }</code></pre>
                     </div>
                 </section>
 
-                <!-- Networks API -->
-                <section id="networks-api">
-                    <h2 class="text-3xl font-bold mb-6">Networks API</h2>
+                <!-- Wallet Integration -->
+                <section id="wallets">
+                    <h2 class="text-3xl font-bold mb-6">Wallet Integration Guide</h2>
                     <p class="text-gray-600 mb-6">
-                        Get information about supported blockchain networks and their tokens.
+                        Coinley works with any Web3 wallet. Here's how to support the most popular ones.
                     </p>
 
-                    <div class="space-y-8">
-                        <!-- Get Networks -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Get All Networks</h3>
-                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">GET</span>
-                                    <code class="text-blue-800 font-mono">/api/networks</code>
-                                </div>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" class="w-8 h-8 mr-3">
+                                <h3 class="text-lg font-semibold">MetaMask</h3>
                             </div>
-                            <div class="code-block rounded-lg p-4 mb-4">
-                                <pre class="text-gray-300"><code>{
-  "networks": [
-    {
-      "id": "uuid",
-      "name": "Ethereum",
-      "shortName": "ethereum",
-      "chainId": "1",
-      "type": "ethereum",
-      "logo": "https://...",
-      "explorerUrl": "https://etherscan.io",
-      "isTestnet": false
-    },
-    {
-      "id": "uuid",
-      "name": "Polygon",
-      "shortName": "polygon",
-      "chainId": "137",
-      "type": "ethereum",
-      "logo": "https://...",
-      "explorerUrl": "https://polygonscan.com",
-      "isTestnet": false
-    }
-  ]
-}</code></pre>
+                            <p class="text-sm text-gray-600 mb-3">Most popular Web3 wallet. Works automatically with our code above.</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-green-400 text-xs">window.ethereum</code>
                             </div>
                         </div>
 
-                        <!-- Get Network Tokens -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Get Network Tokens</h3>
-                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">GET</span>
-                                    <code class="text-blue-800 font-mono">/api/networks/{network_id}/tokens</code>
+                        <div class="bg-white border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-wallet text-white text-sm"></i>
                                 </div>
+                                <h3 class="text-lg font-semibold">Coinbase Wallet</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Works the same as MetaMask via window.ethereum</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-green-400 text-xs">window.ethereum</code>
                             </div>
                         </div>
 
-                        <!-- Get Stablecoins -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Get All Stablecoins</h3>
-                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">GET</span>
-                                    <code class="text-blue-800 font-mono">/api/networks/stablecoins</code>
+                        <div class="bg-white border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-link text-white text-sm"></i>
                                 </div>
+                                <h3 class="text-lg font-semibold">WalletConnect</h3>
                             </div>
+                            <p class="text-sm text-gray-600 mb-3">For mobile wallets. Requires additional library.</p>
+                            <a href="#walletconnect-example" class="text-blue-600 text-sm hover:underline">See example below →</a>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-bolt text-white text-sm"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Zerion</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Works automatically via window.ethereum</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-green-400 text-xs">window.ethereum</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="walletconnect-example" class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold mb-4">WalletConnect Integration (Optional)</h3>
+                        <p class="text-sm text-gray-600 mb-4">For mobile wallet support, add WalletConnect:</p>
+                        <div class="code-block rounded-lg p-4">
+                            <pre class="text-gray-300"><code>&lt;!-- Add WalletConnect library --&gt;
+&lt;script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+async function connectWalletConnect() {
+    const provider = new WalletConnectProvider.default({
+        rpc: {
+            1: "https://eth.llamarpc.com",
+            137: "https://polygon-rpc.com"
+        }
+    });
+    
+    await provider.enable();
+    web3 = new Web3(provider);
+    const accounts = await web3.eth.getAccounts();
+    userAccount = accounts[0];
+    
+    return userAccount;
+}
+&lt;/script&gt;</code></pre>
                         </div>
                     </div>
                 </section>
 
-                <!-- Merchant API -->
-                <section id="merchant-api">
-                    <h2 class="text-3xl font-bold mb-6">Merchant API</h2>
+                <!-- Gas Optimization -->
+                <section id="gas-optimization">
+                    <h2 class="text-3xl font-bold mb-6">Gas Fee Optimization</h2>
                     <p class="text-gray-600 mb-6">
-                        Manage your merchant account, wallet addresses, and payment settings.
+                        Minimize transaction costs for your users with these strategies.
                     </p>
 
-                    <div class="space-y-8">
-                        <!-- Register -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Register Merchant</h3>
-                            <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">POST</span>
-                                    <code class="text-green-800 font-mono">/api/merchants/register</code>
-                                </div>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-green-900 mb-3">✅ Recommended Networks</h3>
+                            <ul class="text-green-800 text-sm space-y-2">
+                                <li><strong>Polygon:</strong> ~$0.01 per transaction</li>
+                                <li><strong>BSC:</strong> ~$0.02 per transaction</li>
+                                <li><strong>Base:</strong> ~$0.03 per transaction</li>
+                            </ul>
                         </div>
 
-                        <!-- Login -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Login</h3>
-                            <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">POST</span>
-                                    <code class="text-green-800 font-mono">/api/merchants/login</code>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Get Dashboard -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Get Dashboard</h3>
-                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">GET</span>
-                                    <code class="text-blue-800 font-mono">/api/merchants/dashboard</code>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Update Wallets -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4">Update Wallet Addresses</h3>
-                            <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-4">
-                                <div class="flex">
-                                    <span class="bg-orange-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">PUT</span>
-                                    <code class="text-orange-800 font-mono">/api/merchants/wallets</code>
-                                </div>
-                            </div>
-                            <div class="code-block rounded-lg p-4 mb-4">
-                                <pre class="text-gray-300"><code>{
-  "wallets": [
-    {
-      "networkShortName": "ethereum",
-      "walletAddress": "0x1234567890123456789012345678901234567890",
-      "supportedTokens": ["USDT", "USDC"]
-    },
-    {
-      "networkShortName": "polygon",
-      "walletAddress": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
-      "supportedTokens": ["USDT", "USDC"]
-    }
-  ]
-}</code></pre>
-                            </div>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-yellow-900 mb-3">⚠️ Higher Fee Networks</h3>
+                            <ul class="text-yellow-800 text-sm space-y-2">
+                                <li><strong>Optimism:</strong> $0.50-$0.70 per transaction</li>
+                                <li><strong>Arbitrum:</strong> $0.40-$0.60 per transaction</li>
+                                <li><strong>Ethereum:</strong> $10-$30+ per transaction</li>
+                            </ul>
                         </div>
                     </div>
-                </section>
 
-                <!-- Webhooks -->
-                <section id="webhooks">
-                    <h2 class="text-3xl font-bold mb-6">Webhooks</h2>
-                    <p class="text-gray-600 mb-6">
-                        Receive real-time notifications when payment statuses change.
-                    </p>
-
-                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
-                        <h3 class="text-lg font-semibold text-purple-900 mb-3">Webhook Events</h3>
-                        <ul class="text-purple-800 space-y-2">
-                            <li><strong>payment.completed</strong> - Payment successfully processed</li>
-                            <li><strong>payment.failed</strong> - Payment verification failed</li>
-                            <li><strong>payment.expired</strong> - Payment expired without completion</li>
-                        </ul>
-                    </div>
-
-                    <h3 class="text-xl font-semibold mb-4">Webhook Payload Example</h3>
+                    <h3 class="text-xl font-semibold mb-4">Show Fee Warnings to Users</h3>
                     <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>{
-  "event": "payment.completed",
-  "timestamp": "2024-01-15T10:45:00Z",
-  "data": {
-    "paymentId": "uuid-payment-id",
-    "amount": 100.00,
-    "currency": "USDT",
-    "network": "ethereum",
-    "status": "completed",
-    "transactionHash": "0xabcdef...",
-    "merchantId": "uuid-merchant-id",
-    "orderId": "order_12345"
-  },
-  "signature": "sha256_webhook_signature"
+                        <pre class="text-gray-300"><code>function showNetworkWarning(network, transactionAmount) {
+    const feeEstimates = {
+        'polygon': 0.01,
+        'bsc': 0.02,
+        'optimism': 0.65,
+        'arbitrum': 0.50,
+        'ethereum': 15.00
+    };
+    
+    const estimatedFee = feeEstimates[network] || 0;
+    const feePercentage = (estimatedFee / transactionAmount) * 100;
+    
+    if (feePercentage > 5) {
+        alert(
+            `⚠️ HIGH FEE ALERT!\n\n` +
+            `Network: ${network}\n` +
+            `Transaction: $${transactionAmount}\n` +
+            `Estimated Fee: $${estimatedFee}\n` +
+            `Fee Percentage: ${feePercentage.toFixed(1)}%\n\n` +
+            `Consider using Polygon or BSC for lower fees.`
+        );
+    }
 }</code></pre>
-                    </div>
-
-                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-lightbulb text-yellow-600 mr-3 mt-1"></i>
-                            <div>
-                                <h4 class="font-semibold text-yellow-900">Webhook Security</h4>
-                                <p class="text-yellow-800 text-sm">Always verify webhook signatures using your webhook secret to ensure authenticity.</p>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
                 <!-- Error Handling -->
-                <section id="errors">
+                <section id="error-handling">
                     <h2 class="text-3xl font-bold mb-6">Error Handling</h2>
                     <p class="text-gray-600 mb-6">
-                        Coinley uses conventional HTTP response codes to indicate success or failure.
+                        Handle common errors gracefully to improve user experience.
                     </p>
 
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                            <h3 class="font-semibold text-green-900 mb-2">Success Codes</h3>
-                            <ul class="text-green-800 text-sm space-y-1">
-                                <li><strong>200</strong> - OK</li>
-                                <li><strong>201</strong> - Created</li>
-                            </ul>
+                    <div class="space-y-4">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">❌ "User rejected transaction"</h4>
+                            <p class="text-sm text-gray-600 mb-2">User clicked "Reject" in wallet popup</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-xs text-gray-300">Show: "Payment cancelled. Please try again when ready."</code>
+                            </div>
                         </div>
-                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
-                            <h3 class="font-semibold text-red-900 mb-2">Error Codes</h3>
-                            <ul class="text-red-800 text-sm space-y-1">
-                                <li><strong>400</strong> - Bad Request</li>
-                                <li><strong>401</strong> - Unauthorized</li>
-                                <li><strong>404</strong> - Not Found</li>
-                                <li><strong>500</strong> - Internal Server Error</li>
-                            </ul>
+
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">❌ "Insufficient funds"</h4>
+                            <p class="text-sm text-gray-600 mb-2">User doesn't have enough tokens or ETH for gas</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-xs text-gray-300">Show: "Insufficient USDT balance. You need X more USDT."</code>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">❌ "Transaction failed"</h4>
+                            <p class="text-sm text-gray-600 mb-2">Smart contract reverted the transaction</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-xs text-gray-300">Show: "Payment failed. Please contact support with transaction hash."</code>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">❌ "Network mismatch"</h4>
+                            <p class="text-sm text-gray-600 mb-2">User is on wrong blockchain network</p>
+                            <div class="code-block rounded-lg p-3">
+                                <code class="text-xs text-gray-300">Show: "Please switch to Polygon network in your wallet."</code>
+                            </div>
                         </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Error Response Format</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>{
-  "success": false,
-  "error": "Validation failed",
-  "message": "Amount is required and must be a positive number",
-  "code": "VALIDATION_ERROR",
-  "timestamp": "2024-01-15T10:30:00Z"
+                    <h3 class="text-xl font-semibold mb-4 mt-8">Complete Error Handling</h3>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300"><code>async function handlePayment() {
+    try {
+        await connectWallet();
+        await switchToNetwork('polygon');
+        const txHash = await executePayment(currentPayment, tokenData);
+        await verifyPayment(currentPayment.id, txHash, 'polygon');
+        
+        alert('✅ Payment successful!');
+    } catch (error) {
+        console.error('Payment error:', error);
+        
+        // User-friendly error messages
+        if (error.message.includes('User denied')) {
+            alert('Payment cancelled. No charges were made.');
+        } else if (error.message.includes('Insufficient')) {
+            alert(error.message); // Our custom balance error
+        } else if (error.code === 4902) {
+            alert('Please add this network to your wallet.');
+        } else {
+            alert('Payment failed: ' + error.message);
+        }
+    }
 }</code></pre>
                     </div>
                 </section>
-            </div>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-coins text-white text-sm"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Coinley</h3>
-                    </div>
-                    <p class="text-gray-400 text-sm">Secure crypto payment processing for modern businesses.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3">Documentation</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#overview" class="hover:text-white transition-colors">Getting Started</a></li>
-                        <li><a href="#authentication" class="hover:text-white transition-colors">Authentication</a></li>
-                        <li><a href="#payments" class="hover:text-white transition-colors">Payments API</a></li>
-                        <li><a href="#webhooks" class="hover:text-white transition-colors">Webhooks</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3">Support</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Status Page</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-3">Connect</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-                <p>&copy; 2024 Coinley. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+                <!-- Complete Example -->
+                <section id="complete-example">
+                    <h2 class="text-3xl font-bold mb-6">Complete Working Example</h2>
+                    <p class="text-gray-600 mb-6">
+                        Here's a full integration you can copy and customize for your site.
+                    </p>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <p class="text-blue-800 text-sm">
+                            <i class="fas fa-download mr-2"></i>
+                            This is the exact code from our SportsPass demo (working and tested).
+                        </p>
+                    </div>
+
+                    <div class="code-block rounded-lg p-4 mb-6 max-h-96 overflow-y-auto">
+                        <pre class="text-gray-300 text-xs"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button onclick="checkout()"&gt;Pay $10.00 with Crypto&lt;/button&gt;
+
+    &lt;script&gt;
+    const COINLEY_CONFIG = {
+        baseURL: 'https://talented-mercy-production.up.railway.app',
+        apiKey: 'your_api_key',
+        apiSecret: 'your_api_secret'
+    };
+
+    let web3, userAccount, currentPayment;
+
+    async function checkout() {
+        try {
+            // Step 1: Create payment
+            const payment = await createPayment(10.00, 'USDT', 'polygon', 'user@example.com');
+            
+            // Step 2: Connect wallet
+            await connectWallet();
+            await switchToNetwork('polygon');
+            
+            // Step 3: Get token details
+            const networks = await axios.get(`${COINLEY_CONFIG.baseURL}/api/networks`);
+            const polygon = networks.data.networks.find(n => n.shortName === 'polygon');
+            const tokensRes = await axios.get(`${COINLEY_CONFIG.baseURL}/api/networks/${polygon.id}/tokens`);
+            const usdt = tokensRes.data.tokens.find(t => t.symbol === 'USDT');
+            
+            // Step 4: Execute payment
+            const txHash = await executePayment(payment, usdt);
+            
+            // Step 5: Verify payment
+            await verifyPayment(payment.id, txHash, 'polygon');
+            
+            alert('✅ Payment successful!');
+        } catch (error) {
+            console.error(error);
+            alert('Payment failed: ' + error.message);
+        }
+    }
+
+    async function createPayment(amount, currency, network, email) {
+        const res = await axios.post(`${COINLEY_CONFIG.baseURL}/api/payments/create`, {
+            amount: amount.toFixed(2),
+            currency, network,
+            customerEmail: email,
+            orderId: `ORDER_${Date.now()}`
+        }, {
+            headers: {
+                'X-API-Key': COINLEY_CONFIG.apiKey,
+                'X-API-Secret': COINLEY_CONFIG.apiSecret,
+                'Content-Type': 'application/json'
+            }
         });
+        currentPayment = res.data.payment;
+        return currentPayment;
+    }
 
-        // Highlight current section in navigation
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    async function connectWallet() {
+        if (typeof window.ethereum === 'undefined') {
+            throw new Error('Please install MetaMask');
+        }
+        web3 = new Web3(window.ethereum);
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        userAccount = accounts[0];
+    }
 
-        function updateActiveNavigation() {
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+    async function switchToNetwork(networkName) {
+        const networks = await axios.get(`${COINLEY_CONFIG.baseURL}/api/networks`);
+        const network = networks.data.networks.find(n => n.shortName === networkName);
+        const chainIdHex = '0x' + parseInt(network.chainId).toString(16);
+        await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: chainIdHex }]
+        });
+    }
 
-            navLinks.forEach(link => {
-                link.classList.remove('text-blue-600');
-                link.classList.add('text-gray-600');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.remove('text-gray-600');
-                    link.classList.add('text-blue-600');
-                }
-            });
+    async function executePayment(payment, tokenData) {
+        const decimals = tokenData.decimals || 6;
+        const amountWei = (parseFloat(payment.amount) * Math.pow(10, decimals)).toString();
+
+        const erc20ABI = [
+            {"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"type":"function"},
+            {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"}
+        ];
+
+        const tokenContract = new web3.eth.Contract(erc20ABI, tokenData.contractAddress);
+
+        // Check balance
+        const balance = await tokenContract.methods.balanceOf(userAccount).call();
+        if (BigInt(balance) < BigInt(amountWei)) {
+            throw new Error('Insufficient token balance');
         }
 
-        window.addEventListener('scroll', updateActiveNavigation);
-        updateActiveNavigation(); // Call on load
-    </script>
-</body>
-</html>
+        // Approve
+        await tokenContract.methods.approve(payment.contractAddress, amountWei).send({ from: userAccount });
+
+        // Execute payment
+        const splitterABI = [{"inputs":[{"components":[{"name":"token","type":"address"},{"name":"amount","type":"uint256"},{"name":"paymentId","type":"string"},{"name":"recipient1","type":"address"},{"name":"recipient2","type":"address"},{"name":"recipient3","type":"address"},{"name":"recipient1Percentage","type":"uint256"},{"name":"recipient2Percentage","type":"uint256"},{"name":"recipient3Percentage","type":"uint256"}],"name":"params","type":"tuple"}],"name":"splitPayment","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+
+        const splitter = new web3.eth.Contract(splitterABI, payment.contractAddress);
+        
+        const tx = await splitter.methods.splitPayment({
+            token: tokenData.contractAddress,
+            amount: amountWei,
+            paymentId: payment.splitterPaymentId,
+            recipient1: payment.merchantWallet,
+            recipient2: payment.coinleyWallet,
+            recipient3: '0x0000000000000000000000000000000000000000',
+            recipient1Percentage: payment.merchantPercentage,
+            recipient2Percentage: payment.coinleyPercentage,
+            recipient3Percentage: 0
+        }).send({ from: userAccount });
+
+        return tx.transactionHash;
+    }
+
+    async function verifyPayment(paymentId, txHash, network) {
+        await axios.post(`${COINLEY_CONFIG.baseURL}/api/payments/process`, {
+            paymentId, transactionHash: txHash, network, senderAddress: userAccount
+        }, {
+            headers: {
+                'X-API-Key': COINLEY_CONFIG.apiKey,
+                'X-API-Secret': COINLEY_CONFIG.apiSecret,
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- API Reference -->
+                <section id="api-reference">
+                    <h2 class="text-3xl font-bold mb-6">API Reference</h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Create Payment -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
+                                <code class="text-lg font-mono">/api/payments/create</code>
+                            </div>
+                            <p class="text-gray-600 mb-4">Create a new payment request</p>
+                            
+                            <h4 class="font-semibold mb-2">Request Body</h4>
+                            <div class="code-block rounded-lg p-4 mb-4">
+                                <pre class="text-gray-300 text-sm"><code>{
+  "amount": "10.00",
+  "currency": "USDT",
+  "network": "polygon",
+  "customerEmail": "user@example.com",
+  "orderId": "ORDER_123"
+}</code></pre>
+                            </div>
+                            
+                            <h4 class="font-semibold mb-2">Headers Required</h4>
+                            <div class="code-block rounded-lg p-4">
+                                <pre class="text-gray-300 text-sm"><code>X-API-Key: your_api_key
+X-API-Secret: your_api_secret
+Content-Type: application/json</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Process Payment -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
+                                <code class="text-lg font-mono">/api/payments/process</code>
+                            </div>
+                            <p class="text-gray-600 mb-4">Verify and complete a payment</p>
+                            
+                            <h4 class="font-semibold mb-2">Request Body</h4>
+                            <div class="code-block rounded-lg p-4">
+                                <pre class="text-gray-300 text-sm"><code>{
+  "paymentId": "uuid",
+  "transactionHash": "0xabc...",
+  "network": "polygon",
+  "senderAddress": "0x123..."
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Get Networks -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">GET
