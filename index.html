@@ -67,7 +67,8 @@
                 <nav class="hidden md:flex space-x-8">
                     <a href="#overview" class="text-gray-600 hover:text-blue-600 transition-colors">Overview</a>
                     <a href="#payment-flow" class="text-gray-600 hover:text-blue-600 transition-colors">Payment Flow</a>
-                    <a href="#integration" class="text-gray-600 hover:text-blue-600 transition-colors">Integration</a>
+                    <a href="#sdk-integration" class="text-gray-600 hover:text-blue-600 transition-colors">SDK Integration</a>
+                    <a href="#integration" class="text-gray-600 hover:text-blue-600 transition-colors">API Integration</a>
                     <a href="#live-example" class="text-gray-600 hover:text-blue-600 transition-colors">Live Example</a>
                     <a href="#api-reference" class="text-gray-600 hover:text-blue-600 transition-colors">API
                         Reference</a>
@@ -424,14 +425,461 @@
         </div>
     </section>
 
+    <!-- SDK Integration Section -->
+    <section id="sdk-integration" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">SDK Integration (Recommended)</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Use the Coinley SDK for the fastest and easiest integration. The SDK handles all the complexity
+                    including wallet connection, network switching, payment execution, and verification.
+                </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-xl p-6 mb-12">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-star text-green-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-green-900 mb-2">
+                            Why Use the SDK?
+                        </h3>
+                        <ul class="space-y-2 text-green-800">
+                            <li><i class="fas fa-check-circle mr-2"></i><strong>5-minute setup</strong> - Just import and configure</li>
+                            <li><i class="fas fa-check-circle mr-2"></i><strong>Beautiful UI included</strong> - Pre-built payment modals with modern design</li>
+                            <li><i class="fas fa-check-circle mr-2"></i><strong>Automatic error handling</strong> - User-friendly error messages built-in</li>
+                            <li><i class="fas fa-check-circle mr-2"></i><strong>Works with React or vanilla JS</strong> - Use in any project</li>
+                            <li><i class="fas fa-check-circle mr-2"></i><strong>Production-ready</strong> - Battle-tested in real applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- React Integration -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fab fa-react text-blue-500 mr-2"></i>React Integration
+                </h3>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold mb-4">Step 1: Install the SDK</h4>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300"><code>npm install coinley-pay
+# or
+yarn add coinley-pay</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold mb-4">Step 2: Import Components and Styles</h4>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300"><code>import { EnhancedSimpleCoinleyPayment } from 'coinley-pay';
+import 'coinley-pay/dist/style.css';</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold mb-4">Step 3: Add the Payment Component</h4>
+                    <p class="text-gray-600 mb-4">Here's a complete example from a real e-commerce checkout:</p>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300 text-sm"><code>import { useState } from 'react';
+import { EnhancedSimpleCoinleyPayment } from 'coinley-pay';
+import 'coinley-pay/dist/style.css';
+
+function CheckoutPage() {
+    const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+    const [customerEmail, setCustomerEmail] = useState('');
+    const [orderTotal] = useState(49.99);
+
+    // Handle successful payment
+    const handleSuccess = (paymentId, transactionHash, paymentDetails) => {
+        console.log('Payment successful!', { paymentId, transactionHash });
+        // Update your order status, redirect to success page, etc.
+        alert('Payment completed successfully!');
+    };
+
+    // Handle payment errors
+    const handleError = (error) => {
+        console.error('Payment error:', error);
+        alert('Payment failed: ' + error);
+    };
+
+    // Handle modal close
+    const handleClose = () => {
+        setIsPaymentOpen(false);
+    };
+
+    return (
+        &lt;div&gt;
+            {/* Your checkout form */}
+            &lt;button onClick={() => setIsPaymentOpen(true)}&gt;
+                Pay with Crypto
+            &lt;/button&gt;
+
+            {/* Coinley Payment Modal */}
+            &lt;EnhancedSimpleCoinleyPayment
+                apiKey="your_api_key"
+                apiSecret="your_api_secret"
+                apiUrl="https://hub.coinley.io"
+                config={{
+                    amount: orderTotal,
+                    customerEmail: customerEmail,
+                    merchantName: "Your Store Name",
+                    callbackUrl: `${window.location.origin}/api/webhooks/coinley`,
+                    merchantWalletAddresses: {
+                        polygon: "0xYourPolygonWallet...",
+                        bsc: "0xYourBSCWallet...",
+                        // Add other networks as needed
+                    },
+                    metadata: {
+                        orderId: "ORDER_123",
+                        // Add any custom data
+                    }
+                }}
+                onSuccess={handleSuccess}
+                onError={handleError}
+                onClose={handleClose}
+                isOpen={isPaymentOpen}
+                theme="light"
+            /&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h4 class="font-semibold text-blue-900 mb-2">
+                        <i class="fas fa-info-circle mr-2"></i>Configuration Options
+                    </h4>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm text-blue-800">
+                            <thead class="border-b border-blue-300">
+                                <tr>
+                                    <th class="text-left py-2 px-3">Property</th>
+                                    <th class="text-left py-2 px-3">Type</th>
+                                    <th class="text-left py-2 px-3">Required</th>
+                                    <th class="text-left py-2 px-3">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-blue-200">
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">apiKey</td>
+                                    <td class="py-2 px-3">string</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Your Coinley API key</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">apiSecret</td>
+                                    <td class="py-2 px-3">string</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Your Coinley API secret</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">apiUrl</td>
+                                    <td class="py-2 px-3">string</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Coinley API base URL</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">config.amount</td>
+                                    <td class="py-2 px-3">number</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Payment amount in USD</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">config.customerEmail</td>
+                                    <td class="py-2 px-3">string</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Customer's email address</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">config.merchantName</td>
+                                    <td class="py-2 px-3">string</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Your business name</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">config.merchantWalletAddresses</td>
+                                    <td class="py-2 px-3">object</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Your wallet addresses per network</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">isOpen</td>
+                                    <td class="py-2 px-3">boolean</td>
+                                    <td class="py-2 px-3">Yes</td>
+                                    <td class="py-2 px-3">Controls modal visibility</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-mono">theme</td>
+                                    <td class="py-2 px-3">string</td>
+                                    <td class="py-2 px-3">No</td>
+                                    <td class="py-2 px-3">"light" or "dark" (default: "light")</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vanilla JS Integration -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fab fa-js text-yellow-500 mr-2"></i>Vanilla JavaScript Integration
+                </h3>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold mb-4">Step 1: Include the SDK</h4>
+                    <p class="text-gray-600 mb-4">Add the SDK script to your HTML:</p>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300"><code>&lt;script src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold mb-4">Step 2: Initialize and Use</h4>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300 text-sm"><code>&lt;script&gt;
+    // Initialize Coinley
+    const coinley = new CoinleyVanilla({
+        apiKey: 'your_api_key',
+        apiSecret: 'your_api_secret',
+        apiUrl: 'https://hub.coinley.io',
+        theme: 'light',
+        debug: false
+    });
+
+    // Open payment when button is clicked
+    document.getElementById('payButton').addEventListener('click', function() {
+        coinley.open(
+            {
+                amount: 49.99,
+                customerEmail: 'customer@example.com',
+                merchantName: 'Your Store',
+                merchantWalletAddresses: {
+                    polygon: '0xYourPolygonWallet...',
+                    bsc: '0xYourBSCWallet...'
+                },
+                metadata: {
+                    orderId: 'ORDER_123'
+                }
+            },
+            {
+                onSuccess: function(paymentId, transactionHash, paymentDetails) {
+                    console.log('Payment successful!', paymentId);
+                    alert('Payment completed! Transaction: ' + transactionHash);
+                },
+                onError: function(error) {
+                    console.error('Payment failed:', error);
+                    alert('Payment failed: ' + error);
+                },
+                onClose: function() {
+                    console.log('Payment modal closed');
+                }
+            }
+        );
+    });
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+                    <h4 class="font-semibold text-purple-900 mb-2">
+                        <i class="fas fa-magic mr-2"></i>Auto-Initialization (Optional)
+                    </h4>
+                    <p class="text-purple-800 text-sm mb-3">
+                        You can auto-initialize the SDK using script tag attributes:
+                    </p>
+                    <div class="code-block rounded-lg p-3">
+                        <pre class="text-gray-300 text-xs"><code>&lt;script
+    src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"
+    data-api-key="your_api_key"
+    data-api-secret="your_api_secret"
+    data-api-url="https://hub.coinley.io"
+    data-theme="light"
+&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    // SDK is already initialized as window.coinley
+    window.coinley.open({ ... });
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete HTML Example -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-code mr-2"></i>Complete Vanilla JS Example
+                </h3>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                    <p class="text-gray-600 mb-4">Here's a complete working HTML page:</p>
+                    <div class="code-block rounded-lg p-4">
+                        <pre class="text-gray-300 text-sm"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Coinley Payment Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Buy Product - $49.99&lt;/h1&gt;
+
+    &lt;input type="email" id="customerEmail" placeholder="Enter your email" /&gt;
+    &lt;button id="payButton"&gt;Pay with Crypto&lt;/button&gt;
+
+    &lt;!-- Include Coinley SDK --&gt;
+    &lt;script src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+        // Initialize Coinley
+        const coinley = new CoinleyVanilla({
+            apiKey: 'your_api_key',
+            apiSecret: 'your_api_secret',
+            apiUrl: 'https://hub.coinley.io'
+        });
+
+        // Handle payment button click
+        document.getElementById('payButton').addEventListener('click', () => {
+            const email = document.getElementById('customerEmail').value;
+
+            if (!email) {
+                alert('Please enter your email');
+                return;
+            }
+
+            coinley.open(
+                {
+                    amount: 49.99,
+                    customerEmail: email,
+                    merchantName: 'My Store',
+                    merchantWalletAddresses: {
+                        polygon: '0xYourWallet...'
+                    }
+                },
+                {
+                    onSuccess: (paymentId, txHash) => {
+                        alert('Payment successful!\\nTransaction: ' + txHash);
+                        // Redirect to success page or update order
+                    },
+                    onError: (error) => {
+                        alert('Payment failed: ' + error);
+                    }
+                }
+            );
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDK vs API Comparison -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">SDK vs Manual API Integration</h3>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-green-900 mb-4">
+                            <i class="fas fa-rocket mr-2"></i>Using SDK (Recommended)
+                        </h4>
+                        <ul class="space-y-3 text-green-800 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                                <span><strong>5 minutes</strong> - Quick setup with pre-built components</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                                <span><strong>Beautiful UI</strong> - Professional payment modal included</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                                <span><strong>Error handling</strong> - User-friendly messages built-in</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                                <span><strong>Maintained</strong> - Updates and improvements included</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                                <span><strong>Less code</strong> - ~20 lines vs 200+ lines</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border border-gray-300 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">
+                            <i class="fas fa-code mr-2"></i>Manual API Integration
+                        </h4>
+                        <ul class="space-y-3 text-gray-700 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
+                                <span><strong>1-2 hours</strong> - Manual implementation required</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
+                                <span><strong>Build your own UI</strong> - Need to create payment interface</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
+                                <span><strong>Handle errors</strong> - Custom error handling needed</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
+                                <span><strong>Self-maintained</strong> - You handle all updates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
+                                <span><strong>More code</strong> - Full Web3 integration logic</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle text-blue-600 mr-2 mt-1"></i>
+                                <span><strong>Maximum control</strong> - Full customization possible</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center text-white">
+                <h3 class="text-2xl font-bold mb-3">Ready to integrate in 5 minutes?</h3>
+                <p class="mb-6 text-blue-100">Get started with the SDK for the fastest crypto payment integration</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="#sdk-integration"
+                       class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all">
+                        View SDK Docs
+                    </a>
+                    <a href="#integration"
+                       class="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-all">
+                        Or Use Manual API
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Content -->
     <div id="integration" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Sidebar -->
             <div class="lg:col-span-1">
                 <nav class="sticky top-24 space-y-2">
+                    <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                        <h3 class="font-semibold text-gray-900 mb-3">Integration Options</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#sdk-integration"
+                                    class="text-green-600 hover:text-green-700 font-semibold transition-colors">
+                                    <i class="fas fa-star mr-1"></i>SDK Integration (Recommended)</a></li>
+                            <li><a href="#integration"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Manual API Integration</a></li>
+                        </ul>
+                    </div>
                     <div class="bg-gray-50 rounded-lg p-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">Quick Navigation</h3>
+                        <h3 class="font-semibold text-gray-900 mb-3">Manual API Steps</h3>
                         <ul class="space-y-2 text-sm">
                             <li><a href="#prerequisites"
                                     class="text-gray-600 hover:text-blue-600 transition-colors">Prerequisites</a></li>
@@ -465,6 +913,20 @@
 
             <!-- Content -->
             <div class="lg:col-span-3 space-y-12">
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">
+                        <i class="fas fa-info-circle mr-2"></i>Manual API Integration Guide
+                    </h3>
+                    <p class="text-blue-800 mb-3">
+                        This section shows how to manually integrate with the Coinley API using Web3.js and custom code.
+                    </p>
+                    <p class="text-blue-800 text-sm">
+                        <strong>Looking for a faster option?</strong> Check out the
+                        <a href="#sdk-integration" class="underline font-semibold hover:text-blue-900">SDK Integration</a>
+                        above for a 5-minute setup with pre-built UI components.
+                    </p>
+                </div>
+
                 <!-- Prerequisites -->
                 <section id="prerequisites">
                     <h2 class="text-3xl font-bold mb-6">Prerequisites</h2>
