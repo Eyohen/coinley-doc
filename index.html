@@ -69,7 +69,8 @@
                     <a href="#payment-flow" class="text-gray-600 hover:text-blue-600 transition-colors">Payment Flow</a>
                     <a href="#integration" class="text-gray-600 hover:text-blue-600 transition-colors">Integration</a>
                     <a href="#live-example" class="text-gray-600 hover:text-blue-600 transition-colors">Live Example</a>
-                    <a href="#api-reference" class="text-gray-600 hover:text-blue-600 transition-colors">API Reference</a>
+                    <a href="#api-reference" class="text-gray-600 hover:text-blue-600 transition-colors">API
+                        Reference</a>
                 </nav>
             </div>
         </div>
@@ -111,13 +112,15 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">For Developers</h3>
                     <p class="text-gray-700 mb-4">
-                        Coinley is a payment processor API that lets you accept cryptocurrency payments (USDT, USDC, etc.)
+                        Coinley is a payment processor API that lets you accept cryptocurrency payments (USDT, USDC,
+                        etc.)
                         without learning blockchain development, smart contracts, or Web3.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-700">
                         <li><i class="fas fa-check-circle text-green-600 mr-2"></i>No blockchain experience needed</li>
                         <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Simple REST API integration</li>
-                        <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Automatic smart contract interaction</li>
+                        <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Automatic smart contract interaction
+                        </li>
                         <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Built-in payment verification</li>
                     </ul>
                 </div>
@@ -146,7 +149,8 @@
                     Real-World Example: SportsPass Ticket Sales
                 </h3>
                 <p class="text-green-800 mb-4">
-                    This documentation uses <strong>SportsPass</strong> - a live ticket sales platform built with Coinley -
+                    This documentation uses <strong>SportsPass</strong> - a live ticket sales platform built with
+                    Coinley -
                     as the primary example. You'll see exactly how a production application integrates crypto payments
                     without any blockchain expertise required.
                 </p>
@@ -179,7 +183,8 @@
                 <div class="text-center">
                     <div class="step-badge bg-purple-100 text-purple-600 mx-auto mb-3">2</div>
                     <h4 class="font-semibold mb-2">Connect Wallet</h4>
-                    <p class="text-sm text-gray-600">Customer connects MetaMask or any other crypto Wallet to your site</p>
+                    <p class="text-sm text-gray-600">Customer connects MetaMask or any other crypto Wallet to your site
+                    </p>
                 </div>
                 <div class="flow-arrow flex items-center justify-center">
                     <i class="fas fa-arrow-right"></i>
@@ -199,14 +204,19 @@
                         <div class="flex-1">
                             <h3 class="text-xl font-bold mb-3">Step 1: Create Payment Request</h3>
                             <p class="text-gray-700 mb-4">
-                                Your backend calls <code class="bg-gray-100 px-2 py-1 rounded text-sm">POST /api/payments/create</code>
+                                Your backend calls <code
+                                    class="bg-gray-100 px-2 py-1 rounded text-sm">POST /api/payments/create</code>
                                 with payment details (amount, currency, network). Coinley returns:
                             </p>
                             <ul class="space-y-2 text-sm text-gray-700 ml-4">
-                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Payment ID:</strong> Unique identifier for this transaction</li>
-                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Smart Contract Address:</strong> Where payment will be sent</li>
-                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Fee Split Details:</strong> Merchant (98.5%) + Coinley (1.5%) wallets and percentages</li>
-                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Token Details:</strong> Contract address and decimals for the selected currency</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Payment ID:</strong> Unique
+                                    identifier for this transaction</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Smart Contract
+                                        Address:</strong> Where payment will be sent</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Fee Split Details:</strong>
+                                    Merchant (98.5%) + Coinley (1.5%) wallets and percentages</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Token Details:</strong>
+                                    Contract address and decimals for the selected currency</li>
                             </ul>
                             <div class="mt-4 code-block rounded-lg p-3">
                                 <code class="text-green-400 text-xs">
@@ -223,7 +233,8 @@
                         <div class="flex-1">
                             <h3 class="text-xl font-bold mb-3">Step 2: Connect Wallet & Switch Network</h3>
                             <p class="text-gray-700 mb-4">
-                                Your frontend uses Web3.js to connect the customer's crypto wallet and switch to the correct blockchain network:
+                                Your frontend uses Web3.js to connect the customer's crypto wallet and switch to the
+                                correct blockchain network:
                             </p>
                             <div class="grid md:grid-cols-2 gap-4 mb-4">
                                 <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
@@ -255,18 +266,22 @@
                         <div class="flex-1">
                             <h3 class="text-xl font-bold mb-3">Step 3: Execute Payment Transaction</h3>
                             <p class="text-gray-700 mb-4">
-                                The customer approves and executes the payment. Coinley uses smart contracts to automatically split funds:
+                                The customer approves and executes the payment. Coinley uses smart contracts to
+                                automatically split funds:
                             </p>
                             <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
                                 <h4 class="font-semibold text-yellow-900 mb-2">
                                     <i class="fas fa-info-circle mr-2"></i>Why Two Wallet Popups?
                                 </h4>
                                 <p class="text-sm text-yellow-800 mb-3">
-                                    Customers will see two MetaMask popups. This is normal and required for ERC20 token payments:
+                                    Customers will see two MetaMask popups. This is normal and required for ERC20 token
+                                    payments:
                                 </p>
                                 <ol class="space-y-2 text-sm text-yellow-800">
-                                    <li><strong>1. Approve Transaction:</strong> Give the smart contract permission to spend tokens (security feature)</li>
-                                    <li><strong>2. Execute Payment:</strong> The smart contract transfers tokens and splits them automatically</li>
+                                    <li><strong>1. Approve Transaction:</strong> Give the smart contract permission to
+                                        spend tokens (security feature)</li>
+                                    <li><strong>2. Execute Payment:</strong> The smart contract transfers tokens and
+                                        splits them automatically</li>
                                 </ol>
                             </div>
                             <div class="grid md:grid-cols-3 gap-3 text-center text-sm">
@@ -293,13 +308,16 @@
                         <div class="flex-1">
                             <h3 class="text-xl font-bold mb-3">Step 4: Verify Payment On-Chain</h3>
                             <p class="text-gray-700 mb-4">
-                                After the customer completes payment, your frontend sends the transaction hash to Coinley.
+                                After the customer completes payment, your frontend sends the transaction hash to
+                                Coinley.
                                 We verify the payment on the blockchain and update the payment status:
                             </p>
                             <ul class="space-y-2 text-sm text-gray-700 ml-4">
-                                <li><i class="fas fa-check text-green-600 mr-2"></i>Verify transaction exists on blockchain</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Verify transaction exists on
+                                    blockchain</li>
                                 <li><i class="fas fa-check text-green-600 mr-2"></i>Confirm correct amount was sent</li>
-                                <li><i class="fas fa-check text-green-600 mr-2"></i>Validate correct recipient addresses</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Validate correct recipient addresses
+                                </li>
                                 <li><i class="fas fa-check text-green-600 mr-2"></i>Mark payment as completed</li>
                             </ul>
                             <div class="mt-4 code-block rounded-lg p-3">
@@ -321,7 +339,8 @@
                     network configuration, gas optimization, and payment verification. You just make API calls.
                 </p>
                 <div class="text-center">
-                    <a href="#integration" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all">
+                    <a href="#integration"
+                        class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all">
                         Start Building →
                     </a>
                 </div>
@@ -333,7 +352,8 @@
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-4">Supported Networks & Stablecoins</h2>
-            <p class="text-center text-gray-600 mb-12">Accept USDT, USDC, and other stablecoins across 8 major blockchains</p>
+            <p class="text-center text-gray-600 mb-12">Accept USDT, USDC, and other stablecoins across 8 major
+                blockchains</p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
                 <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
@@ -397,7 +417,8 @@
             <div class="mt-8 bg-green-50 border border-green-200 rounded-lg p-4 max-w-2xl mx-auto">
                 <p class="text-sm text-green-800 text-center">
                     <i class="fas fa-lightbulb mr-2"></i>
-                    <strong>Pro Tip:</strong> Use Polygon or BSC for transactions under $100 to minimize gas fees (~$0.01 vs $3-5 on Ethereum/Optimism)
+                    <strong>Pro Tip:</strong> Use Polygon or BSC for transactions under $100 to minimize gas fees
+                    (~$0.01 vs $3-5 on Ethereum/Optimism)
                 </p>
             </div>
         </div>
@@ -412,17 +433,31 @@
                     <div class="bg-gray-50 rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-3">Quick Navigation</h3>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="#prerequisites" class="text-gray-600 hover:text-blue-600 transition-colors">Prerequisites</a></li>
-                            <li><a href="#config" class="text-gray-600 hover:text-blue-600 transition-colors">Configuration</a></li>
-                            <li><a href="#step1" class="text-gray-600 hover:text-blue-600 transition-colors">Step 1: Create Payment</a></li>
-                            <li><a href="#step2" class="text-gray-600 hover:text-blue-600 transition-colors">Step 2: Connect Wallet</a></li>
-                            <li><a href="#step3" class="text-gray-600 hover:text-blue-600 transition-colors">Step 3: Execute Payment</a></li>
-                            <li><a href="#step4" class="text-gray-600 hover:text-blue-600 transition-colors">Step 4: Verify Payment</a></li>
-                            <li><a href="#balance-check" class="text-gray-600 hover:text-blue-600 transition-colors">Balance Validation</a></li>
-                            <li><a href="#gas-optimization" class="text-gray-600 hover:text-blue-600 transition-colors">Gas Optimization</a></li>
-                            <li><a href="#error-handling" class="text-gray-600 hover:text-blue-600 transition-colors">Error Handling</a></li>
-                            <li><a href="#live-example" class="text-gray-600 hover:text-blue-600 transition-colors">Complete Example</a></li>
-                            <li><a href="#api-reference" class="text-gray-600 hover:text-blue-600 transition-colors">API Reference</a></li>
+                            <li><a href="#prerequisites"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Prerequisites</a></li>
+                            <li><a href="#config"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Configuration</a></li>
+                            <li><a href="#step1" class="text-gray-600 hover:text-blue-600 transition-colors">Step 1:
+                                    Create Payment</a></li>
+                            <li><a href="#step2" class="text-gray-600 hover:text-blue-600 transition-colors">Step 2:
+                                    Connect Wallet</a></li>
+                            <li><a href="#step3" class="text-gray-600 hover:text-blue-600 transition-colors">Step 3:
+                                    Execute Payment</a></li>
+                            <li><a href="#step4" class="text-gray-600 hover:text-blue-600 transition-colors">Step 4:
+                                    Verify Payment</a></li>
+                            <li><a href="#balance-check"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Balance Validation</a>
+                            </li>
+                            <li><a href="#gas-optimization"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Gas Optimization</a>
+                            </li>
+                            <li><a href="#error-handling"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Error Handling</a></li>
+                            <li><a href="#live-example"
+                                    class="text-gray-600 hover:text-blue-600 transition-colors">Complete Example</a>
+                            </li>
+                            <li><a href="#api-reference" class="text-gray-600 hover:text-blue-600 transition-colors">API
+                                    Reference</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -439,7 +474,8 @@
                                 <i class="fas fa-key text-blue-600 mr-3 mt-1"></i>
                                 <div>
                                     <strong>Coinley API Credentials</strong>
-                                    <p class="text-sm text-gray-600">Sign up at Coinley to get your API key and secret</p>
+                                    <p class="text-sm text-gray-600">Sign up at Coinley to get your API key and secret
+                                    </p>
                                 </div>
                             </li>
                             <li class="flex items-start">
@@ -453,7 +489,8 @@
                                 <i class="fas fa-wallet text-blue-600 mr-3 mt-1"></i>
                                 <div>
                                     <strong>Web3 Libraries</strong>
-                                    <p class="text-sm text-gray-600">We'll use Web3.js (auto-loaded from CDN) and Axios</p>
+                                    <p class="text-sm text-gray-600">We'll use Web3.js (auto-loaded from CDN) and Axios
+                                    </p>
                                 </div>
                             </li>
                         </ul>
@@ -499,7 +536,8 @@ let currentPayment = null;
 let web3 = null;
 let userAccount = null;
 let availableNetworks = [];
-let networkTokens = {};</code></pre>
+let networkTokens = {};
+</code></pre>
                     </div>
 
                     <h3 class="text-xl font-semibold mb-4">Load Available Networks & Tokens</h3>
@@ -563,7 +601,8 @@ async function loadTokensForNetwork(networkShortName) {
                 <section id="step1">
                     <h2 class="text-3xl font-bold mb-6">Step 1: Create Payment</h2>
                     <p class="text-gray-600 mb-6">
-                        Call the Coinley API to create a payment request. You'll get back smart contract details and fee split configuration.
+                        Call the Coinley API to create a payment request. You'll get back smart contract details and fee
+                        split configuration.
                     </p>
 
                     <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
@@ -578,7 +617,8 @@ async function loadTokensForNetwork(networkShortName) {
                             <i class="fas fa-info-circle mr-2"></i>SportsPass Example
                         </h4>
                         <p class="text-blue-800 text-sm">
-                            In the SportsPass ticket platform, this function is called when a customer clicks "Connect MetaMask & Pay"
+                            In the SportsPass ticket platform, this function is called when a customer clicks "Connect
+                            MetaMask & Pay"
                             with items in their cart. It creates a payment for the total cart value.
                         </p>
                     </div>
@@ -651,7 +691,8 @@ async function loadTokensForNetwork(networkShortName) {
                     <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
                         <p class="text-purple-800 text-sm">
                             <i class="fas fa-magic mr-2"></i>
-                            <strong>What's happening:</strong> Coinley creates a unique payment ID and tells you which smart contract to use.
+                            <strong>What's happening:</strong> Coinley creates a unique payment ID and tells you which
+                            smart contract to use.
                             The contract will automatically split funds 98.5% to you, 1.5% to Coinley.
                         </p>
                     </div>
@@ -661,7 +702,8 @@ async function loadTokensForNetwork(networkShortName) {
                 <section id="step2">
                     <h2 class="text-3xl font-bold mb-6">Step 2: Connect Wallet & Switch Network</h2>
                     <p class="text-gray-600 mb-6">
-                        Connect the user's crypto wallet (MetaMask, Coinbase Wallet, etc.) and switch to the correct blockchain network.
+                        Connect the user's crypto wallet (MetaMask, Coinbase Wallet, etc.) and switch to the correct
+                        blockchain network.
                     </p>
 
                     <h3 class="text-xl font-semibold mb-4">Connect Wallet</h3>
@@ -725,7 +767,8 @@ async function loadTokensForNetwork(networkShortName) {
                     <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                         <p class="text-yellow-800 text-sm">
                             <i class="fas fa-lightbulb mr-2"></i>
-                            <strong>User Experience:</strong> The wallet will show a popup asking the user to switch networks.
+                            <strong>User Experience:</strong> The wallet will show a popup asking the user to switch
+                            networks.
                             This is automatic - you don't need to worry about network configurations.
                         </p>
                     </div>
@@ -735,7 +778,8 @@ async function loadTokensForNetwork(networkShortName) {
                 <section id="balance-check">
                     <h2 class="text-3xl font-bold mb-6">Balance Validation (Critical!)</h2>
                     <p class="text-gray-600 mb-6">
-                        Always check if the user has enough tokens BEFORE attempting payment. This prevents confusing blockchain errors.
+                        Always check if the user has enough tokens BEFORE attempting payment. This prevents confusing
+                        blockchain errors.
                     </p>
 
                     <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
@@ -747,7 +791,8 @@ async function loadTokensForNetwork(networkShortName) {
                                     "ERC20: transfer amount exceeds balance" means the user doesn't have enough tokens.
                                 </p>
                                 <p class="text-red-800 text-sm">
-                                    <strong>Solution:</strong> Check balance first and show a friendly error message before attempting payment.
+                                    <strong>Solution:</strong> Check balance first and show a friendly error message
+                                    before attempting payment.
                                 </p>
                             </div>
                         </div>
@@ -795,7 +840,8 @@ async function loadTokensForNetwork(networkShortName) {
                     <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                         <p class="text-green-800 text-sm">
                             <i class="fas fa-check-circle mr-2"></i>
-                            <strong>Best Practice:</strong> Display the user's current balance in your UI so they know if they need to add funds.
+                            <strong>Best Practice:</strong> Display the user's current balance in your UI so they know
+                            if they need to add funds.
                         </p>
                     </div>
                 </section>
@@ -810,11 +856,14 @@ async function loadTokensForNetwork(networkShortName) {
                     <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
                         <h3 class="text-lg font-semibold text-purple-900 mb-3">Why Two Transactions?</h3>
                         <ol class="text-purple-800 space-y-2 text-sm">
-                            <li><strong>1. Approve:</strong> Give the smart contract permission to spend your tokens (ERC20 security standard)</li>
-                            <li><strong>2. Pay:</strong> The contract transfers tokens and automatically splits payment to merchant + Coinley</li>
+                            <li><strong>1. Approve:</strong> Give the smart contract permission to spend your tokens
+                                (ERC20 security standard)</li>
+                            <li><strong>2. Pay:</strong> The contract transfers tokens and automatically splits payment
+                                to merchant + Coinley</li>
                         </ol>
                         <p class="text-purple-700 text-sm mt-3">
-                            This is a security feature of ERC20 tokens - contracts can't take your tokens without explicit permission.
+                            This is a security feature of ERC20 tokens - contracts can't take your tokens without
+                            explicit permission.
                         </p>
                     </div>
 
@@ -921,7 +970,8 @@ async function loadTokensForNetwork(networkShortName) {
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                         <p class="text-blue-800 text-sm">
                             <i class="fas fa-info-circle mr-2"></i>
-                            <strong>What happens:</strong> The wallet shows two popups - one to approve tokens, one to execute payment.
+                            <strong>What happens:</strong> The wallet shows two popups - one to approve tokens, one to
+                            execute payment.
                             The smart contract automatically splits funds between merchant (98.5%) and Coinley (1.5%).
                         </p>
                     </div>
@@ -931,7 +981,8 @@ async function loadTokensForNetwork(networkShortName) {
                 <section id="step4">
                     <h2 class="text-3xl font-bold mb-6">Step 4: Verify Payment</h2>
                     <p class="text-gray-600 mb-6">
-                        Send the transaction hash to Coinley for verification. We check the blockchain to confirm payment.
+                        Send the transaction hash to Coinley for verification. We check the blockchain to confirm
+                        payment.
                     </p>
 
                     <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
@@ -991,7 +1042,8 @@ async function loadTokensForNetwork(networkShortName) {
                     <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                         <p class="text-green-800 text-sm">
                             <i class="fas fa-shield-alt mr-2"></i>
-                            <strong>What Coinley verifies:</strong> Transaction exists on blockchain, correct amount was sent,
+                            <strong>What Coinley verifies:</strong> Transaction exists on blockchain, correct amount was
+                            sent,
                             correct recipients received funds, and fee split was executed correctly.
                         </p>
                     </div>
@@ -1066,8 +1118,10 @@ networkSelect.addEventListener('change', (e) => {
                             <i class="fas fa-rocket mr-2"></i>Optimism/Arbitrum Direct Transfer Optimization
                         </h4>
                         <p class="text-blue-800 text-sm">
-                            For Optimism and Arbitrum, SportsPass offers a "direct transfer" option that bypasses the splitter contract,
-                            reducing fees by 90%. Set <code class="bg-blue-100 px-1 rounded">isDirectTransfer: true</code> when verifying payment.
+                            For Optimism and Arbitrum, SportsPass offers a "direct transfer" option that bypasses the
+                            splitter contract,
+                            reducing fees by 90%. Set <code
+                                class="bg-blue-100 px-1 rounded">isDirectTransfer: true</code> when verifying payment.
                         </p>
                     </div>
                 </section>
@@ -1084,7 +1138,8 @@ networkSelect.addEventListener('change', (e) => {
                             <h4 class="font-semibold mb-2">❌ "User rejected transaction"</h4>
                             <p class="text-sm text-gray-600 mb-2">User clicked "Reject" in wallet popup</p>
                             <div class="code-block rounded-lg p-3">
-                                <code class="text-xs text-gray-300">Show: "Payment cancelled. No charges were made."</code>
+                                <code
+                                    class="text-xs text-gray-300">Show: "Payment cancelled. No charges were made."</code>
                             </div>
                         </div>
 
@@ -1092,7 +1147,8 @@ networkSelect.addEventListener('change', (e) => {
                             <h4 class="font-semibold mb-2">❌ "Insufficient funds"</h4>
                             <p class="text-sm text-gray-600 mb-2">User doesn't have enough tokens</p>
                             <div class="code-block rounded-lg p-3">
-                                <code class="text-xs text-gray-300">Show: "Insufficient USDT balance. You need X more USDT."</code>
+                                <code
+                                    class="text-xs text-gray-300">Show: "Insufficient USDT balance. You need X more USDT."</code>
                             </div>
                         </div>
 
@@ -1100,7 +1156,8 @@ networkSelect.addEventListener('change', (e) => {
                             <h4 class="font-semibold mb-2">❌ "Network mismatch"</h4>
                             <p class="text-sm text-gray-600 mb-2">User is on wrong blockchain network</p>
                             <div class="code-block rounded-lg p-3">
-                                <code class="text-xs text-gray-300">Show: "Please switch to Polygon network in your wallet."</code>
+                                <code
+                                    class="text-xs text-gray-300">Show: "Please switch to Polygon network in your wallet."</code>
                             </div>
                         </div>
                     </div>
@@ -1133,10 +1190,12 @@ networkSelect.addEventListener('change', (e) => {
                 <section id="live-example">
                     <h2 class="text-3xl font-bold mb-6">Complete Working Example: SportsPass</h2>
                     <p class="text-gray-600 mb-6">
-                        Here's the complete ticket sales platform built with Coinley. This is a real, production-ready implementation.
+                        Here's the complete ticket sales platform built with Coinley. This is a real, production-ready
+                        implementation.
                     </p>
 
-                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+                    <div
+                        class="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
                         <h3 class="text-lg font-semibold mb-3">
                             <i class="fas fa-ticket-alt mr-2 text-blue-600"></i>
                             SportsPass: Crypto Ticket Sales Platform
@@ -1154,7 +1213,7 @@ networkSelect.addEventListener('change', (e) => {
                             <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Error handling</li>
                         </ul>
                         <a href="https://external-api-user.vercel.app/" target="_blank"
-                           class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-all">
+                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-all">
                             <i class="fas fa-external-link-alt mr-2"></i>Open Live Demo
                         </a>
                         <!-- <a href="https://github.com/your-repo/sportspass" target="_blank"
@@ -1171,7 +1230,8 @@ networkSelect.addEventListener('change', (e) => {
                                 See <code class="bg-gray-100 px-1 rounded">loadNetworks()</code> function - Line 246
                             </p>
                             <p class="text-xs text-gray-500">
-                                Automatically sorts networks by cost-effectiveness and shows visual fee indicators (💚 Low fees, ⚠️ Higher fees)
+                                Automatically sorts networks by cost-effectiveness and shows visual fee indicators (💚
+                                Low fees, ⚠️ Higher fees)
                             </p>
                         </div>
 
@@ -1198,7 +1258,8 @@ networkSelect.addEventListener('change', (e) => {
                         <div class="bg-white border-l-4 border-orange-500 p-4">
                             <h4 class="font-semibold mb-2">4. Real-time Payment Status UI</h4>
                             <p class="text-sm text-gray-600 mb-2">
-                                See <code class="bg-gray-100 px-1 rounded">updateStep()</code> and payment modal - Line 932
+                                See <code class="bg-gray-100 px-1 rounded">updateStep()</code> and payment modal - Line
+                                932
                             </p>
                             <p class="text-xs text-gray-500">
                                 Shows users exactly what's happening: approve tokens → execute payment → verify
@@ -1215,7 +1276,8 @@ networkSelect.addEventListener('change', (e) => {
                         <!-- Create Payment -->
                         <div class="border border-gray-200 rounded-lg p-6">
                             <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
+                                <span
+                                    class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
                                 <code class="text-lg font-mono">/api/payments/create</code>
                             </div>
                             <p class="text-gray-600 mb-4">Create a new payment request</p>
@@ -1260,7 +1322,8 @@ Content-Type: application/json</code></pre>
                         <!-- Process Payment -->
                         <div class="border border-gray-200 rounded-lg p-6">
                             <div class="flex items-center mb-4">
-                                <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
+                                <span
+                                    class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
                                 <code class="text-lg font-mono">/api/payments/process</code>
                             </div>
                             <p class="text-gray-600 mb-4">Verify and complete a payment</p>
@@ -1349,7 +1412,8 @@ Content-Type: application/json</code></pre>
                             <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
                                 <p class="text-sm text-green-800">
                                     <i class="fas fa-unlock mr-2"></i>
-                                    <strong>Public Endpoint:</strong> No API credentials needed. Perfect for polling payment status from frontend.
+                                    <strong>Public Endpoint:</strong> No API credentials needed. Perfect for polling
+                                    payment status from frontend.
                                 </p>
                             </div>
 
@@ -1378,7 +1442,7 @@ Content-Type: application/json</code></pre>
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-2xl font-bold mb-4">Ready to Accept Crypto Payments?</h3>
+            <h3 class="text-2xl font-bold mb-4">Ready to Accepttttt Crypto Payments?</h3>
             <p class="text-gray-400 mb-6">Join hundreds of developers using Coinley to accept cryptocurrency</p>
             <a href="https://coinley.io/signup" target="_blank"
                 class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
