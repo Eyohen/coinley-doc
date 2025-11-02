@@ -205,7 +205,7 @@
                             <ul class="space-y-2 text-sm text-gray-700 ml-4">
                                 <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Payment ID:</strong> Unique identifier for this transaction</li>
                                 <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Smart Contract Address:</strong> Where payment will be sent</li>
-                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Fee Split Details:</strong> Merchant (97%) + Coinley (3%) wallets and percentages</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Fee Split Details:</strong> Merchant (98.5%) + Coinley (1.5%) wallets and percentages</li>
                                 <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Token Details:</strong> Contract address and decimals for the selected currency</li>
                             </ul>
                             <div class="mt-4 code-block rounded-lg p-3">
@@ -271,11 +271,11 @@
                             </div>
                             <div class="grid md:grid-cols-3 gap-3 text-center text-sm">
                                 <div class="bg-gray-50 rounded-lg p-3 border">
-                                    <div class="font-bold text-blue-600 text-lg mb-1">97%</div>
+                                    <div class="font-bold text-blue-600 text-lg mb-1">98.5%</div>
                                     <div class="text-gray-700">Goes to your wallet</div>
                                 </div>
                                 <div class="bg-gray-50 rounded-lg p-3 border">
-                                    <div class="font-bold text-purple-600 text-lg mb-1">3%</div>
+                                    <div class="font-bold text-purple-600 text-lg mb-1">1.5%</div>
                                     <div class="text-gray-700">Coinley platform fee</div>
                                 </div>
                                 <div class="bg-gray-50 rounded-lg p-3 border">
@@ -641,8 +641,8 @@ async function loadTokensForNetwork(networkShortName) {
     "splitterPaymentId": "21870d6e-d53d-4e72-8761-e0208a8ceacb",
     "merchantWallet": "0x9d961e093FFeC1577d124Cfe65233fE140E88Fc4",
     "coinleyWallet": "0xEe9025Cc02c060C03ba5dba3d19C7ea2e752f44d",
-    "merchantPercentage": 9700,  // 97%
-    "coinleyPercentage": 300,    // 3%
+    "merchantPercentage": 9700,  // 98.5%
+    "coinleyPercentage": 300,    // 1.5%
     "expiresAt": "2025-10-15T14:30:00.000Z"
   }
 }</code></pre>
@@ -652,7 +652,7 @@ async function loadTokensForNetwork(networkShortName) {
                         <p class="text-purple-800 text-sm">
                             <i class="fas fa-magic mr-2"></i>
                             <strong>What's happening:</strong> Coinley creates a unique payment ID and tells you which smart contract to use.
-                            The contract will automatically split funds 97% to you, 3% to Coinley.
+                            The contract will automatically split funds 98.5% to you, 1.5% to Coinley.
                         </p>
                     </div>
                 </section>
@@ -922,7 +922,7 @@ async function loadTokensForNetwork(networkShortName) {
                         <p class="text-blue-800 text-sm">
                             <i class="fas fa-info-circle mr-2"></i>
                             <strong>What happens:</strong> The wallet shows two popups - one to approve tokens, one to execute payment.
-                            The smart contract automatically splits funds between merchant (97%) and Coinley (1.5%).
+                            The smart contract automatically splits funds between merchant (98.5%) and Coinley (1.5%).
                         </p>
                     </div>
                 </section>
