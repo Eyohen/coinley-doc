@@ -465,17 +465,17 @@
                 <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
                     <h4 class="text-lg font-semibold mb-4">Step 1: Install the SDK</h4>
                     <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>npm install coinley-pay
+                        <pre class="text-gray-300"><code>npm install coinley-test
 # or
-yarn add coinley-pay</code></pre>
+yarn add coinley-test</code></pre>
                     </div>
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
                     <h4 class="text-lg font-semibold mb-4">Step 2: Import Components and Styles</h4>
                     <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>import { EnhancedSimpleCoinleyPayment } from 'coinley-pay';
-import 'coinley-pay/dist/style.css';</code></pre>
+                        <pre class="text-gray-300"><code>import { EnhancedSimpleCoinleyPayment } from 'coinley-test';
+import 'coinley-test/dist/style.css';</code></pre>
                     </div>
                 </div>
 
@@ -484,8 +484,8 @@ import 'coinley-pay/dist/style.css';</code></pre>
                     <p class="text-gray-600 mb-4">Here's a complete example from a real e-commerce checkout:</p>
                     <div class="code-block rounded-lg p-4">
                         <pre class="text-gray-300 text-sm"><code>import { useState } from 'react';
-import { EnhancedSimpleCoinleyPayment } from 'coinley-pay';
-import 'coinley-pay/dist/style.css';
+import { EnhancedSimpleCoinleyPayment } from 'coinley-test';
+import 'coinley-test/dist/style.css';
 
 function CheckoutPage() {
     const [isPaymentOpen, setIsPaymentOpen] = useState(false);
@@ -627,7 +627,7 @@ function CheckoutPage() {
                     <h4 class="text-lg font-semibold mb-4">Step 1: Include the SDK</h4>
                     <p class="text-gray-600 mb-4">Add the SDK script to your HTML:</p>
                     <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>&lt;script src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"&gt;&lt;/script&gt;</code></pre>
+                        <pre class="text-gray-300"><code>&lt;script src="https://unpkg.com/coinley-test@latest/dist/coinley-vanilla.min.js"&gt;&lt;/script&gt;</code></pre>
                     </div>
                 </div>
 
@@ -686,7 +686,7 @@ function CheckoutPage() {
                     </p>
                     <div class="code-block rounded-lg p-3">
                         <pre class="text-gray-300 text-xs"><code>&lt;script
-    src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"
+    src="https://unpkg.com/coinley-test@latest/dist/coinley-vanilla.min.js"
     data-public-key="pk_your_public_key"
     data-api-url="https://hub.coinley.io"
     data-theme="light"
@@ -723,7 +723,7 @@ function CheckoutPage() {
     &lt;button id="payButton"&gt;Pay with Crypto&lt;/button&gt;
 
     &lt;!-- Include Coinley SDK --&gt;
-    &lt;script src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/coinley-test@latest/dist/coinley-vanilla.min.js"&gt;&lt;/script&gt;
 
     &lt;script&gt;
         // Initialize Coinley
