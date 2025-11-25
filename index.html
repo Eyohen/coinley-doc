@@ -519,8 +519,7 @@ function CheckoutPage() {
 
             {/* Coinley Payment Modal */}
             &lt;EnhancedSimpleCoinleyPayment
-                apiKey="your_api_key"
-                apiSecret="your_api_secret"
+                publicKey="pk_your_public_key"
                 apiUrl="https://hub.coinley.io"
                 config={{
                     amount: orderTotal,
@@ -565,16 +564,10 @@ function CheckoutPage() {
                             </thead>
                             <tbody class="divide-y divide-blue-200">
                                 <tr>
-                                    <td class="py-2 px-3 font-mono">apiKey</td>
+                                    <td class="py-2 px-3 font-mono">publicKey</td>
                                     <td class="py-2 px-3">string</td>
                                     <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Your Coinley API key</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">apiSecret</td>
-                                    <td class="py-2 px-3">string</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Your Coinley API secret</td>
+                                    <td class="py-2 px-3">Your Coinley public key (starts with 'pk_')</td>
                                 </tr>
                                 <tr>
                                     <td class="py-2 px-3 font-mono">apiUrl</td>
@@ -644,8 +637,7 @@ function CheckoutPage() {
                         <pre class="text-gray-300 text-sm"><code>&lt;script&gt;
     // Initialize Coinley
     const coinley = new CoinleyVanilla({
-        apiKey: 'your_api_key',
-        apiSecret: 'your_api_secret',
+        publicKey: 'pk_your_public_key',
         apiUrl: 'https://hub.coinley.io',
         theme: 'light',
         debug: false
@@ -695,8 +687,7 @@ function CheckoutPage() {
                     <div class="code-block rounded-lg p-3">
                         <pre class="text-gray-300 text-xs"><code>&lt;script
     src="https://unpkg.com/coinley-pay@latest/dist/coinley-vanilla.min.js"
-    data-api-key="your_api_key"
-    data-api-secret="your_api_secret"
+    data-public-key="pk_your_public_key"
     data-api-url="https://hub.coinley.io"
     data-theme="light"
 &gt;&lt;/script&gt;
@@ -737,8 +728,7 @@ function CheckoutPage() {
     &lt;script&gt;
         // Initialize Coinley
         const coinley = new CoinleyVanilla({
-            apiKey: 'your_api_key',
-            apiSecret: 'your_api_secret',
+            publicKey: 'pk_your_public_key',
             apiUrl: 'https://hub.coinley.io'
         });
 
@@ -988,8 +978,7 @@ function CheckoutPage() {
                         <pre class="text-gray-300"><code>// Coinley Configuration
 const COINLEY_CONFIG = {
     baseURL: 'https://hub.coinley.io',
-    apiKey: 'your_api_key_here',
-    apiSecret: 'your_api_secret_here'
+    publicKey: 'pk_your_public_key_here'
 };
 
 // Store cart and payment state
@@ -1010,8 +999,7 @@ let networkTokens = {};
                         <pre class="text-gray-300"><code>async function loadNetworks() {
     const response = await axios.get(`${COINLEY_CONFIG.baseURL}/api/networks`, {
         headers: {
-            'X-API-Key': COINLEY_CONFIG.apiKey,
-            'X-API-Secret': COINLEY_CONFIG.apiSecret
+            'X-Public-Key': COINLEY_CONFIG.publicKey
         }
     });
 
@@ -1042,8 +1030,7 @@ async function loadTokensForNetwork(networkShortName) {
         `${COINLEY_CONFIG.baseURL}/api/networks/${network.id}/tokens`,
         {
             headers: {
-                'X-API-Key': COINLEY_CONFIG.apiKey,
-                'X-API-Secret': COINLEY_CONFIG.apiSecret
+                'X-Public-Key': COINLEY_CONFIG.publicKey
             }
         }
     );
@@ -1114,8 +1101,7 @@ async function loadTokensForNetwork(networkShortName) {
         },
         {
             headers: {
-                'X-API-Key': COINLEY_CONFIG.apiKey,
-                'X-API-Secret': COINLEY_CONFIG.apiSecret,
+                'X-Public-Key': COINLEY_CONFIG.publicKey,
                 'Content-Type': 'application/json'
             }
         }
@@ -1466,8 +1452,7 @@ async function loadTokensForNetwork(networkShortName) {
         },
         {
             headers: {
-                'X-API-Key': COINLEY_CONFIG.apiKey,
-                'X-API-Secret': COINLEY_CONFIG.apiSecret,
+                'X-Public-Key': COINLEY_CONFIG.publicKey,
                 'Content-Type': 'application/json'
             }
         }
@@ -1761,8 +1746,7 @@ networkSelect.addEventListener('change', (e) => {
 
                             <h4 class="font-semibold mb-2">Headers Required</h4>
                             <div class="code-block rounded-lg p-4 mb-4">
-                                <pre class="text-gray-300 text-sm"><code>X-API-Key: your_api_key
-X-API-Secret: your_api_secret
+                                <pre class="text-gray-300 text-sm"><code>X-Public-Key: pk_your_public_key
 Content-Type: application/json</code></pre>
                             </div>
 
