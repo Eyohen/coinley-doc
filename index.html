@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coinley API Documentation - Developer Integration Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        * {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
         .code-block {
             background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
         }
@@ -78,225 +84,424 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl font-bold gradient-text mb-6">
-                Accept Crypto Payments
-                <span class="block mt-2">With Zero Blockchain Knowledge</span>
-            </h1>
-            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Coinley handles all the complexity of cryptocurrency payments. You just call our API.
-                Automatic fee splitting, multi-wallet support, and real-time verification included.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#payment-flow"
-                    class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
-                    How It Works
-                </a>
-                <a href="#live-example"
-                    class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-600 transition-all">
-                    View Live Demo
-                </a>
+    <section class="bg-white py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <!-- API Documentation Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-200 bg-white mb-6">
+                        <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-purple-600 font-medium text-sm">API Documentation</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        Accept Crypto <span class="text-purple-600">Payments</span>
+                        <span class="block">With Zero Blockchain</span>
+                        <span class="block">Knowledge</span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-lg text-gray-500 mb-8 max-w-lg">
+                        Coinley handles all the complexity of crypto payments, automatic fee splitting, wallet management, and real-time verification, so you can focus on building.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#payment-flow"
+                            class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 hover:shadow-lg transition-all text-center">
+                            How it Works
+                        </a>
+                        <a href="#live-example"
+                            class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full font-semibold hover:border-purple-500 hover:text-purple-600 transition-all text-center">
+                            View a live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Illustration -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <img src="./Blockchainbg.png" alt="Blockchain Network Illustration" class="max-w-full h-auto" />
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- What is Coinley Section -->
-    <section id="overview" class="py-16 bg-white">
+    <!-- What Coinley Does Section -->
+    <section id="overview" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">What is Coinley?</h2>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
-                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-rocket text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">For Developers</h3>
-                    <p class="text-gray-700 mb-4">
-                        Coinley is a payment processor API that lets you accept cryptocurrency payments (USDT, USDC,
-                        etc.)
-                        without learning blockchain development, smart contracts, or Web3.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li><i class="fas fa-check-circle text-green-600 mr-2"></i>No blockchain experience needed</li>
-                        <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Simple REST API integration</li>
-                        <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Automatic smart contract interaction
-                        </li>
-                        <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Built-in payment verification</li>
-                    </ul>
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
+                <!-- Left Badge -->
+                <div class="inline-flex items-center gap-2 mb-4 lg:mb-0">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-gray-600 font-medium">What Coinley does</span>
                 </div>
 
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
-                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-users text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">For Your Customers</h3>
-                    <p class="text-gray-700 mb-4">
-                        Your customers connect their crypto wallet (MetaMask, Coinbase Wallet, etc.),
-                        approve the transaction, and payment is processed automatically.
+                <!-- Right Content -->
+                <div class="lg:max-w-2xl">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                        How we help business<br>reach a global audience
+                    </h2>
+                    <p class="text-gray-500 text-lg">
+                        Coinley helps by helping merchants & business owners reach a global audience by accepting stablecoins anywhere they sell online.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li><i class="fas fa-wallet text-blue-600 mr-2"></i>Works with any Web3 wallet</li>
-                        <li><i class="fas fa-lock text-blue-600 mr-2"></i>Secure, non-custodial payments</li>
-                        <li><i class="fas fa-bolt text-blue-600 mr-2"></i>Instant settlement</li>
-                        <li><i class="fas fa-globe text-blue-600 mr-2"></i>Supports 8+ blockchain networks</li>
-                    </ul>
                 </div>
             </div>
 
-            <div class="bg-green-50 border border-green-200 rounded-lg p-6 max-w-4xl mx-auto">
-                <h3 class="text-lg font-semibold text-green-900 mb-3">
-                    <i class="fas fa-lightbulb mr-2"></i>
-                    Real-World Example: SportsPass Ticket Sales
-                </h3>
-                <p class="text-green-800 mb-4">
-                    This documentation uses <strong>SportsPass</strong> - a live ticket sales platform built with
-                    Coinley -
-                    as the primary example. You'll see exactly how a production application integrates crypto payments
-                    without any blockchain expertise required.
-                </p>
-                <a href="#live-example" class="text-green-700 font-semibold hover:underline">
-                    → View the complete SportsPass implementation
-                </a>
+            <!-- Cards Grid -->
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- For Developers Card -->
+                <div class="bg-gray-100 rounded-2xl p-8 relative overflow-hidden" style="min-height: 380px;">
+                    <!-- Background Pattern -->
+                    <div class="absolute bottom-0 right-0 w-2/3 h-2/3 opacity-30">
+                        <svg viewBox="0 0 200 200" class="w-full h-full text-gray-300">
+                            <defs>
+                                <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#grid1)"/>
+                            <!-- 3D Blocks -->
+                            <g transform="translate(80, 100)">
+                                <path d="M0,0 L30,-15 L60,0 L30,15 Z" fill="#e5e7eb" stroke="#d1d5db"/>
+                                <path d="M0,0 L0,30 L30,45 L30,15 Z" fill="#d1d5db" stroke="#9ca3af"/>
+                                <path d="M30,15 L30,45 L60,30 L60,0 Z" fill="#f3f4f6" stroke="#d1d5db"/>
+                            </g>
+                            <g transform="translate(50, 130)">
+                                <path d="M0,0 L30,-15 L60,0 L30,15 Z" fill="#e5e7eb" stroke="#d1d5db"/>
+                                <path d="M0,0 L0,30 L30,45 L30,15 Z" fill="#d1d5db" stroke="#9ca3af"/>
+                                <path d="M30,15 L30,45 L60,30 L60,0 Z" fill="#f3f4f6" stroke="#d1d5db"/>
+                            </g>
+                            <g transform="translate(110, 130)">
+                                <path d="M0,0 L30,-15 L60,0 L30,15 Z" fill="#e5e7eb" stroke="#d1d5db"/>
+                                <path d="M0,0 L0,30 L30,45 L30,15 Z" fill="#d1d5db" stroke="#9ca3af"/>
+                                <path d="M30,15 L30,45 L60,30 L60,0 Z" fill="#f3f4f6" stroke="#d1d5db"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                        <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">For<br>Developers</h3>
+                    <p class="text-gray-600 mb-8 max-w-sm">
+                        Coinley is a payment processor API that lets you accept cryptocurrency payments (USDT, USDC, etc) without learning blockchain development, smart contracts, or Web3.
+                    </p>
+
+                    <!-- Features List -->
+                    <ul class="space-y-3 relative z-10">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>No blockchain experience needed.</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Simple Rest API Integration</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Automatic smart contract interaction</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Built-in payment verification</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Column -->
+                <div class="flex flex-col gap-6">
+                    <!-- For Your Customers Card -->
+                    <div class="bg-gray-100 rounded-2xl p-8 relative overflow-hidden flex-1">
+                        <!-- Background Pattern -->
+                        <div class="absolute top-0 right-0 w-1/2 h-full opacity-20">
+                            <svg viewBox="0 0 150 200" class="w-full h-full text-gray-400">
+                                <path d="M50,20 L100,20 M75,20 L75,60" stroke="currentColor" stroke-width="1" fill="none"/>
+                                <polygon points="60,60 90,60 100,80 50,80" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <polygon points="55,85 95,85 105,105 45,105" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <polygon points="100,30 130,30 140,50 110,50" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <polygon points="110,55 140,55 150,75 120,75" fill="none" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </div>
+
+                        <!-- Icon -->
+                        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">For Your Customers</h3>
+                        <p class="text-gray-600 mb-6 max-w-md">
+                            Your customers connect their crypto wallet (Metamask, Coinbase Wallet, etc), approve the transaction and payment is processed automatically.
+                        </p>
+
+                        <!-- Features List -->
+                        <ul class="space-y-3 relative z-10">
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Works with any Web3 wallet</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Secure, non-custodial payments</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Instant Settlement</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Supports 8+ blockchain networks</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Real World Example Card -->
+                    <div class="bg-white rounded-2xl p-8 border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Real World Example</h3>
+                        <p class="text-gray-600 mb-4">
+                            This documentation uses Sportspass- a live ticket sales platform built with Coinley- as the primary example. You'll see exactly how a production application integrates crypto payments without any blockchain expertise needed.
+                        </p>
+                        <a href="#live-example" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors inline-flex items-center gap-1">
+                            <span>→</span>View the complete Sportspass implementation
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Supported Networks -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-4">Supported Networks & Stablecoins</h2>
-            <p class="text-center text-gray-600 mb-12">Accept USDT, USDC, and other stablecoins across 8 major
-                blockchains</p>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fab fa-ethereum text-blue-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Ethereum</h3>
-                    <p class="text-xs text-red-500 mt-1 font-semibold">High fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border-2 border-green-400">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-circle text-purple-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Polygon</h3>
-                    <p class="text-xs text-green-600 mt-1 font-semibold">~$0.01 fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border-2 border-green-400">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-coins text-yellow-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">BSC</h3>
-                    <p class="text-xs text-green-600 mt-1 font-semibold">~$0.02 fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-cube text-blue-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Base</h3>
-                    <p class="text-xs text-green-600 mt-1">~$0.03 fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-fire text-red-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Optimism</h3>
-                    <p class="text-xs text-yellow-600 mt-1 font-semibold">~$0.60 fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-mountain text-blue-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Arbitrum</h3>
-                    <p class="text-xs text-yellow-600 mt-1">~$0.50 fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-snowflake text-red-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Avalanche</h3>
-                    <p class="text-xs text-gray-500 mt-1">Low fees</p>
-                </div>
-                <div class="network-card bg-white rounded-xl p-4 text-center shadow-sm border border-gray-200">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                        <i class="fas fa-bolt text-purple-600 text-xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-sm">Solana</h3>
-                    <p class="text-xs text-gray-500 mt-1">Coming soon</p>
+            <!-- Header Row -->
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 lg:mb-0">
+                    Supported Networks &<br>Stablecoins
+                </h2>
+                <div class="flex items-start gap-2 text-gray-500 lg:max-w-md">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p>Use <span class="font-semibold text-gray-900">Polygon</span> or <span class="font-semibold text-gray-900">BSC</span> for transactions under $100 to minimize gas fees (~$0.01 vs $3-5 on Ethereum/Optimism)</p>
                 </div>
             </div>
 
-            <div class="mt-8 bg-green-50 border border-green-200 rounded-lg p-4 max-w-2xl mx-auto">
-                <p class="text-sm text-green-800 text-center">
-                    <i class="fas fa-lightbulb mr-2"></i>
-                    <strong>Pro Tip:</strong> Use Polygon or BSC for transactions under $100 to minimize gas fees
-                    (~$0.01 vs $3-5 on Ethereum/Optimism)
-                </p>
+            <!-- Network Cards Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Ethereum -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 4L8 20.5L20 27L32 20.5L20 4Z" fill="#343434"/>
+                            <path d="M8 20.5L20 27V4L8 20.5Z" fill="#8C8C8C"/>
+                            <path d="M20 29L8 22.5L20 36L32 22.5L20 29Z" fill="#343434"/>
+                            <path d="M8 22.5L20 29V36L8 22.5Z" fill="#8C8C8C"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Ethereum</h3>
+                    <p class="text-sm text-red-500 font-medium">High Fees</p>
+                </div>
+
+                <!-- Polygon -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" fill="#8247E5"/>
+                            <path d="M26 16.5L21.5 14L17 16.5V21.5L21.5 24L26 21.5V16.5Z" stroke="white" stroke-width="1.5" fill="none"/>
+                            <path d="M17 16.5L12.5 19V24L17 26.5L21.5 24" stroke="white" stroke-width="1.5" fill="none"/>
+                            <path d="M21.5 14L26 11.5V16.5" stroke="white" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Polygon</h3>
+                    <p class="text-sm text-green-600 font-medium">~0.01 fees</p>
+                </div>
+
+                <!-- Base -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" fill="#0052FF"/>
+                            <rect x="14" y="18" width="12" height="4" rx="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Base</h3>
+                    <p class="text-sm text-green-600 font-medium">~0.03 fees</p>
+                </div>
+
+                <!-- Optimism -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" fill="#FF0420"/>
+                            <text x="20" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">OP</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Optimism</h3>
+                    <p class="text-sm text-yellow-600 font-medium">~0.60 fees</p>
+                </div>
+
+                <!-- Arbitrum -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" fill="#96BEDC" stroke="#213147" stroke-width="1"/>
+                            <path d="M20 8L12 20L20 32L28 20L20 8Z" fill="#213147"/>
+                            <path d="M20 14L16 20L20 26L24 20L20 14Z" fill="#96BEDC"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Arbitrum</h3>
+                    <p class="text-sm text-yellow-600 font-medium">~$0.50 fee</p>
+                </div>
+
+                <!-- Avalanche -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" fill="#E84142"/>
+                            <path d="M14 26L20 14L26 26H22L20 22L18 26H14Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Avalanche</h3>
+                    <p class="text-sm text-gray-500 font-medium">Low fees</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- SDK Integration Section -->
     <section id="sdk-integration" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">SDK Integration (Recommended)</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">
-                    Use the Coinley SDK for the fastest and easiest integration. The SDK handles all the complexity
-                    including wallet connection, network switching, payment execution, and verification.
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">SDK Integration (Recommended).</h2>
+                <p class="text-gray-500">
+                    Use the Coinley SDK for the fastest and easiest integration. The SDK handles all the complexity including wallet connection, network switching, payment execution, and verification.
                 </p>
             </div>
 
-            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-xl p-6 mb-12">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0">
-                        <i class="fas fa-star text-green-600 text-2xl"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="text-xl font-bold text-green-900 mb-2">
-                            Why Use the SDK?
-                        </h3>
-                        <ul class="space-y-2 text-green-800">
-                            <li><i class="fas fa-check-circle mr-2"></i><strong>5-minute setup</strong> - Just import and configure</li>
-                            <li><i class="fas fa-check-circle mr-2"></i><strong>Beautiful UI included</strong> - Pre-built payment modals with modern design</li>
-                            <li><i class="fas fa-check-circle mr-2"></i><strong>Automatic error handling</strong> - User-friendly error messages built-in</li>
-                            <li><i class="fas fa-check-circle mr-2"></i><strong>Works with React or vanilla JS</strong> - Use in any project</li>
-                            <li><i class="fas fa-check-circle mr-2"></i><strong>Production-ready</strong> - Battle-tested in real applications</li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- Tab Switcher -->
+            <div class="flex justify-center gap-6 mb-10">
+                <button id="tab-react" onclick="switchTab('react')" class="flex items-center gap-2 px-4 py-2 text-purple-600 border-b-2 border-purple-600 font-medium transition-all">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="2.5"/>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(120 12 12)"/>
+                    </svg>
+                    React Integration
+                </button>
+                <button id="tab-vanilla" onclick="switchTab('vanilla')" class="flex items-center gap-2 px-4 py-2 text-gray-500 border-b-2 border-transparent font-medium hover:text-gray-700 transition-all">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7z" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                    Vanilla Javascript Integration
+                </button>
             </div>
 
-            <!-- React Integration -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-6">
-                    <i class="fab fa-react text-blue-500 mr-2"></i>React Integration
-                </h3>
-
-                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-                    <h4 class="text-lg font-semibold mb-4">Step 1: Install the SDK</h4>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>npm install coinley-test
-# or
-yarn add coinley-test</code></pre>
+            <!-- React Integration Content -->
+            <div id="content-react" class="space-y-4">
+                <!-- Step 01 - Expanded -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('step1-react')" class="w-full flex items-center justify-between p-5 text-left">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-purple-600 text-sm font-medium">Step 01</span>
+                                <h4 class="text-gray-900 font-semibold">Install the SDK</h4>
+                            </div>
+                        </div>
+                        <svg id="arrow-step1-react" class="w-5 h-5 text-gray-400 transform rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="step1-react" class="px-5 pb-5">
+                        <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700">
+                            <p>npm install coinley-test</p>
+                            <p class="text-gray-400"># or</p>
+                            <p>yarn add coinley-test</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-                    <h4 class="text-lg font-semibold mb-4">Step 2: Import Components and Styles</h4>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>import { EnhancedSimpleCoinleyPayment } from 'coinley-test';
-import 'coinley-test/dist/style.css';</code></pre>
+                <!-- Step 02 - Collapsed -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('step2-react')" class="w-full flex items-center justify-between p-5 text-left">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500 text-xs font-medium">2</span>
+                            </div>
+                            <div>
+                                <span class="text-purple-600 text-sm font-medium">Step 02</span>
+                                <h4 class="text-gray-900 font-semibold">Install Components & Styles</h4>
+                            </div>
+                        </div>
+                        <svg id="arrow-step2-react" class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="step2-react" class="hidden px-5 pb-5">
+                        <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700">
+                            <p>import { EnhancedSimpleCoinleyPayment } from 'coinley-test';</p>
+                            <p>import 'coinley-test/dist/style.css';</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-                    <h4 class="text-lg font-semibold mb-4">Step 3: Add the Payment Component</h4>
-                    <p class="text-gray-600 mb-4">Here's a complete example from a real e-commerce checkout:</p>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300 text-sm"><code>import { useState } from 'react';
+                <!-- Step 03 - Collapsed -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('step3-react')" class="w-full flex items-center justify-between p-5 text-left">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500 text-xs font-medium">3</span>
+                            </div>
+                            <div>
+                                <span class="text-purple-600 text-sm font-medium">Step 03</span>
+                                <h4 class="text-gray-900 font-semibold">Add the Payment Componenent.</h4>
+                            </div>
+                        </div>
+                        <svg id="arrow-step3-react" class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="step3-react" class="hidden px-5 pb-5">
+                        <p class="text-gray-600 mb-4">Here's a complete example from a real e-commerce checkout:</p>
+                        <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700 overflow-x-auto">
+                            <pre>import { useState } from 'react';
 import { EnhancedSimpleCoinleyPayment } from 'coinley-test';
 import 'coinley-test/dist/style.css';
 
@@ -305,32 +510,22 @@ function CheckoutPage() {
     const [customerEmail, setCustomerEmail] = useState('');
     const [orderTotal] = useState(49.99);
 
-    // Handle successful payment
-    const handleSuccess = (paymentId, transactionHash, paymentDetails) => {
+    const handleSuccess = (paymentId, transactionHash) => {
         console.log('Payment successful!', { paymentId, transactionHash });
-        // Update your order status, redirect to success page, etc.
         alert('Payment completed successfully!');
     };
 
-    // Handle payment errors
     const handleError = (error) => {
         console.error('Payment error:', error);
         alert('Payment failed: ' + error);
     };
 
-    // Handle modal close
-    const handleClose = () => {
-        setIsPaymentOpen(false);
-    };
-
     return (
         &lt;div&gt;
-            {/* Your checkout form */}
             &lt;button onClick={() => setIsPaymentOpen(true)}&gt;
                 Pay with Crypto
             &lt;/button&gt;
 
-            {/* Coinley Payment Modal */}
             &lt;EnhancedSimpleCoinleyPayment
                 publicKey="pk_your_public_key"
                 apiUrl="https://hub.coinley.io"
@@ -338,332 +533,215 @@ function CheckoutPage() {
                     amount: orderTotal,
                     customerEmail: customerEmail,
                     merchantName: "Your Store Name",
-                    callbackUrl: `${window.location.origin}/api/webhooks/coinley`,
                     merchantWalletAddresses: {
                         polygon: "0xYourPolygonWallet...",
-                        bsc: "0xYourBSCWallet...",
-                        // Add other networks as needed
-                    },
-                    metadata: {
-                        orderId: "ORDER_123",
-                        // Add any custom data
+                        bsc: "0xYourBSCWallet..."
                     }
                 }}
                 onSuccess={handleSuccess}
                 onError={handleError}
-                onClose={handleClose}
+                onClose={() => setIsPaymentOpen(false)}
                 isOpen={isPaymentOpen}
                 theme="light"
             /&gt;
         &lt;/div&gt;
     );
-}</code></pre>
-                    </div>
-                </div>
-
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                    <h4 class="font-semibold text-blue-900 mb-2">
-                        <i class="fas fa-info-circle mr-2"></i>Configuration Options
-                    </h4>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full text-sm text-blue-800">
-                            <thead class="border-b border-blue-300">
-                                <tr>
-                                    <th class="text-left py-2 px-3">Property</th>
-                                    <th class="text-left py-2 px-3">Type</th>
-                                    <th class="text-left py-2 px-3">Required</th>
-                                    <th class="text-left py-2 px-3">Description</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-blue-200">
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">publicKey</td>
-                                    <td class="py-2 px-3">string</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Your Coinley public key (starts with 'pk_')</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">apiUrl</td>
-                                    <td class="py-2 px-3">string</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Coinley API base URL</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">config.amount</td>
-                                    <td class="py-2 px-3">number</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Payment amount in USD</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">config.customerEmail</td>
-                                    <td class="py-2 px-3">string</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Customer's email address</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">config.merchantName</td>
-                                    <td class="py-2 px-3">string</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Your business name</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">config.merchantWalletAddresses</td>
-                                    <td class="py-2 px-3">object</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Your wallet addresses per network</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">isOpen</td>
-                                    <td class="py-2 px-3">boolean</td>
-                                    <td class="py-2 px-3">Yes</td>
-                                    <td class="py-2 px-3">Controls modal visibility</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-3 font-mono">theme</td>
-                                    <td class="py-2 px-3">string</td>
-                                    <td class="py-2 px-3">No</td>
-                                    <td class="py-2 px-3">"light" or "dark" (default: "light")</td>
-                                </tr>
-                            </tbody>
-                        </table>
+}</pre>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Vanilla JS Integration -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-6">
-                    <i class="fab fa-js text-yellow-500 mr-2"></i>Vanilla JavaScript Integration
-                </h3>
-
-                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-                    <h4 class="text-lg font-semibold mb-4">Step 1: Include the SDK</h4>
-                    <p class="text-gray-600 mb-4">Add the SDK script to your HTML:</p>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>&lt;script src="https://unpkg.com/coinley-test@latest/dist/vanilla/coinley-vanilla.umd.cjs"&gt;&lt;/script&gt;</code></pre>
+            <!-- Vanilla JS Integration Content -->
+            <div id="content-vanilla" class="hidden space-y-4">
+                <!-- Step 01 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('step1-vanilla')" class="w-full flex items-center justify-between p-5 text-left">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-purple-600 text-sm font-medium">Step 01</span>
+                                <h4 class="text-gray-900 font-semibold">Include the SDK</h4>
+                            </div>
+                        </div>
+                        <svg id="arrow-step1-vanilla" class="w-5 h-5 text-gray-400 transform rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="step1-vanilla" class="px-5 pb-5">
+                        <p class="text-gray-600 mb-3">Add the SDK script to your HTML:</p>
+                        <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700 overflow-x-auto">
+                            <p>&lt;script src="https://unpkg.com/coinley-test@latest/dist/vanilla/coinley-vanilla.umd.cjs"&gt;&lt;/script&gt;</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-                    <h4 class="text-lg font-semibold mb-4">Step 2: Initialize and Use</h4>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300 text-sm"><code>&lt;script&gt;
-    // Initialize Coinley
-    const coinley = new CoinleyVanilla({
-        publicKey: 'pk_your_public_key',
-        apiUrl: 'https://hub.coinley.io',
-        theme: 'light',
-        debug: false
-    });
+                <!-- Step 02 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('step2-vanilla')" class="w-full flex items-center justify-between p-5 text-left">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500 text-xs font-medium">2</span>
+                            </div>
+                            <div>
+                                <span class="text-purple-600 text-sm font-medium">Step 02</span>
+                                <h4 class="text-gray-900 font-semibold">Initialize and Use</h4>
+                            </div>
+                        </div>
+                        <svg id="arrow-step2-vanilla" class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="step2-vanilla" class="hidden px-5 pb-5">
+                        <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700 overflow-x-auto">
+                            <pre>const coinley = new CoinleyVanilla({
+    publicKey: 'pk_your_public_key',
+    apiUrl: 'https://hub.coinley.io',
+    theme: 'light'
+});
 
-    // Open payment when button is clicked
-    document.getElementById('payButton').addEventListener('click', function() {
-        coinley.open(
-            {
-                amount: 49.99,
-                customerEmail: 'customer@example.com',
-                merchantName: 'Your Store',
-                merchantWalletAddresses: {
-                    polygon: '0xYourPolygonWallet...',
-                    bsc: '0xYourBSCWallet...'
-                },
-                metadata: {
-                    orderId: 'ORDER_123'
-                }
-            },
-            {
-                onSuccess: function(paymentId, transactionHash, paymentDetails) {
-                    console.log('Payment successful!', paymentId);
-                    alert('Payment completed! Transaction: ' + transactionHash);
-                },
-                onError: function(error) {
-                    console.error('Payment failed:', error);
-                    alert('Payment failed: ' + error);
-                },
-                onClose: function() {
-                    console.log('Payment modal closed');
-                }
+document.getElementById('payButton').addEventListener('click', () => {
+    coinley.open(
+        {
+            amount: 49.99,
+            customerEmail: 'customer@example.com',
+            merchantName: 'Your Store',
+            merchantWalletAddresses: {
+                polygon: '0xYourPolygonWallet...',
+                bsc: '0xYourBSCWallet...'
             }
-        );
-    });
-&lt;/script&gt;</code></pre>
+        },
+        {
+            onSuccess: (paymentId, txHash) => {
+                alert('Payment successful! Transaction: ' + txHash);
+            },
+            onError: (error) => {
+                alert('Payment failed: ' + error);
+            }
+        }
+    );
+});</pre>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
-                    <h4 class="font-semibold text-purple-900 mb-2">
-                        <i class="fas fa-magic mr-2"></i>Auto-Initialization (Optional)
-                    </h4>
-                    <p class="text-purple-800 text-sm mb-3">
-                        You can auto-initialize the SDK using script tag attributes:
-                    </p>
-                    <div class="code-block rounded-lg p-3">
-                        <pre class="text-gray-300 text-xs"><code>&lt;script
-    src="https://unpkg.com/coinley-test@latest/dist/vanilla/coinley-vanilla.umd.cjs"
-    data-public-key="pk_your_public_key"
-    data-api-url="https://hub.coinley.io"
-    data-theme="light"
-&gt;&lt;/script&gt;
-
-&lt;script&gt;
-    // SDK is already initialized as window.coinley
-    window.coinley.open({ ... });
-&lt;/script&gt;</code></pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Complete HTML Example -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-6">
-                    <i class="fas fa-code mr-2"></i>Complete Vanilla JS Example
-                </h3>
-
-                <div class="bg-white border border-gray-200 rounded-lg p-6">
-                    <p class="text-gray-600 mb-4">Here's a complete working HTML page:</p>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300 text-sm"><code>&lt;!DOCTYPE html&gt;
+                <!-- Step 03 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('step3-vanilla')" class="w-full flex items-center justify-between p-5 text-left">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500 text-xs font-medium">3</span>
+                            </div>
+                            <div>
+                                <span class="text-purple-600 text-sm font-medium">Step 03</span>
+                                <h4 class="text-gray-900 font-semibold">Complete HTML Example</h4>
+                            </div>
+                        </div>
+                        <svg id="arrow-step3-vanilla" class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="step3-vanilla" class="hidden px-5 pb-5">
+                        <p class="text-gray-600 mb-3">Here's a complete working HTML page:</p>
+                        <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700 overflow-x-auto">
+                            <pre>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Coinley Payment Example&lt;/title&gt;
+    &lt;title&gt;Coinley Payment&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;h1&gt;Buy Product - $49.99&lt;/h1&gt;
-
-    &lt;input type="email" id="customerEmail" placeholder="Enter your email" /&gt;
+    &lt;input type="email" id="email" placeholder="Your email" /&gt;
     &lt;button id="payButton"&gt;Pay with Crypto&lt;/button&gt;
 
-    &lt;!-- Include Coinley SDK --&gt;
     &lt;script src="https://unpkg.com/coinley-test@latest/dist/vanilla/coinley-vanilla.umd.cjs"&gt;&lt;/script&gt;
-
     &lt;script&gt;
-        // Initialize Coinley
         const coinley = new CoinleyVanilla({
             publicKey: 'pk_your_public_key',
             apiUrl: 'https://hub.coinley.io'
         });
 
-        // Handle payment button click
-        document.getElementById('payButton').addEventListener('click', () => {
-            const email = document.getElementById('customerEmail').value;
-
-            if (!email) {
-                alert('Please enter your email');
-                return;
-            }
-
-            coinley.open(
-                {
-                    amount: 49.99,
-                    customerEmail: email,
-                    merchantName: 'My Store',
-                    merchantWalletAddresses: {
-                        polygon: '0xYourWallet...'
-                    }
-                },
-                {
-                    onSuccess: (paymentId, txHash) => {
-                        alert('Payment successful!\\nTransaction: ' + txHash);
-                        // Redirect to success page or update order
-                    },
-                    onError: (error) => {
-                        alert('Payment failed: ' + error);
-                    }
-                }
-            );
-        });
+        document.getElementById('payButton').onclick = () => {
+            coinley.open({
+                amount: 49.99,
+                customerEmail: document.getElementById('email').value,
+                merchantName: 'My Store',
+                merchantWalletAddresses: { polygon: '0xYourWallet...' }
+            }, {
+                onSuccess: (id, hash) => alert('Success! ' + hash),
+                onError: (err) => alert('Error: ' + err)
+            });
+        };
     &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;</pre>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- SDK vs API Comparison -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-6">SDK vs Manual API Integration</h3>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-lg p-6">
-                        <h4 class="text-xl font-bold text-green-900 mb-4">
-                            <i class="fas fa-rocket mr-2"></i>Using SDK (Recommended)
-                        </h4>
-                        <ul class="space-y-3 text-green-800 text-sm">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span><strong>5 minutes</strong> - Quick setup with pre-built components</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span><strong>Beautiful UI</strong> - Professional payment modal included</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span><strong>Error handling</strong> - User-friendly messages built-in</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span><strong>Maintained</strong> - Updates and improvements included</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span><strong>Less code</strong> - ~20 lines vs 200+ lines</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white border border-gray-300 rounded-lg p-6">
-                        <h4 class="text-xl font-bold text-gray-900 mb-4">
-                            <i class="fas fa-code mr-2"></i>Manual API Integration
-                        </h4>
-                        <ul class="space-y-3 text-gray-700 text-sm">
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
-                                <span><strong>1-2 hours</strong> - Manual implementation required</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
-                                <span><strong>Build your own UI</strong> - Need to create payment interface</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
-                                <span><strong>Handle errors</strong> - Custom error handling needed</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
-                                <span><strong>Self-maintained</strong> - You handle all updates</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-circle text-gray-400 mr-2 mt-1 text-xs"></i>
-                                <span><strong>More code</strong> - Full Web3 integration logic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-plus-circle text-blue-600 mr-2 mt-1"></i>
-                                <span><strong>Maximum control</strong> - Full customization possible</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center text-white">
-                <h3 class="text-2xl font-bold mb-3">Ready to integrate in 5 minutes?</h3>
-                <p class="mb-6 text-blue-100">Get started with the SDK for the fastest crypto payment integration</p>
-                <div class="flex gap-4 justify-center">
-                    <a href="#sdk-integration"
-                       class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all">
-                        View SDK Docs
-                    </a>
-                    <a href="#integration"
-                       class="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-all">
-                        Or Use Manual API
-                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        function switchTab(tab) {
+            const reactTab = document.getElementById('tab-react');
+            const vanillaTab = document.getElementById('tab-vanilla');
+            const reactContent = document.getElementById('content-react');
+            const vanillaContent = document.getElementById('content-vanilla');
+
+            if (tab === 'react') {
+                reactTab.classList.add('text-purple-600', 'border-purple-600');
+                reactTab.classList.remove('text-gray-500', 'border-transparent');
+                vanillaTab.classList.remove('text-purple-600', 'border-purple-600');
+                vanillaTab.classList.add('text-gray-500', 'border-transparent');
+                reactContent.classList.remove('hidden');
+                vanillaContent.classList.add('hidden');
+            } else {
+                vanillaTab.classList.add('text-purple-600', 'border-purple-600');
+                vanillaTab.classList.remove('text-gray-500', 'border-transparent');
+                reactTab.classList.remove('text-purple-600', 'border-purple-600');
+                reactTab.classList.add('text-gray-500', 'border-transparent');
+                vanillaContent.classList.remove('hidden');
+                reactContent.classList.add('hidden');
+            }
+        }
+
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const arrow = document.getElementById('arrow-' + id);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        function copyCode(button) {
+            const codeBlock = button.closest('div').querySelector('pre code');
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = `
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Copied!
+                `;
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
 
     <!-- Main Content -->
     <div id="integration" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -718,236 +796,333 @@ function CheckoutPage() {
             <div class="lg:col-span-3 space-y-12">
                 <!-- Payment Flow Overview -->
                 <section id="payment-flow" class="mb-12">
-                    <h2 class="text-3xl font-bold mb-4">Understanding Coinley's Payment Flow</h2>
-                    <p class="text-gray-600 mb-8">
-                        Here's exactly what happens when a customer pays with cryptocurrency using Coinley.
-                        We handle the blockchain complexity - you just call our API.
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Understanding Coinley's Payment Flow</h2>
+                    <p class="text-gray-500 mb-12 max-w-2xl">
+                        Here's exactly what happens when a customer pays with cryptocurrency using Coinley. We handle the blockchain complexity - you just call our API.
                     </p>
 
-                    <!-- Visual Flow Diagram -->
-                    <div class="grid md:grid-cols-5 gap-4 mb-12">
-                        <div class="text-center">
-                            <div class="step-badge bg-blue-100 text-blue-600 mx-auto mb-3">1</div>
-                            <h4 class="font-semibold mb-2">Create Payment</h4>
-                            <p class="text-sm text-gray-600">Your backend calls Coinley API to create payment request</p>
+                    <!-- Visual Flow Timeline -->
+                    <div class="relative">
+                        <!-- Step Numbers -->
+                        <div class="flex justify-between mb-4 max-w-3xl">
+                            <span class="text-gray-400 font-medium">01</span>
+                            <span class="text-gray-400 font-medium">02</span>
+                            <span class="text-gray-400 font-medium">03</span>
                         </div>
-                        <div class="flow-arrow flex items-center justify-center">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <div class="text-center">
-                            <div class="step-badge bg-purple-100 text-purple-600 mx-auto mb-3">2</div>
-                            <h4 class="font-semibold mb-2">Connect Wallet</h4>
-                            <p class="text-sm text-gray-600">Customer connects MetaMask or any other crypto Wallet to your site</p>
-                        </div>
-                        <div class="flow-arrow flex items-center justify-center">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <div class="text-center">
-                            <div class="step-badge bg-green-100 text-green-600 mx-auto mb-3">3</div>
-                            <h4 class="font-semibold mb-2">Execute & Verify</h4>
-                            <p class="text-sm text-gray-600">Payment executes via smart contract, Coinley verifies on-chain</p>
-                        </div>
-                    </div>
 
-                    <!-- Detailed Flow Steps -->
-                    <div class="space-y-6">
-                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="step-badge bg-blue-500 text-white flex-shrink-0">1</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-3">Step 1: Create Payment Request</h3>
-                                    <p class="text-gray-700 mb-4">
-                                        Your backend calls <code class="bg-gray-100 px-2 py-1 rounded text-sm">POST /api/payments/create</code>
-                                        with payment details (amount, currency, network). Coinley returns:
-                                    </p>
-                                    <ul class="space-y-2 text-sm text-gray-700 ml-4">
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Payment ID:</strong> Unique identifier for this transaction</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Smart Contract Address:</strong> Where payment will be sent</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Fee Split Details:</strong> Merchant (98.5%) + Coinley (1.5%) wallets and percentages</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i><strong>Token Details:</strong> Contract address and decimals for the selected currency</li>
-                                    </ul>
-                                    <div class="mt-4 code-block rounded-lg p-3">
-                                        <code class="text-green-400 text-xs">POST /api/payments/create → Returns payment contract details</code>
-                                    </div>
-                                </div>
+                        <!-- Timeline Bar with Icons -->
+                        <div class="relative flex items-center max-w-3xl mb-8">
+                            <!-- Progress Bar Background -->
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full h-2 bg-gray-200 rounded-full"></div>
+                            </div>
+                            <!-- Progress Bar Fill -->
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full h-2 bg-purple-600 rounded-full"></div>
+                            </div>
+
+                            <!-- Step 1 Icon -->
+                            <div class="relative z-10 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                </svg>
+                            </div>
+
+                            <!-- Spacer -->
+                            <div class="flex-1"></div>
+
+                            <!-- Step 2 Icon -->
+                            <div class="relative z-10 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                </svg>
+                            </div>
+
+                            <!-- Spacer -->
+                            <div class="flex-1"></div>
+
+                            <!-- Step 3 Icon -->
+                            <div class="relative z-10 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
                             </div>
                         </div>
 
-                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="step-badge bg-purple-500 text-white flex-shrink-0">2</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-3">Step 2: Connect Wallet & Switch Network</h3>
-                                    <p class="text-gray-700 mb-4">
-                                        Your frontend uses Web3.js to connect the customer's crypto wallet and switch to the correct blockchain network:
-                                    </p>
-                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
-                                        <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                                            <h4 class="font-semibold mb-2 text-purple-900">
-                                                <i class="fas fa-wallet mr-2"></i>Connect Wallet
-                                            </h4>
-                                            <p class="text-sm text-purple-800">
-                                                Use <code class="bg-purple-100 px-1 rounded">window.ethereum.request()</code> to connect MetaMask, Coinbase Wallet, or any Web3 wallet.
-                                            </p>
-                                        </div>
-                                        <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                                            <h4 class="font-semibold mb-2 text-blue-900">
-                                                <i class="fas fa-network-wired mr-2"></i>Switch Network
-                                            </h4>
-                                            <p class="text-sm text-blue-800">
-                                                Use <code class="bg-blue-100 px-1 rounded">wallet_switchEthereumChain</code> to switch to Polygon, BSC, Optimism, etc.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- Step Labels -->
+                        <div class="grid grid-cols-3 gap-4 max-w-3xl">
+                            <!-- Step 1 -->
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Create Payment</h4>
+                                <p class="text-sm text-gray-500">Your backend calls Coinley API to create payment request</p>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Connect Wallet</h4>
+                                <p class="text-sm text-gray-500">Customer connects MetaMask or any other crypto Wallet to your site</p>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Execute & Verify</h4>
+                                <p class="text-sm text-gray-500">Payment executes via smart contract, Coinley verifies on-chain</p>
                             </div>
                         </div>
-
-                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="step-badge bg-green-500 text-white flex-shrink-0">3</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-3">Step 3: Execute Payment Transaction</h3>
-                                    <p class="text-gray-700 mb-4">
-                                        The customer approves and executes the payment. Coinley uses smart contracts to automatically split funds:
-                                    </p>
-                                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
-                                        <h4 class="font-semibold text-yellow-900 mb-2">
-                                            <i class="fas fa-info-circle mr-2"></i>Why Two Wallet Popups?
-                                        </h4>
-                                        <p class="text-sm text-yellow-800 mb-3">
-                                            Customers will see two MetaMask popups. This is normal and required for ERC20 token payments:
-                                        </p>
-                                        <ol class="space-y-2 text-sm text-yellow-800">
-                                            <li><strong>1. Approve Transaction:</strong> Give the smart contract permission to spend tokens (security feature)</li>
-                                            <li><strong>2. Execute Payment:</strong> The smart contract transfers tokens and splits them automatically</li>
-                                        </ol>
-                                    </div>
-                                    <div class="grid md:grid-cols-3 gap-3 text-center text-sm">
-                                        <div class="bg-gray-50 rounded-lg p-3 border">
-                                            <div class="font-bold text-blue-600 text-lg mb-1">98.5%</div>
-                                            <div class="text-gray-700">Goes to your wallet</div>
-                                        </div>
-                                        <div class="bg-gray-50 rounded-lg p-3 border">
-                                            <div class="font-bold text-purple-600 text-lg mb-1">1.5%</div>
-                                            <div class="text-gray-700">Coinley platform fee</div>
-                                        </div>
-                                        <div class="bg-gray-50 rounded-lg p-3 border">
-                                            <div class="font-bold text-green-600 text-lg mb-1">100%</div>
-                                            <div class="text-gray-700">Automatic split</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="step-badge bg-orange-500 text-white flex-shrink-0">4</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-3">Step 4: Verify Payment On-Chain</h3>
-                                    <p class="text-gray-700 mb-4">
-                                        After the customer completes payment, your frontend sends the transaction hash to Coinley.
-                                        We verify the payment on the blockchain and update the payment status:
-                                    </p>
-                                    <ul class="space-y-2 text-sm text-gray-700 ml-4">
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Verify transaction exists on blockchain</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Confirm correct amount was sent</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Validate correct recipient addresses</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Mark payment as completed</li>
-                                    </ul>
-                                    <div class="mt-4 code-block rounded-lg p-3">
-                                        <code class="text-green-400 text-xs">POST /api/payments/process → Verifies transaction on-chain</code>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200">
-                        <h3 class="text-2xl font-bold text-green-900 mb-4 text-center">
-                            <i class="fas fa-magic mr-2"></i>That's It!
-                        </h3>
-                        <p class="text-green-800 text-center mb-4">
-                            Coinley handles all the blockchain complexity: smart contract deployment, fee splitting,
-                            network configuration, gas optimization, and payment verification. You just make API calls.
-                        </p>
                     </div>
                 </section>
 
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2">
-                        <i class="fas fa-info-circle mr-2"></i>Manual API Integration Guide
-                    </h3>
-                    <p class="text-blue-800 mb-3">
-                        This section shows how to manually integrate with the Coinley API using Web3.js and custom code.
+                <!-- Step 01: Create Payment Request -->
+                <section class="mb-12">
+                    <span class="text-purple-600 font-medium text-sm">Step 01</span>
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-4">Create Payment Request.</h2>
+                    <p class="text-gray-500 mb-8">
+                        Your backend calls POST /api/payments/create with payment details (amount, currency, network). Coinley returns:
                     </p>
-                    <p class="text-blue-800 text-sm">
-                        <strong>Looking for a faster option?</strong> Check out the
-                        <a href="#sdk-integration" class="underline font-semibold hover:text-blue-900">SDK Integration</a>
-                        above for a 5-minute setup with pre-built UI components.
+
+                    <!-- Return Details List -->
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-700">
+                                <span class="font-semibold text-gray-900">Payment ID:</span> Unique identifier for this transaction
+                            </p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-700">
+                                <span class="font-semibold text-gray-900">Smart Contract Address:</span> Where payment will be sent
+                            </p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-700">
+                                <span class="font-semibold text-gray-900">Fee Split Details:</span> Merchant (98.5%) + Coinley (1.5%) wallets and percentages
+                            </p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-700">
+                                <span class="font-semibold text-gray-900">Token Details:</span> Contract address and decimals for the selected currency
+                            </p>
+                        </li>
+                    </ul>
+
+                    <!-- Code Block -->
+                    <div class="bg-gray-100 rounded-2xl p-5">
+                        <code class="text-gray-700 font-mono text-sm">
+                            POST /api/payments/create <span class="text-gray-400">→</span> Returns payment contract details
+                        </code>
+                    </div>
+                </section>
+
+                <!-- Step 02: Connect Wallet & Switch Network -->
+                <section class="mb-12">
+                    <span class="text-purple-600 font-medium text-sm">Step 02</span>
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-4">Connect Wallet & Switch Network</h2>
+                    <p class="text-gray-500 mb-8">
+                        Your frontend uses Web3.js to connect the customer's crypto wallet and switch to the correct blockchain network:
                     </p>
-                </div>
+
+                    <!-- Two Cards Grid -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- Connect Wallet Card -->
+                        <div class="bg-gray-50 rounded-2xl p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <h4 class="font-semibold text-gray-900">Connect Wallet</h4>
+                            </div>
+                            <p class="text-gray-500 text-sm">
+                                Use window.ethereum.request() to connect MetaMask, Coinbase Wallet, or any Web3 wallet.
+                            </p>
+                        </div>
+
+                        <!-- Switch Network Card -->
+                        <div class="bg-purple-50 rounded-2xl p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                <h4 class="font-semibold text-gray-900">Switch Network</h4>
+                            </div>
+                            <p class="text-gray-500 text-sm">
+                                Use wallet_switchEthereumChain to switch to Polygon, BSC, Optimism, etc.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 03: Execute Payment Transaction -->
+                <section class="mb-12">
+                    <span class="text-purple-600 font-medium text-sm">Step 03</span>
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-4">Execute Payment Transaction</h2>
+                    <p class="text-gray-500 mb-8">
+                        The customer approves and executes the payment. Coinley uses smart contracts to automatically split funds:
+                    </p>
+
+                    <!-- Info Box -->
+                    <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+                        <div class="flex items-start gap-3 mb-4">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <h4 class="font-semibold text-gray-900">Why Two Wallet Popups?</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Customers will see two MetaMask popups. This is normal and required for ERC20 token payments:
+                        </p>
+                        <ol class="space-y-2 text-gray-600 ml-4">
+                            <li>1. Approve Transaction: Give the smart contract permission to spend tokens (security feature)</li>
+                            <li>2. Execute Payment: The smart contract transfers tokens and splits them automatically</li>
+                        </ol>
+                    </div>
+
+                    <!-- Fee Split Cards -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-gray-50 rounded-2xl p-6 text-center">
+                            <div class="text-2xl font-bold text-gray-900 mb-2">98.5%</div>
+                            <p class="text-gray-500 text-sm">Goes to your wallet</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-6 text-center">
+                            <div class="text-2xl font-bold text-gray-900 mb-2">1.5%</div>
+                            <p class="text-gray-500 text-sm">Coinley Platform Fee</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-6 text-center">
+                            <div class="text-2xl font-bold text-gray-900 mb-2">100%</div>
+                            <p class="text-gray-500 text-sm">Automatic Split</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 04: Verify Payment On-chain -->
+                <section class="mb-12">
+                    <span class="text-purple-600 font-medium text-sm">Step 04</span>
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-4">Verify Payment On-chain</h2>
+                    <p class="text-gray-500 mb-8">
+                        After the customer completes payment, your frontend sends the transaction hash to Coinley. We verify the payment on the blockchain and update the payment status:
+                    </p>
+
+                    <!-- Verification List -->
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Verify transaction exists on blockchain</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Confirm correct amount was sent</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Validate correct recipient addresses</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">Mark payment as completed</span>
+                        </li>
+                    </ul>
+
+                    <!-- Code Block -->
+                    <div class="bg-gray-100 rounded-2xl p-5">
+                        <code class="text-gray-700 font-mono text-sm">
+                            POST /api/payments/process <span class="text-gray-400">→</span> Verifies transaction on-chain
+                        </code>
+                    </div>
+                </section>
 
                 <!-- Prerequisites -->
-                <section id="prerequisites">
-                    <h2 class="text-3xl font-bold mb-6">Prerequisites</h2>
-                    <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-key text-blue-600 mr-3 mt-1"></i>
+                <section id="prerequisites" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Prerequisites</h2>
+                    <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+                        <ul class="space-y-5">
+                            <li class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-gray-700 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                                </svg>
                                 <div>
-                                    <strong>Coinley API Credentials</strong>
-                                    <p class="text-sm text-gray-600">Sign up at Coinley to get your API key and secret
-                                    </p>
+                                    <h4 class="font-semibold text-gray-900">Coinley API Credentials</h4>
+                                    <p class="text-gray-500 text-sm">Sign up at Coinley to get your API key and secret</p>
                                 </div>
                             </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-code text-blue-600 mr-3 mt-1"></i>
+                            <li class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-gray-700 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                </svg>
                                 <div>
-                                    <strong>Basic JavaScript/HTML Knowledge</strong>
-                                    <p class="text-sm text-gray-600">You don't need blockchain experience</p>
+                                    <h4 class="font-semibold text-gray-900">Basic Javascript/HTML Knowledge</h4>
+                                    <p class="text-gray-500 text-sm">You don't need blockchain experience</p>
                                 </div>
                             </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-wallet text-blue-600 mr-3 mt-1"></i>
+                            <li class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-gray-700 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
                                 <div>
-                                    <strong>Web3 Libraries</strong>
-                                    <p class="text-sm text-gray-600">We'll use Web3.js (auto-loaded from CDN) and Axios
-                                    </p>
+                                    <h4 class="font-semibold text-gray-900">Web3 Libraries</h4>
+                                    <p class="text-gray-500 text-sm">We'll use Web3.js (auto-loaded from CDN) and Axios</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
+                </section>
 
-                    <h3 class="text-xl font-semibold mb-4">Installation</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>&lt;!-- Include required libraries in your HTML --&gt;
+                <!-- Installation -->
+                <section id="installation" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Installation</h2>
+                    <div class="bg-gray-100 rounded-2xl p-5">
+                        <pre class="text-gray-600 font-mono text-sm"><code>&lt;!-- Include required libraries in your HTML --&gt;
 &lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"&gt;&lt;/script&gt;</code></pre>
                     </div>
                 </section>
 
                 <!-- Configuration -->
-                <section id="config">
-                    <h2 class="text-3xl font-bold mb-6">Configuration</h2>
-                    <p class="text-gray-600 mb-6">
+                <section id="config" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Configuration</h2>
+                    <p class="text-gray-500 mb-6">
                         Set up your Coinley API credentials. Keep these secure on your backend.
                     </p>
 
-                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-                        <div class="flex items-start">
-                            <i class="fas fa-exclamation-triangle text-red-600 mr-3 mt-1"></i>
+                    <!-- Security Warning -->
+                    <div class="bg-red-50 border-l-4 border-red-400 rounded-r-2xl p-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                             <div>
-                                <h4 class="font-semibold text-red-900">Security Warning</h4>
-                                <p class="text-red-800 text-sm">In production, store API credentials on your backend.
-                                    The frontend should call your backend API, not Coinley directly.</p>
+                                <h4 class="font-semibold text-red-600">Security Warning</h4>
+                                <p class="text-red-600 text-sm">In production, store API credentials on your backend. The frontend should call your backend API, not Coinley directly.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>// Coinley Configuration
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-red-50 rounded-2xl p-5 relative">
+                        <button class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm"><code>// Coinley Configuration
 const COINLEY_CONFIG = {
     baseURL: 'https://hub.coinley.io',
     publicKey: 'pk_your_public_key_here'
@@ -959,16 +1134,26 @@ let currentPayment = null;
 let web3 = null;
 let userAccount = null;
 let availableNetworks = [];
-let networkTokens = {};
-</code></pre>
+let networkTokens = {};</code></pre>
                     </div>
+                </section>
 
-                    <h3 class="text-xl font-semibold mb-4">Load Available Networks & Tokens</h3>
-                    <p class="text-gray-600 mb-4">
+                <!-- Load Available Networks & Tokens -->
+                <section id="networks-tokens" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Load Available Networks & Tokens</h2>
+                    <p class="text-gray-500 mb-6">
                         Fetch the list of supported blockchain networks and their tokens from Coinley:
                     </p>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>async function loadNetworks() {
+
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400">
+                        <button class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function loadNetworks() {
     const response = await axios.get(`${COINLEY_CONFIG.baseURL}/api/networks`, {
         headers: {
             'X-Public-Key': COINLEY_CONFIG.publicKey
@@ -1019,33 +1204,42 @@ async function loadTokensForNetwork(networkShortName) {
                 </section>
 
                 <!-- Step 1: Create Payment -->
-                <section id="step1">
-                    <h2 class="text-3xl font-bold mb-6">Step 1: Create Payment</h2>
-                    <p class="text-gray-600 mb-6">
-                        Call the Coinley API to create a payment request. You'll get back smart contract details and fee
-                        split configuration.
+                <section id="step1" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Step 1: Create Payment</h2>
+                    <p class="text-gray-500 mb-6">
+                        Call the Coinley API to create a payment request. You'll get back smart contract details and fee split configuration.
                     </p>
 
-                    <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
-                        <div class="flex">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">POST</span>
-                            <code class="text-green-800 font-mono">/api/payments/create</code>
+                    <!-- POST Endpoint -->
+                    <div class="bg-gray-100 rounded-2xl p-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-lg text-sm font-mono font-semibold">Post</span>
+                            <code class="text-gray-700 font-mono">/api/payments/create</code>
                         </div>
                     </div>
 
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                        <h4 class="font-semibold text-blue-900 mb-2">
-                            <i class="fas fa-info-circle mr-2"></i>SportsPass Example
-                        </h4>
-                        <p class="text-blue-800 text-sm">
-                            In the SportsPass ticket platform, this function is called when a customer clicks "Connect
-                            MetaMask & Pay"
-                            with items in their cart. It creates a payment for the total cart value.
+                    <!-- SportsPass Example Info -->
+                    <div class="bg-gray-50 rounded-2xl p-5 mb-6">
+                        <div class="flex items-start gap-3 mb-2">
+                            <svg class="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <h4 class="font-semibold text-gray-900">SportsPass Example</h4>
+                        </div>
+                        <p class="text-gray-500 text-sm ml-8">
+                            In the SportsPass ticket platform, this function is called when a customer clicks "Connect MetaMask & Pay" with items in their cart. It creates a payment for the total cart value.
                         </p>
                     </div>
 
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>async function connectMetaMaskAndPay() {
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-gray-100 rounded-2xl p-5 relative mb-6">
+                        <button class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function connectMetaMaskAndPay() {
     const email = document.getElementById('customerEmail').value;
     const network = document.getElementById('paymentNetwork').value;
     const currency = document.getElementById('paymentCurrency').value;
@@ -1061,9 +1255,9 @@ async function loadTokensForNetwork(networkShortName) {
     const response = await axios.post(
         `${COINLEY_CONFIG.baseURL}/api/payments/create`,
         {
-            amount: total.toFixed(2),        // e.g., "19.99"
-            currency: currency,               // e.g., "USDT"
-            network: network,                 // e.g., "polygon"
+            amount: total.toFixed(2),       // e.g., "19.99"
+            currency: currency,              // e.g., "USDT"
+            network: network,                // e.g., "polygon"
             customerEmail: email,
             orderId: `TICKET_${Date.now()}`,
             metadata: {
@@ -1087,9 +1281,10 @@ async function loadTokensForNetwork(networkShortName) {
 }</code></pre>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">What You Get Back</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>{
+                    <!-- What you get back -->
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">What you get back</h3>
+                    <div class="bg-gray-100 rounded-2xl p-5 mb-6">
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>{
   "success": true,
   "payment": {
     "id": "21870d6e-d53d-4e72-8761-e0208a8ceacb",
@@ -1108,27 +1303,37 @@ async function loadTokensForNetwork(networkShortName) {
 }</code></pre>
                     </div>
 
-                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                        <p class="text-purple-800 text-sm">
-                            <i class="fas fa-magic mr-2"></i>
-                            <strong>What's happening:</strong> Coinley creates a unique payment ID and tells you which
-                            smart contract to use.
-                            The contract will automatically split funds 98.5% to you, 1.5% to Coinley.
-                        </p>
+                    <!-- What's happening info box -->
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">What's happening:</h4>
+                                <p class="text-gray-600 text-sm">Coinley creates a unique payment ID and tells you which smart contract to use. The contract will automatically split funds 98.5% to you, 1.5% to Coinley.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 <!-- Step 2: Connect Wallet -->
-                <section id="step2">
-                    <h2 class="text-3xl font-bold mb-6">Step 2: Connect Wallet & Switch Network</h2>
-                    <p class="text-gray-600 mb-6">
-                        Connect the user's crypto wallet (MetaMask, Coinbase Wallet, etc.) and switch to the correct
-                        blockchain network.
+                <section id="step2" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Step 2: Connect Wallet & Switch Network</h2>
+                    <p class="text-gray-500 mb-8">
+                        Connect the user's crypto wallet (MetaMask, Coinbase Wallet, etc.) and switch to the correct blockchain network.
                     </p>
 
-                    <h3 class="text-xl font-semibold mb-4">Connect Wallet</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>async function connectWallet() {
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Connect Wallet</h3>
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400 mb-8">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function connectWallet() {
     // Check if user has a Web3 wallet installed
     if (typeof window.ethereum === 'undefined') {
         alert('Please install MetaMask or another Web3 wallet');
@@ -1154,12 +1359,19 @@ async function loadTokensForNetwork(networkShortName) {
 }</code></pre>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Switch to Correct Network</h3>
-                    <p class="text-gray-600 mb-4">
-                        Ensure the customer's wallet is on the correct blockchain network for the payment:
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Switch to Correct Network</h3>
+                    <p class="text-gray-500 mb-4">
+                        Ensure the customer's wallet is on the correct blockchain network for the payment. The wallet will show a popup asking the user to switch networks. This is automatic - you don't need to worry about network configurations.
                     </p>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>async function switchToNetwork(networkShortName) {
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function switchToNetwork(networkShortName) {
     const network = availableNetworks.find(n => n.shortName === networkShortName);
     if (!network) throw new Error('Network not found');
 
@@ -1183,43 +1395,42 @@ async function loadTokensForNetwork(networkShortName) {
     }
 }</code></pre>
                     </div>
-
-                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                        <p class="text-yellow-800 text-sm">
-                            <i class="fas fa-lightbulb mr-2"></i>
-                            <strong>User Experience:</strong> The wallet will show a popup asking the user to switch
-                            networks.
-                            This is automatic - you don't need to worry about network configurations.
-                        </p>
-                    </div>
                 </section>
 
                 <!-- Balance Check Section -->
-                <section id="balance-check">
-                    <h2 class="text-3xl font-bold mb-6">Balance Validation (Critical!)</h2>
-                    <p class="text-gray-600 mb-6">
-                        Always check if the user has enough tokens BEFORE attempting payment. This prevents confusing
-                        blockchain errors.
+                <section id="balance-check" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Balance Validation (Critical!)</h2>
+                    <p class="text-gray-500 mb-6">
+                        Always check if the user has enough tokens BEFORE attempting payment. This prevents confusing blockchain errors.
                     </p>
 
-                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-                        <div class="flex items-start">
-                            <i class="fas fa-exclamation-circle text-red-600 mr-3 mt-1"></i>
+                    <!-- Common Error Warning -->
+                    <div class="bg-red-50 border-l-4 border-red-400 rounded-r-2xl p-5 mb-8">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                             <div>
-                                <h4 class="font-semibold text-red-900">Common Error</h4>
-                                <p class="text-red-800 text-sm mb-2">
+                                <h4 class="font-semibold text-red-600 mb-2">Common Error</h4>
+                                <p class="text-red-600 text-sm mb-2">
                                     "ERC20: transfer amount exceeds balance" means the user doesn't have enough tokens.
                                 </p>
-                                <p class="text-red-800 text-sm">
-                                    <strong>Solution:</strong> Check balance first and show a friendly error message
-                                    before attempting payment.
+                                <p class="text-red-600 text-sm">
+                                    <strong>Solution:</strong> Check balance first and show a friendly error message before attempting payment
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>async function checkTokenBalance(tokenAddress, requiredAmount, decimals) {
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400 mb-6">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function checkTokenBalance(tokenAddress, requiredAmount, decimals) {
     // ERC20 standard ABI for balanceOf
     const erc20ABI = [{
         "constant": true,
@@ -1256,40 +1467,42 @@ async function loadTokensForNetwork(networkShortName) {
     return true;
 }</code></pre>
                     </div>
-
-                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                        <p class="text-green-800 text-sm">
-                            <i class="fas fa-check-circle mr-2"></i>
-                            <strong>Best Practice:</strong> Display the user's current balance in your UI so they know
-                            if they need to add funds.
-                        </p>
-                    </div>
                 </section>
 
                 <!-- Step 3: Execute Payment -->
-                <section id="step3">
-                    <h2 class="text-3xl font-bold mb-6">Step 3: Execute Payment</h2>
-                    <p class="text-gray-600 mb-6">
+                <section id="step3" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Step 3: Execute Payment</h2>
+                    <p class="text-gray-500 mb-6">
                         Execute the smart contract payment. This involves two transactions: approve and pay.
                     </p>
 
-                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
-                        <h3 class="text-lg font-semibold text-purple-900 mb-3">Why Two Transactions?</h3>
-                        <ol class="text-purple-800 space-y-2 text-sm">
-                            <li><strong>1. Approve:</strong> Give the smart contract permission to spend your tokens
-                                (ERC20 security standard)</li>
-                            <li><strong>2. Pay:</strong> The contract transfers tokens and automatically splits payment
-                                to merchant + Coinley</li>
+                    <!-- Why Two Transactions Info Box -->
+                    <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+                        <div class="flex items-start gap-3 mb-4">
+                            <svg class="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <h4 class="font-semibold text-gray-900">Why Two Transactions?</h4>
+                        </div>
+                        <ol class="text-gray-600 space-y-2 text-sm ml-8">
+                            <li><strong>1. Approve:</strong> Give the smart contract permission to spend your tokens (ERC20 security standard)</li>
+                            <li><strong>2. Pay:</strong> The contract transfers tokens and automatically splits payment to merchant + Coinley</li>
                         </ol>
-                        <p class="text-purple-700 text-sm mt-3">
-                            This is a security feature of ERC20 tokens - contracts can't take your tokens without
-                            explicit permission.
+                        <p class="text-gray-500 text-sm mt-4 ml-8">
+                            This is a security feature of ERC20 tokens - contracts can't take your tokens without explicit permission.
                         </p>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Complete Payment Function from SportsPass</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300 text-sm"><code>async function executePayment() {
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Complete Payment Function from SportsPass</h3>
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400 mb-6">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function executePayment() {
     const networkShortName = currentPayment.network;
     const currency = currentPayment.currency;
     const tokenData = networkTokens[networkShortName].find(t => t.symbol === currency);
@@ -1386,34 +1599,32 @@ async function loadTokensForNetwork(networkShortName) {
     await verifyPayment(paymentTx.transactionHash);
 }</code></pre>
                     </div>
-
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                        <p class="text-blue-800 text-sm">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            <strong>What happens:</strong> The wallet shows two popups - one to approve tokens, one to
-                            execute payment.
-                            The smart contract automatically splits funds between merchant (98.5%) and Coinley (1.5%).
-                        </p>
-                    </div>
                 </section>
 
                 <!-- Step 4: Verify Payment -->
-                <section id="step4">
-                    <h2 class="text-3xl font-bold mb-6">Step 4: Verify Payment</h2>
-                    <p class="text-gray-600 mb-6">
-                        Send the transaction hash to Coinley for verification. We check the blockchain to confirm
-                        payment.
+                <section id="step4" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Step 4: Verify Payment</h2>
+                    <p class="text-gray-500 mb-6">
+                        Send the transaction hash to Coinley for verification. We check the blockchain to confirm payment.
                     </p>
 
-                    <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
-                        <div class="flex">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-4">POST</span>
-                            <code class="text-green-800 font-mono">/api/payments/process</code>
+                    <!-- POST Endpoint -->
+                    <div class="bg-gray-100 rounded-2xl p-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-lg text-sm font-mono font-semibold">Post</span>
+                            <code class="text-gray-700 font-mono">/api/payments/process</code>
                         </div>
                     </div>
 
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>async function verifyPayment(txHash) {
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400 mb-6">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>async function verifyPayment(txHash) {
     const response = await axios.post(
         `${COINLEY_CONFIG.baseURL}/api/payments/process`,
         {
@@ -1438,9 +1649,16 @@ async function loadTokensForNetwork(networkShortName) {
 }</code></pre>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Verification Response</h3>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>{
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Verification Response</h3>
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400 mb-6">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>{
   "success": true,
   "message": "Payment processed successfully",
   "payment": {
@@ -1458,49 +1676,125 @@ async function loadTokensForNetwork(networkShortName) {
 }</code></pre>
                     </div>
 
-                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                        <p class="text-green-800 text-sm">
-                            <i class="fas fa-shield-alt mr-2"></i>
-                            <strong>What Coinley verifies:</strong> Transaction exists on blockchain, correct amount was
-                            sent,
-                            correct recipients received funds, and fee split was executed correctly.
-                        </p>
+                    <!-- What Coinley Verifies Info Box -->
+                    <div class="bg-green-50 border-l-4 border-green-400 rounded-r-2xl p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">What Coinley Verifies</h4>
+                                <p class="text-gray-600 text-sm">Transaction exists on blockchain, correct amount was sent, correct recipients received funds, and fee split was executed correctly.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 <!-- Gas Optimization -->
-                <section id="gas-optimization">
-                    <h2 class="text-3xl font-bold mb-6">Gas Fee Optimization</h2>
-                    <p class="text-gray-600 mb-6">
+                <section id="gas-optimization" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Gas Fee Optimization</h2>
+                    <p class="text-gray-500 mb-6">
                         Minimize transaction costs for your users with these strategies (as implemented in SportsPass).
                     </p>
 
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-green-900 mb-3">✅ Low Fee Networks</h3>
-                            <ul class="text-green-800 text-sm space-y-2">
-                                <li><strong>Polygon:</strong> ~$0.01 per transaction</li>
-                                <li><strong>BSC:</strong> ~$0.02 per transaction</li>
-                                <li><strong>Base:</strong> ~$0.03 per transaction</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-yellow-900 mb-3">⚠️ Higher Fee Networks</h3>
-                            <ul class="text-yellow-800 text-sm space-y-2">
-                                <li><strong>Optimism:</strong> $0.50-$0.70 per transaction</li>
-                                <li><strong>Arbitrum:</strong> $0.40-$0.60 per transaction</li>
-                                <li><strong>Ethereum:</strong> $10-$30+ per transaction</li>
-                            </ul>
+                    <!-- Common Error Warning (same as Balance Validation) -->
+                    <div class="bg-red-50 border-l-4 border-red-400 rounded-r-2xl p-5 mb-8">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-red-600 mb-2">Common Error</h4>
+                                <p class="text-red-600 text-sm mb-2">
+                                    "ERC20: transfer amount exceeds balance" means the user doesn't have enough tokens.
+                                </p>
+                                <p class="text-red-600 text-sm">
+                                    <strong>Solution:</strong> Check balance first and show a friendly error message before attempting payment
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Show Fee Warnings to Users</h3>
-                    <p class="text-gray-600 mb-4">
+                    <!-- Fee Networks Grid -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <!-- Low Fee Networks -->
+                        <div class="bg-blue-50 rounded-2xl overflow-hidden">
+                            <div class="bg-blue-100 px-6 py-4">
+                                <h3 class="font-semibold text-gray-900 flex items-center gap-2">
+                                    <span class="text-green-500">✅</span> Low Fee Networks
+                                </h3>
+                            </div>
+                            <div class="px-6 py-5">
+                                <p class="text-gray-500 text-sm mb-4">Great for frequent transactions, everyday use, and cost-effective interactions.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Polygon:</strong> $0.50-$0.70 per transaction</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>BSC:</strong> $0.40-$0.60 per transaction</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Base:</strong> $10-$30+ per transaction</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Higher Fee Networks -->
+                        <div class="bg-yellow-50 rounded-2xl overflow-hidden">
+                            <div class="bg-yellow-100 px-6 py-4">
+                                <h3 class="font-semibold text-gray-900 flex items-center gap-2">
+                                    <span class="text-yellow-500">⚠️</span> Higher Fee Networks
+                                </h3>
+                            </div>
+                            <div class="px-6 py-5">
+                                <p class="text-gray-500 text-sm mb-4">Best for high-security operations, complex smart contracts, or premium transactions.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Optimism:</strong> $0.50-$0.70 per transaction</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Arbitrum:</strong> $0.40-$0.60 per transaction</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <svg class="w-4 h-4 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Ethereum:</strong> $10-$30+ per transaction</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Show Fee Warnings to Users</h3>
+                    <p class="text-gray-500 mb-4">
                         SportsPass displays warnings when users select high-fee networks. Here's how:
                     </p>
-                    <div class="code-block rounded-lg p-4 mb-6">
-                        <pre class="text-gray-300"><code>// Show fee warning based on selected network
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400 mb-8">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>// Show fee warning based on selected network
 networkSelect.addEventListener('change', (e) => {
     const selectedNetwork = e.target.value;
     const networkWarning = document.getElementById('networkWarning');
@@ -1532,58 +1826,87 @@ networkSelect.addEventListener('change', (e) => {
 });</code></pre>
                     </div>
 
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                        <h4 class="font-semibold text-blue-900 mb-2">
-                            <i class="fas fa-rocket mr-2"></i>Optimism/Arbitrum Direct Transfer Optimization
-                        </h4>
-                        <p class="text-blue-800 text-sm">
-                            For Optimism and Arbitrum, SportsPass offers a "direct transfer" option that bypasses the
-                            splitter contract,
-                            reducing fees by 90%. Set <code
-                                class="bg-blue-100 px-1 rounded">isDirectTransfer: true</code> when verifying payment.
-                        </p>
+                    <!-- Optimization Info Box -->
+                    <div class="bg-purple-50 rounded-2xl p-5">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Optimism/Arbitrum Direct Transfer Optimization</h4>
+                                <p class="text-gray-600 text-sm">
+                                    For Optimism and Arbitrum, SportsPass offers a "direct transfer" option that bypasses the splitter contract, reducing fees by 90%. Set <code class="bg-purple-100 px-1 rounded text-purple-700">isDirectTransfer: true</code> when verifying payment.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 <!-- Error Handling -->
-                <section id="error-handling">
-                    <h2 class="text-3xl font-bold mb-6">Error Handling</h2>
-                    <p class="text-gray-600 mb-6">
+                <section id="error-handling" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Error Handling</h2>
+                    <p class="text-gray-500 mb-8">
                         Handle common errors gracefully to improve user experience.
                     </p>
 
-                    <div class="space-y-4 mb-8">
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">❌ "User rejected transaction"</h4>
-                            <p class="text-sm text-gray-600 mb-2">User clicked "Reject" in wallet popup</p>
-                            <div class="code-block rounded-lg p-3">
-                                <code
-                                    class="text-xs text-gray-300">Show: "Payment cancelled. No charges were made."</code>
+                    <!-- Error Cards Grid -->
+                    <div class="grid md:grid-cols-3 gap-4 mb-8">
+                        <!-- User rejected -->
+                        <div class="bg-gray-50 rounded-2xl overflow-hidden">
+                            <div class="px-5 py-4 border-b border-gray-200">
+                                <h4 class="font-semibold text-gray-900 flex items-center gap-2">
+                                    <span class="text-red-500">✕</span> "User rejected transaction"
+                                </h4>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-gray-500 text-sm mb-3">User clicked "reject" in wallet popup</p>
+                                <div class="bg-white rounded-xl p-3 border border-gray-200">
+                                    <p class="text-gray-700 text-sm">Show: "Payment cancelled. No charges were made."</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">❌ "Insufficient funds"</h4>
-                            <p class="text-sm text-gray-600 mb-2">User doesn't have enough tokens</p>
-                            <div class="code-block rounded-lg p-3">
-                                <code
-                                    class="text-xs text-gray-300">Show: "Insufficient USDT balance. You need X more USDT."</code>
+                        <!-- Insufficient funds -->
+                        <div class="bg-gray-50 rounded-2xl overflow-hidden">
+                            <div class="px-5 py-4 border-b border-gray-200">
+                                <h4 class="font-semibold text-gray-900 flex items-center gap-2">
+                                    <span class="text-red-500">✕</span> "Insufficient funds"
+                                </h4>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-gray-500 text-sm mb-3">User doesn't have enough tokens</p>
+                                <div class="bg-white rounded-xl p-3 border border-gray-200">
+                                    <p class="text-gray-700 text-sm">Show: "Insufficient USDT balance. You need more USDT."</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">❌ "Network mismatch"</h4>
-                            <p class="text-sm text-gray-600 mb-2">User is on wrong blockchain network</p>
-                            <div class="code-block rounded-lg p-3">
-                                <code
-                                    class="text-xs text-gray-300">Show: "Please switch to Polygon network in your wallet."</code>
+                        <!-- Network mismatch -->
+                        <div class="bg-gray-50 rounded-2xl overflow-hidden">
+                            <div class="px-5 py-4 border-b border-gray-200">
+                                <h4 class="font-semibold text-gray-900 flex items-center gap-2">
+                                    <span class="text-red-500">✕</span> "Network mismatch"
+                                </h4>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-gray-500 text-sm mb-3">User is on wrong blockchain network</p>
+                                <div class="bg-white rounded-xl p-3 border border-gray-200">
+                                    <p class="text-gray-700 text-sm">Show: "Please switch to Polygon network in your wallet."</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Complete Error Handling</h3>
-                    <div class="code-block rounded-lg p-4">
-                        <pre class="text-gray-300"><code>try {
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Complete Error Handling</h3>
+                    <!-- Code Block with Copy Button -->
+                    <div class="bg-purple-50 rounded-2xl p-5 relative border-l-4 border-purple-400">
+                        <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 text-sm font-medium hover:text-purple-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                        <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>try {
     await connectWallet();
     await switchToNetwork('polygon');
     await executePayment();
@@ -1606,81 +1929,122 @@ networkSelect.addEventListener('change', (e) => {
                 </section>
 
                 <!-- Live Example -->
-                <section id="live-example">
-                    <h2 class="text-3xl font-bold mb-6">Complete Working Example: SportsPass</h2>
-                    <p class="text-gray-600 mb-6">
-                        Here's the complete ticket sales platform built with Coinley. This is a real, production-ready
-                        implementation.
+                <section id="live-example" class="mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Complete Working Example: SportsPass</h2>
+                    <p class="text-gray-500 mb-8">
+                        Here's the complete ticket sales platform built with Coinley. This is a real, production-ready implementation.
                     </p>
 
-                    <div
-                        class="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
-                        <h3 class="text-lg font-semibold mb-3">
-                            <i class="fas fa-ticket-alt mr-2 text-blue-600"></i>
-                            SportsPass: Crypto Ticket Sales Platform
-                        </h3>
-                        <p class="text-gray-700 mb-4">
-                            A complete e-commerce platform for selling sports tickets with cryptocurrency payments.
-                            Features include:
-                        </p>
-                        <ul class="grid md:grid-cols-2 gap-2 text-sm text-gray-700 mb-4">
-                            <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Shopping cart functionality</li>
-                            <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Multi-network support</li>
-                            <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Real-time balance checking</li>
-                            <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Gas fee warnings</li>
-                            <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Payment status tracking</li>
-                            <li><i class="fas fa-check-circle text-green-600 mr-2"></i>Error handling</li>
-                        </ul>
-                        <a href="https://external-api-user.vercel.app/" target="_blank"
-                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-all">
-                            <i class="fas fa-external-link-alt mr-2"></i>Open Live Demo
-                        </a>
-                        <!-- <a href="https://github.com/your-repo/sportspass" target="_blank"
-                           class="inline-block ml-3 border-2 border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:border-blue-500 transition-all">
-                            <i class="fab fa-github mr-2"></i>View Source Code
-                        </a> -->
+                    <!-- SportsPass Card -->
+                    <div class="bg-gray-50 rounded-2xl overflow-hidden mb-8">
+                        <!-- Header -->
+                        <div class="bg-gray-100 px-6 py-4 border-b border-gray-200">
+                            <h3 class="font-semibold text-gray-900 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+                                </svg>
+                                SportsPass: Crypto Ticket Sales Platform
+                            </h3>
+                        </div>
+                        <!-- Content -->
+                        <div class="px-6 py-5">
+                            <p class="text-gray-500 mb-6">
+                                A complete e-commerce platform for selling sports tickets with cryptocurrency payments. Features include:
+                            </p>
+                            <ul class="grid md:grid-cols-2 gap-3 mb-6">
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Shopping cart functionality
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Real-time balance checking
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Payment status tracking
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Multi-network support
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Gas fee warnings
+                                </li>
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Error handling
+                                </li>
+                            </ul>
+                            <a href="https://external-api-user.vercel.app/" target="_blank"
+                                class="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-all">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                </svg>
+                                Open a Live Demo
+                            </a>
+                        </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold mb-4">Key Implementation Highlights</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white border-l-4 border-blue-500 p-4">
-                            <h4 class="font-semibold mb-2">1. Network Selection with Fee Indicators</h4>
-                            <p class="text-sm text-gray-600 mb-2">
-                                See <code class="bg-gray-100 px-1 rounded">loadNetworks()</code> function - Line 246
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Key Implementation Highlights</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Item 01 -->
+                        <div>
+                            <span class="text-gray-400 font-medium text-sm">01</span>
+                            <h4 class="font-semibold text-gray-900 mt-1 mb-2">Network Selection with fee Indicators</h4>
+                            <p class="text-gray-500 text-sm mb-2">
+                                See loadNetworks() function - Line 246
                             </p>
-                            <p class="text-xs text-gray-500">
-                                Automatically sorts networks by cost-effectiveness and shows visual fee indicators (💚
-                                Low fees, ⚠️ Higher fees)
+                            <p class="text-gray-400 text-sm">
+                                Automatically sorts networks by cost-effectiveness and shows visual fee indicators (<span class="text-green-500">💚</span> Low fees, <span class="text-yellow-500">⚠️</span> Higher fees)
                             </p>
                         </div>
 
-                        <div class="bg-white border-l-4 border-purple-500 p-4">
-                            <h4 class="font-semibold mb-2">2. Dynamic Gas Fee Warnings</h4>
-                            <p class="text-sm text-gray-600 mb-2">
-                                See network change handler - Line 280
+                        <!-- Item 02 -->
+                        <div>
+                            <span class="text-gray-400 font-medium text-sm">02</span>
+                            <h4 class="font-semibold text-gray-900 mt-1 mb-2">Dynamic Gas Fee Warnings</h4>
+                            <p class="text-gray-500 text-sm mb-2">
+                                Refer to setUserPreferences() - Line 312
                             </p>
-                            <p class="text-xs text-gray-500">
+                            <p class="text-gray-400 text-sm">
                                 Calculates and displays estimated fees as a percentage of transaction value
                             </p>
                         </div>
 
-                        <div class="bg-white border-l-4 border-green-500 p-4">
-                            <h4 class="font-semibold mb-2">3. Optimism Direct Transfer Optimization</h4>
-                            <p class="text-sm text-gray-600 mb-2">
-                                See <code class="bg-gray-100 px-1 rounded">executeDirectTransfer()</code> - Line 537
+                        <!-- Item 03 -->
+                        <div>
+                            <span class="text-gray-400 font-medium text-sm">03</span>
+                            <h4 class="font-semibold text-gray-900 mt-1 mb-2">Optimism Direct Transfer Optimization</h4>
+                            <p class="text-gray-500 text-sm mb-2">
+                                Check monitorPerformance() - Line 178
                             </p>
-                            <p class="text-xs text-gray-500">
+                            <p class="text-gray-400 text-sm">
                                 Reduces Optimism fees by 90% using direct transfer instead of splitter contract
                             </p>
                         </div>
 
-                        <div class="bg-white border-l-4 border-orange-500 p-4">
-                            <h4 class="font-semibold mb-2">4. Real-time Payment Status UI</h4>
-                            <p class="text-sm text-gray-600 mb-2">
-                                See <code class="bg-gray-100 px-1 rounded">updateStep()</code> and payment modal - Line
-                                932
+                        <!-- Item 04 -->
+                        <div>
+                            <span class="text-gray-400 font-medium text-sm">04</span>
+                            <h4 class="font-semibold text-gray-900 mt-1 mb-2">Real-time Payment Status UI</h4>
+                            <p class="text-gray-500 text-sm mb-2">
+                                See updateStep() and payment modal - Line 932
                             </p>
-                            <p class="text-xs text-gray-500">
+                            <p class="text-gray-400 text-sm">
                                 Shows users exactly what's happening: approve tokens → execute payment → verify
                             </p>
                         </div>
@@ -1688,22 +2052,28 @@ networkSelect.addEventListener('change', (e) => {
                 </section>
 
                 <!-- API Reference -->
-                <section id="api-reference">
-                    <h2 class="text-3xl font-bold mb-6">API Reference</h2>
+                <section id="api-reference" class="mt-16">
+                    <h2 class="text-4xl font-bold mb-2">API Reference</h2>
+                    <p class="text-gray-500 mb-8">SportsPass displays warnings when users select high-fee networks. Here's how:</p>
 
                     <div class="space-y-8">
                         <!-- Create Payment -->
-                        <div class="border border-gray-200 rounded-lg p-6">
-                            <div class="flex items-center mb-4">
-                                <span
-                                    class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
-                                <code class="text-lg font-mono">/api/payments/create</code>
+                        <div class="bg-white rounded-2xl border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-sm font-medium">Post</span>
+                                <code class="text-gray-400 font-mono">/api/payments/create</code>
                             </div>
-                            <p class="text-gray-600 mb-4">Create a new payment request</p>
+                            <p class="text-gray-500 mb-6">Create a new payment request</p>
 
-                            <h4 class="font-semibold mb-2">Request Body</h4>
-                            <div class="code-block rounded-lg p-4 mb-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Request Body</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5 mb-6 relative">
+                                <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 hover:text-purple-700 text-sm font-medium">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                    Copy Code
+                                </button>
+                                <pre class="text-gray-500 text-sm"><code>{
   "amount": "10.00",
   "currency": "USDT",
   "network": "polygon",
@@ -1716,15 +2086,15 @@ networkSelect.addEventListener('change', (e) => {
 }</code></pre>
                             </div>
 
-                            <h4 class="font-semibold mb-2">Headers Required</h4>
-                            <div class="code-block rounded-lg p-4 mb-4">
-                                <pre class="text-gray-300 text-sm"><code>X-Public-Key: pk_your_public_key
+                            <h4 class="font-semibold text-lg mb-3">Headers Required</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5 mb-6">
+                                <pre class="text-gray-500 text-sm"><code>X-Public-Key: pk_your_public_key
 Content-Type: application/json</code></pre>
                             </div>
 
-                            <h4 class="font-semibold mb-2">Response</h4>
-                            <div class="code-block rounded-lg p-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Response</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5">
+                                <pre class="text-gray-500 text-sm"><code>{
   "success": true,
   "payment": {
     "id": "uuid",
@@ -1738,17 +2108,22 @@ Content-Type: application/json</code></pre>
                         </div>
 
                         <!-- Process Payment -->
-                        <div class="border border-gray-200 rounded-lg p-6">
-                            <div class="flex items-center mb-4">
-                                <span
-                                    class="bg-green-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">POST</span>
-                                <code class="text-lg font-mono">/api/payments/process</code>
+                        <div class="bg-white rounded-2xl border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-sm font-medium">Post</span>
+                                <code class="text-gray-400 font-mono">/api/payments/process</code>
                             </div>
-                            <p class="text-gray-600 mb-4">Verify and complete a payment</p>
+                            <p class="text-gray-500 mb-6">Create a new payment request</p>
 
-                            <h4 class="font-semibold mb-2">Request Body</h4>
-                            <div class="code-block rounded-lg p-4 mb-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Request Body</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5 mb-6 relative">
+                                <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-600 hover:text-purple-700 text-sm font-medium">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                    Copy Code
+                                </button>
+                                <pre class="text-gray-500 text-sm"><code>{
   "paymentId": "uuid",
   "transactionHash": "0xabc...",
   "network": "polygon",
@@ -1757,9 +2132,9 @@ Content-Type: application/json</code></pre>
 }</code></pre>
                             </div>
 
-                            <h4 class="font-semibold mb-2">Response</h4>
-                            <div class="code-block rounded-lg p-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Response</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5">
+                                <pre class="text-gray-500 text-sm"><code>{
   "success": true,
   "message": "Payment processed successfully",
   "payment": {
@@ -1771,16 +2146,16 @@ Content-Type: application/json</code></pre>
                         </div>
 
                         <!-- Get Networks -->
-                        <div class="border border-gray-200 rounded-lg p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">GET</span>
-                                <code class="text-lg font-mono">/api/networks</code>
+                        <div class="bg-white rounded-2xl border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded-lg text-sm font-medium">Get</span>
+                                <code class="text-gray-400 font-mono">/api/networks</code>
                             </div>
-                            <p class="text-gray-600 mb-4">Get list of supported blockchain networks</p>
+                            <p class="text-gray-500 mb-6">Get list of supported blockchain networks</p>
 
-                            <h4 class="font-semibold mb-2">Response</h4>
-                            <div class="code-block rounded-lg p-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Response</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5">
+                                <pre class="text-gray-500 text-sm"><code>{
   "success": true,
   "networks": [
     {
@@ -1796,16 +2171,16 @@ Content-Type: application/json</code></pre>
                         </div>
 
                         <!-- Get Tokens -->
-                        <div class="border border-gray-200 rounded-lg p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">GET</span>
-                                <code class="text-lg font-mono">/api/networks/:networkId/tokens</code>
+                        <div class="bg-white rounded-2xl border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded-lg text-sm font-medium">Get</span>
+                                <code class="text-gray-400 font-mono">/api/networks/:networkId/tokens</code>
                             </div>
-                            <p class="text-gray-600 mb-4">Get supported tokens for a specific network</p>
+                            <p class="text-gray-500 mb-6">Get supported tokens for a specific network</p>
 
-                            <h4 class="font-semibold mb-2">Response</h4>
-                            <div class="code-block rounded-lg p-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Response</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5">
+                                <pre class="text-gray-500 text-sm"><code>{
   "success": true,
   "tokens": [
     {
@@ -1820,24 +2195,23 @@ Content-Type: application/json</code></pre>
                         </div>
 
                         <!-- Get Payment Status (Public) -->
-                        <div class="border border-gray-200 rounded-lg p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono mr-3">GET</span>
-                                <code class="text-lg font-mono">/api/payments/public/:paymentId</code>
+                        <div class="bg-white rounded-2xl border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded-lg text-sm font-medium">Get</span>
+                                <code class="text-gray-400 font-mono">/api/payments/public/:paymentId</code>
                             </div>
-                            <p class="text-gray-600 mb-4">Check payment status publicly (no authentication required)</p>
+                            <p class="text-gray-500 mb-4">Check payment status publicly (no authentication required)</p>
 
-                            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                                <p class="text-sm text-green-800">
-                                    <i class="fas fa-unlock mr-2"></i>
-                                    <strong>Public Endpoint:</strong> No API credentials needed. Perfect for polling
-                                    payment status from frontend.
-                                </p>
+                            <div class="flex items-center gap-2 text-gray-500 mb-6">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+                                </svg>
+                                <span class="text-sm">Public Endpoint: No API credentials needed. Perfect for polling payment status from frontend.</span>
                             </div>
 
-                            <h4 class="font-semibold mb-2">Response</h4>
-                            <div class="code-block rounded-lg p-4">
-                                <pre class="text-gray-300 text-sm"><code>{
+                            <h4 class="font-semibold text-lg mb-3">Response</h4>
+                            <div class="bg-gray-50 rounded-2xl p-5">
+                                <pre class="text-gray-500 text-sm"><code>{
   "success": true,
   "payment": {
     "id": "uuid",
@@ -1857,17 +2231,41 @@ Content-Type: application/json</code></pre>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-2xl font-bold mb-4">Ready to Accepttttt Crypto Payments?</h3>
-            <p class="text-gray-400 mb-6">Join hundreds of developers using Coinley to accept cryptocurrency</p>
-            <a href="https://coinley.io/signup" target="_blank"
-                class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
-                Get API Credentials
-            </a>
-            <div class="mt-8 text-gray-400 text-sm">
-                <p>&copy; 2025 Coinley. Built for developers who want to accept crypto without the complexity.</p>
+    <!-- Footer CTA Section -->
+    <footer class="relative mt-16 overflow-hidden">
+        <!-- Background with dot pattern -->
+        <div class="bg-gradient-to-b from-gray-900 via-purple-900/90 to-purple-900 py-20 relative">
+            <!-- Dot pattern overlay -->
+            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    <div class="mb-8 lg:mb-0">
+                        <h2 class="text-4xl lg:text-5xl font-light text-white mb-4">
+                            Ready to accept<br>
+                            <span class="font-normal">Crypto Payments?</span>
+                        </h2>
+                        <p class="text-gray-300 text-lg max-w-xl">
+                            Join hundreds of developers already using Coinley to accept cryptocurrency. Boost conversion and unlock global payments in minutes.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://coinley.io/signup" target="_blank"
+                            class="inline-block bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all text-lg">
+                            Get API Credentials
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purple accent bar -->
+        <div class="h-2 bg-purple-600"></div>
+
+        <!-- Copyright -->
+        <div class="bg-gradient-to-b from-purple-900 to-gray-900 py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 Coinley. Built for developers who want to accept crypto without the complexity.</p>
             </div>
         </div>
     </footer>
