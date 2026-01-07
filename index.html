@@ -72,7 +72,7 @@
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="#overview" class="text-gray-600 hover:text-blue-600 transition-colors">Overview</a>
-                    <a href="#payment-flow" class="text-gray-600 hover:text-blue-600 transition-colors">Payment Flow</a>
+                    <a href="#currency" class="text-gray-600 hover:text-blue-600 transition-colors">Currency</a>
                     <a href="#sdk-integration" class="text-gray-600 hover:text-blue-600 transition-colors">SDK Integration</a>
                     <a href="#integration" class="text-gray-600 hover:text-blue-600 transition-colors">API Integration</a>
                     <a href="#live-example" class="text-gray-600 hover:text-blue-600 transition-colors">Live Example</a>
@@ -393,6 +393,151 @@
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-1">Avalanche</h3>
                     <p class="text-sm text-gray-500 font-medium">Low fees</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currency & Conversion Section -->
+    <section id="currency" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header Row -->
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
+                <div class="lg:max-w-md mb-6 lg:mb-0">
+                    <div class="inline-flex items-center gap-2 mb-4">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-gray-600 font-medium">Currency Information</span>
+                    </div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+                        Official Currency &<br>Conversion APIs
+                    </h2>
+                </div>
+                <div class="lg:max-w-xl">
+                    <div class="bg-purple-50 border border-purple-200 rounded-2xl p-6">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-purple-900 mb-1">Important: USD is the Official Currency</h4>
+                                <p class="text-purple-700 text-sm">
+                                    Coinley uses <span class="font-bold">United States Dollars (USD)</span> as its official currency. All payment amounts must be passed to the API in USD. If your store uses a different currency (NGN, JPY, EUR, etc.), you'll need to convert to USD before creating a payment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion APIs -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-6">Recommended Currency Conversion APIs</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- CoinMarketCap -->
+                    <div class="bg-gray-100 rounded-2xl p-6">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
+                            <svg class="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">CoinMarketCap API</h4>
+                        <p class="text-gray-600 text-sm mb-4">Industry-standard for crypto and fiat currency rates with extensive coverage.</p>
+                        <a href="https://coinmarketcap.com/api/" target="_blank" class="text-purple-600 font-medium text-sm hover:text-purple-700 inline-flex items-center gap-1">
+                            View Documentation
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- ExchangeRate-API -->
+                    <div class="bg-gray-100 rounded-2xl p-6">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
+                            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">ExchangeRate-API</h4>
+                        <p class="text-gray-600 text-sm mb-4">Simple and reliable fiat currency conversion with a generous free tier.</p>
+                        <a href="https://www.exchangerate-api.com/" target="_blank" class="text-purple-600 font-medium text-sm hover:text-purple-700 inline-flex items-center gap-1">
+                            View Documentation
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Open Exchange Rates -->
+                    <div class="bg-gray-100 rounded-2xl p-6">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
+                            <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Open Exchange Rates</h4>
+                        <p class="text-gray-600 text-sm mb-4">Accurate exchange rates for 200+ currencies with hourly updates.</p>
+                        <a href="https://openexchangerates.org/" target="_blank" class="text-purple-600 font-medium text-sm hover:text-purple-700 inline-flex items-center gap-1">
+                            View Documentation
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Example -->
+            <div class="bg-gray-100 rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Example: Converting NGN to USD</h3>
+                <p class="text-gray-600 mb-6">Here's how to convert Nigerian Naira (or any local currency) to USD before creating a Coinley payment:</p>
+
+                <div class="bg-gray-800 rounded-xl p-5 overflow-x-auto relative">
+                    <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        Copy Code
+                    </button>
+                    <pre class="text-gray-300 text-sm"><code><span class="text-purple-400">// Example using ExchangeRate-API (free tier available)</span>
+<span class="text-blue-400">async function</span> <span class="text-yellow-300">convertToUSD</span>(amount, fromCurrency) {
+    <span class="text-blue-400">const</span> response = <span class="text-blue-400">await</span> fetch(
+        <span class="text-green-400">`https://api.exchangerate-api.com/v4/latest/USD`</span>
+    );
+    <span class="text-blue-400">const</span> data = <span class="text-blue-400">await</span> response.json();
+
+    <span class="text-purple-400">// Get the exchange rate for the source currency</span>
+    <span class="text-blue-400">const</span> rate = data.rates[fromCurrency];
+
+    <span class="text-purple-400">// Convert to USD (divide by the rate since rates are USD-based)</span>
+    <span class="text-blue-400">const</span> usdAmount = amount / rate;
+
+    <span class="text-blue-400">return</span> usdAmount.toFixed(<span class="text-orange-400">2</span>);
+}
+
+<span class="text-purple-400">// Usage example: Convert 50,000 NGN to USD</span>
+<span class="text-blue-400">const</span> ngnAmount = <span class="text-orange-400">50000</span>;
+<span class="text-blue-400">const</span> usdAmount = <span class="text-blue-400">await</span> convertToUSD(ngnAmount, <span class="text-green-400">'NGN'</span>);
+console.log(<span class="text-green-400">`${ngnAmount} NGN = $${usdAmount} USD`</span>);
+
+<span class="text-purple-400">// Now use the USD amount with Coinley</span>
+coinley.open({
+    amount: parseFloat(usdAmount), <span class="text-purple-400">// Always pass USD to Coinley</span>
+    customerEmail: <span class="text-green-400">'customer@example.com'</span>,
+    merchantName: <span class="text-green-400">'Your Store'</span>,
+    merchantWalletAddresses: { polygon: <span class="text-green-400">'0xYourWallet...'</span> }
+});</code></pre>
+                </div>
+
+                <div class="mt-6 flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                    <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <div>
+                        <h4 class="font-semibold text-yellow-800 text-sm">Pro Tip: Cache Exchange Rates</h4>
+                        <p class="text-yellow-700 text-sm">Exchange rates don't change frequently. Consider caching rates for 1-5 minutes to reduce API calls and improve performance.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -903,7 +1048,7 @@ document.getElementById('payButton').addEventListener('click', () => {
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
                             </svg>
                             <p class="text-gray-700">
-                                <span class="font-semibold text-gray-900">Fee Split Details:</span> Merchant (98.5%) + Coinley (1.5%) wallets and percentages
+                                <span class="font-semibold text-gray-900">Fee Split Details:</span> Merchant (99%) + Coinley (1%) wallets and percentages
                             </p>
                         </li>
                         <li class="flex items-start gap-3">
@@ -990,11 +1135,11 @@ document.getElementById('payButton').addEventListener('click', () => {
                     <!-- Fee Split Cards -->
                     <div class="grid grid-cols-3 gap-4">
                         <div class="bg-gray-50 rounded-2xl p-6 text-center">
-                            <div class="text-2xl font-bold text-gray-900 mb-2">98.5%</div>
+                            <div class="text-2xl font-bold text-gray-900 mb-2">99%</div>
                             <p class="text-gray-500 text-sm">Goes to your wallet</p>
                         </div>
                         <div class="bg-gray-50 rounded-2xl p-6 text-center">
-                            <div class="text-2xl font-bold text-gray-900 mb-2">1.5%</div>
+                            <div class="text-2xl font-bold text-gray-900 mb-2">1%</div>
                             <p class="text-gray-500 text-sm">Coinley Platform Fee</p>
                         </div>
                         <div class="bg-gray-50 rounded-2xl p-6 text-center">
@@ -1296,8 +1441,8 @@ async function loadTokensForNetwork(networkShortName) {
     "splitterPaymentId": "21870d6e-d53d-4e72-8761-e0208a8ceacb",
     "merchantWallet": "0x9d961e093FFeC1577d124Cfe65233fE140E88Fc4",
     "coinleyWallet": "0xEe9025Cc02c060C03ba5dba3d19C7ea2e752f44d",
-    "merchantPercentage": 9700,  // 98.5%
-    "coinleyPercentage": 300,    // 1.5%
+    "merchantPercentage": 9700,  // 99%
+    "coinleyPercentage": 300,    // 1%
     "expiresAt": "2025-10-15T14:30:00.000Z"
   }
 }</code></pre>
@@ -1311,7 +1456,7 @@ async function loadTokensForNetwork(networkShortName) {
                             </svg>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">What's happening:</h4>
-                                <p class="text-gray-600 text-sm">Coinley creates a unique payment ID and tells you which smart contract to use. The contract will automatically split funds 98.5% to you, 1.5% to Coinley.</p>
+                                <p class="text-gray-600 text-sm">Coinley creates a unique payment ID and tells you which smart contract to use. The contract will automatically split funds 99% to you, 1% to Coinley.</p>
                             </div>
                         </div>
                     </div>
