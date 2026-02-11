@@ -312,12 +312,12 @@
                     <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <p>Use <span class="font-semibold text-gray-900">Polygon</span> or <span class="font-semibold text-gray-900">BSC</span> for transactions under $100 to minimize gas fees (~$0.01 vs $3-5 on Ethereum/Optimism)</p>
+                    <p>Use <span class="font-semibold text-gray-900">Solana</span>, <span class="font-semibold text-gray-900">Polygon</span>, or <span class="font-semibold text-gray-900">Base</span> for transactions under $100 to minimize fees (~$0.001-0.03 vs $3-5 on Ethereum)</p>
                 </div>
             </div>
 
             <!-- Network Cards Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
                 <!-- Ethereum -->
                 <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
@@ -335,11 +335,8 @@
                 <!-- Polygon -->
                 <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="16" fill="#8247E5"/>
-                            <path d="M26 16.5L21.5 14L17 16.5V21.5L21.5 24L26 21.5V16.5Z" stroke="white" stroke-width="1.5" fill="none"/>
-                            <path d="M17 16.5L12.5 19V24L17 26.5L21.5 24" stroke="white" stroke-width="1.5" fill="none"/>
-                            <path d="M21.5 14L26 11.5V16.5" stroke="white" stroke-width="1.5" fill="none"/>
+                        <svg class="w-10 h-10" viewBox="0 0 38.4 33.5" fill="none">
+                            <path d="M29,10.2c-0.7-0.4-1.6-0.4-2.4,0L21,13.5l-3.8,2.1l-5.5,3.3c-0.7,0.4-1.6,0.4-2.4,0l-4.3-2.6c-0.7-0.4-1.2-1.2-1.2-2.1v-5c0-0.8,0.4-1.6,1.2-2.1l4.3-2.5c0.7-0.4,1.6-0.4,2.4,0l4.3,2.6c0.7,0.4,1.2,1.2,1.2,2.1v3.3l3.8-2.2V7c0-0.8-0.4-1.6-1.2-2.1l-8-4.7c-0.7-0.4-1.6-0.4-2.4,0L1.2,5C0.4,5.4,0,6.2,0,7v9.4c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l5.5-3.2l3.8-2.2l5.5-3.2c0.7-0.4,1.6-0.4,2.4,0l4.3,2.5c0.7,0.4,1.2,1.2,1.2,2.1v5c0,0.8-0.4,1.6-1.2,2.1L29,29.3c-0.7,0.4-1.6,0.4-2.4,0l-4.3-2.5c-0.7-0.4-1.2-1.2-1.2-2.1v-3.2l-3.8,2.2v3.3c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l8.1-4.7c0.7-0.4,1.2-1.2,1.2-2.1V17.1c0-0.8-0.4-1.6-1.2-2.1L29,10.2z" fill="#8247E5"/>
                         </svg>
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-1">Polygon</h3>
@@ -349,9 +346,9 @@
                 <!-- Base -->
                 <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="16" fill="#0052FF"/>
-                            <rect x="14" y="18" width="12" height="4" rx="2" fill="white"/>
+                        <svg class="w-10 h-10" viewBox="0 0 111 111" fill="none">
+                            <circle cx="55.5" cy="55.5" r="55.5" fill="#0052FF"/>
+                            <path d="M55.5 22C37 22 22 37 22 55.5C22 74 37 89 55.5 89C71.5 89 85 77.5 88 62H65C63 68 57 72 50 72C41 72 34 65 34 55.5C34 46 41 39 50 39C57 39 63 43 65 49H88C85 33.5 71.5 22 55.5 22Z" fill="white"/>
                         </svg>
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-1">Base</h3>
@@ -361,9 +358,10 @@
                 <!-- Optimism -->
                 <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="16" fill="#FF0420"/>
-                            <text x="20" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">OP</text>
+                        <svg class="w-10 h-10" viewBox="0 0 500 500" fill="none">
+                            <circle cx="250" cy="250" r="250" fill="#FF0420"/>
+                            <path d="M177.1 316.4c-14.9 0-27.1-3.6-36.6-10.8-9.5-7.3-14.2-17.6-14.2-30.8 0-3.3.4-7.2 1.1-11.7l22.9-117.8h36.5l-22.5 115.5c-.4 2-.6 4.3-.6 6.8 0 13.1 7.7 19.7 23 19.7 9.5 0 17.3-2.8 23.4-8.5 6.2-5.7 10.4-14.2 12.6-25.4l21.4-108.1h36.5L258 262.8c-4.9 24.3-14.8 42.6-29.7 55.1-14.8 12.5-33.1 18.8-55 18.5h-0.2z" fill="white"/>
+                            <path d="M352.8 316.4c-21.9 0-39.2-6.2-51.8-18.5-12.5-12.4-18.8-29.4-18.8-51 0-6 .6-12.3 1.7-18.8 4.2-23.6 14.3-42.8 30.5-57.6 16.2-14.9 35.8-22.3 58.9-22.3 21.9 0 39.1 6.2 51.6 18.7 12.5 12.4 18.8 29.3 18.8 50.8 0 6.2-.6 12.5-1.7 19-4.2 23.6-14.4 42.8-30.6 57.6-16.2 14.8-36 22.1-58.6 22.1zm5.1-31.1c12 0 22-4.3 30-12.8 8-8.6 13.4-20.4 16-35.4.9-5.1 1.3-9.8 1.3-14.2 0-10-2.8-17.8-8.3-23.4-5.5-5.7-13.4-8.5-23.6-8.5-12 0-22 4.2-30 12.6-8 8.4-13.3 20.1-15.8 35.2-1.1 5.5-1.7 10.4-1.7 14.9 0 10.2 2.8 18 8.5 23.6 5.6 5.4 13.5 8 23.6 8z" fill="white"/>
                         </svg>
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-1">Optimism</h3>
@@ -374,9 +372,13 @@
                 <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
                         <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="16" fill="#96BEDC" stroke="#213147" stroke-width="1"/>
-                            <path d="M20 8L12 20L20 32L28 20L20 8Z" fill="#213147"/>
-                            <path d="M20 14L16 20L20 26L24 20L20 14Z" fill="#96BEDC"/>
+                            <circle cx="20" cy="20" r="20" fill="#213147"/>
+                            <path d="M22.8 23.3l2.5 4.2 2.3-1.3-3.1-5.2-1.7 2.3z" fill="#12AAFF"/>
+                            <path d="M28.5 25.1l-5.7-9.6-1.8 2.4 4.4 7.4 0.8 1.1 2.3-1.3z" fill="#12AAFF"/>
+                            <path d="M12.4 27.4l2.3 1.3 0.8-1.3-3.1-5.2v5.2z" fill="#9DCCED"/>
+                            <path d="M20 8.7l-7.6 13.5v5.2l7.6-4.4 7.6 4.4v-5.2L20 8.7z" fill="#213147"/>
+                            <path d="M12.4 22.2l3.9 6.5 3.7-2.1-4.5-7.5-3.1 3.1z" fill="#9DCCED"/>
+                            <path d="M20 27l-3.7 2.2 3.7 2.1 3.7-2.1L20 27z" fill="white"/>
                         </svg>
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-1">Arbitrum</h3>
@@ -386,162 +388,58 @@
                 <!-- Avalanche -->
                 <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="16" fill="#E84142"/>
-                            <path d="M14 26L20 14L26 26H22L20 22L18 26H14Z" fill="white"/>
+                        <svg class="w-10 h-10" viewBox="0 0 254 254" fill="none">
+                            <circle cx="127" cy="127" r="127" fill="#E84142"/>
+                            <path d="M171.8 170.8H147c-3.6 0-6.9-1.9-8.7-5l-11.5-20c-1.8-3.1-5.1-5-8.7-5h-0.2c-3.6 0-6.9 1.9-8.7 5l-11.5 20c-1.8 3.1-5.1 5-8.7 5H64.2c-7.1 0-11.6-7.7-8.1-13.9l54.8-95c3.5-6.1 12.2-6.1 15.7 0l17.3 30c1.8 3.1 1.8 6.9 0 10l-8.6 15c-3.5 6.1 0.9 13.8 8.1 13.8h20.3c7.2 0 11.6 7.7 8.1 13.8l-8.1 14.1c-1.8 3.2-1.8 7 0 10.2l8.1 14.1c3.5 6.1-0.9 13.9-8.1 13.9z" fill="white"/>
                         </svg>
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-1">Avalanche</h3>
                     <p class="text-sm text-gray-500 font-medium">Low fees</p>
                 </div>
+
+                <!-- Solana -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 397.7 311.7" fill="none">
+                            <defs>
+                                <linearGradient id="solanaGrad1" x1="360.88" y1="351.46" x2="141.21" y2="-69.29" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#00ffa3"/>
+                                    <stop offset="1" stop-color="#dc1fff"/>
+                                </linearGradient>
+                                <linearGradient id="solanaGrad2" x1="264.83" y1="401.6" x2="45.16" y2="-19.14" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#00ffa3"/>
+                                    <stop offset="1" stop-color="#dc1fff"/>
+                                </linearGradient>
+                                <linearGradient id="solanaGrad3" x1="312.55" y1="376.69" x2="92.88" y2="-44.06" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#00ffa3"/>
+                                    <stop offset="1" stop-color="#dc1fff"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z" fill="url(#solanaGrad1)"/>
+                            <path d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z" fill="url(#solanaGrad2)"/>
+                            <path d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z" fill="url(#solanaGrad3)"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Solana</h3>
+                    <p class="text-sm text-green-600 font-medium">~$0.001 fees</p>
+                </div>
+
+                <!-- Monad -->
+                <div class="network-card bg-gray-100 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="50" fill="#836EF9"/>
+                            <path d="M25 70V30L40 55L50 35L60 55L75 30V70" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Monad</h3>
+                    <p class="text-sm text-green-600 font-medium">Ultra low fees</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Currency & Conversion Section -->
-    <section id="currency" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header Row -->
-            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
-                <div class="lg:max-w-md mb-6 lg:mb-0">
-                    <div class="inline-flex items-center gap-2 mb-4">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <span class="text-gray-600 font-medium">Currency Information</span>
-                    </div>
-                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
-                        Official Currency &<br>Conversion APIs
-                    </h2>
-                </div>
-                <div class="lg:max-w-xl">
-                    <div class="bg-purple-50 border border-purple-200 rounded-2xl p-6">
-                        <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <div>
-                                <h4 class="font-semibold text-purple-900 mb-1">Important: USD is the Official Currency</h4>
-                                <p class="text-purple-700 text-sm">
-                                    Coinley uses <span class="font-bold">United States Dollars (USD)</span> as its official currency. All payment amounts must be passed to the API in USD. If your store uses a different currency (GBP, JPY, EUR, etc.), you'll need to convert to USD before creating a payment.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Conversion APIs -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-gray-900 mb-6">Recommended Currency Conversion APIs</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- CoinMarketCap -->
-                    <div class="bg-gray-100 rounded-2xl p-6">
-                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
-                            <svg class="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                            </svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900 mb-2">CoinMarketCap API</h4>
-                        <p class="text-gray-600 text-sm mb-4">Industry-standard for crypto and fiat currency rates with extensive coverage.</p>
-                        <a href="https://coinmarketcap.com/api/" target="_blank" class="text-purple-600 font-medium text-sm hover:text-purple-700 inline-flex items-center gap-1">
-                            View Documentation
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- ExchangeRate-API -->
-                    <div class="bg-gray-100 rounded-2xl p-6">
-                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
-                            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
-                            </svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900 mb-2">ExchangeRate-API</h4>
-                        <p class="text-gray-600 text-sm mb-4">Simple and reliable fiat currency conversion with a generous free tier.</p>
-                        <a href="https://www.exchangerate-api.com/" target="_blank" class="text-purple-600 font-medium text-sm hover:text-purple-700 inline-flex items-center gap-1">
-                            View Documentation
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- Open Exchange Rates -->
-                    <div class="bg-gray-100 rounded-2xl p-6">
-                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
-                            <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900 mb-2">Open Exchange Rates</h4>
-                        <p class="text-gray-600 text-sm mb-4">Accurate exchange rates for 200+ currencies with hourly updates.</p>
-                        <a href="https://openexchangerates.org/" target="_blank" class="text-purple-600 font-medium text-sm hover:text-purple-700 inline-flex items-center gap-1">
-                            View Documentation
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Code Example -->
-            <div class="bg-gray-100 rounded-2xl p-8">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Example: Converting GBP to USD</h3>
-                <p class="text-gray-600 mb-6">Here's how to convert United Kingdom pounds (or any local currency) to USD before creating a Coinley payment:</p>
-
-                <div class="bg-gray-800 rounded-xl p-5 overflow-x-auto relative">
-                    <button onclick="copyCode(this)" class="absolute top-4 right-4 flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-medium">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                        Copy Code
-                    </button>
-                    <pre class="text-gray-300 text-sm"><code><span class="text-purple-400">// Example using ExchangeRate-API (free tier available)</span>
-<span class="text-blue-400">async function</span> <span class="text-yellow-300">convertToUSD</span>(amount, fromCurrency) {
-    <span class="text-blue-400">const</span> response = <span class="text-blue-400">await</span> fetch(
-        <span class="text-green-400">`https://api.exchangerate-api.com/v4/latest/USD`</span>
-    );
-    <span class="text-blue-400">const</span> data = <span class="text-blue-400">await</span> response.json();
-
-    <span class="text-purple-400">// Get the exchange rate for the source currency</span>
-    <span class="text-blue-400">const</span> rate = data.rates[fromCurrency];
-
-    <span class="text-purple-400">// Convert to USD (divide by the rate since rates are USD-based)</span>
-    <span class="text-blue-400">const</span> usdAmount = amount / rate;
-
-    <span class="text-blue-400">return</span> usdAmount.toFixed(<span class="text-orange-400">2</span>);
-}
-
-<span class="text-purple-400">// Usage example: Convert 50 GBP to USD</span>
-<span class="text-blue-400">const</span> gbpAmount = <span class="text-orange-400">50</span>;
-<span class="text-blue-400">const</span> usdAmount = <span class="text-blue-400">await</span> convertToUSD(gbpAmount, <span class="text-green-400">'GBP'</span>);
-console.log(<span class="text-green-400">`${gbpAmount} GBP = $${usdAmount} USD`</span>);
-
-<span class="text-purple-400">// Now use the USD amount with Coinley</span>
-coinley.open({
-    amount: parseFloat(usdAmount), <span class="text-purple-400">// Always pass USD to Coinley</span>
-    customerEmail: <span class="text-green-400">'customer@example.com'</span>,
-    merchantName: <span class="text-green-400">'Your Store'</span>,
-    merchantWalletAddresses: { polygon: <span class="text-green-400">'0xYourWallet...'</span> }
-});</code></pre>
-                </div>
-
-                <div class="mt-6 flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-                    <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                    </svg>
-                    <div>
-                        <h4 class="font-semibold text-yellow-800 text-sm">Pro Tip: Cache Exchange Rates</h4>
-                        <p class="text-yellow-700 text-sm">Exchange rates don't change frequently. Consider caching rates for 1-5 minutes to reduce API calls and improve performance.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- SDK Integration Section -->
     <section id="sdk-integration" class="py-16 bg-white">
@@ -596,9 +494,14 @@ coinley.open({
                     </button>
                     <div id="step1-react" class="px-5 pb-5">
                         <div class="bg-gray-100 rounded-xl p-4 font-mono text-sm text-gray-700">
-                            <p>npm install coinley-pay</p>
-                            <p class="text-gray-400"># or</p>
-                            <p>yarn add coinley-pay</p>
+                            <p class="text-gray-400"># Install coinley-pay and required peer dependencies</p>
+                            <p>npm install coinley-pay wagmi viem</p>
+                            <p class="text-gray-400 mt-2"># or with yarn</p>
+                            <p>yarn add coinley-pay wagmi viem</p>
+                        </div>
+                        <div class="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <p class="text-yellow-800 text-sm"><strong>Note:</strong> If you encounter peer dependency conflicts, create a <code class="bg-yellow-100 px-1 rounded">.npmrc</code> file in your project root with:</p>
+                            <code class="text-yellow-700 text-sm mt-1 block">legacy-peer-deps=true</code>
                         </div>
                     </div>
                 </div>
@@ -713,6 +616,103 @@ function CheckoutPage() {
         &lt;/div&gt;
     );
 }</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Notes Section -->
+                <div class="mt-6 space-y-4">
+                    <!-- Next.js SSR Warning -->
+                    <div class="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-red-700">Next.js Users: SSR Compatibility</h4>
+                                <p class="text-red-600 text-sm mt-1">The payment component uses browser APIs and must be dynamically imported with SSR disabled:</p>
+                                <div class="bg-red-100 rounded-lg p-3 mt-2 font-mono text-sm text-red-800 overflow-x-auto">
+<pre>import dynamic from 'next/dynamic';
+
+// Dynamically import to avoid SSR issues
+const RedesignedCoinleyPayment = dynamic(
+  () => import('coinley-pay').then(mod => mod.RedesignedCoinleyPayment),
+  { ssr: false }
+);
+
+// PaymentAPI can be imported normally
+import { PaymentAPI } from 'coinley-pay';
+import 'coinley-pay/dist/style.css';</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Currency Support -->
+                    <div class="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-blue-700">Multi-Currency Support</h4>
+                                <p class="text-blue-600 text-sm mt-1">You can accept payments in local currencies. The SDK automatically converts to USD for crypto payment:</p>
+                                <div class="bg-blue-100 rounded-lg p-3 mt-2 font-mono text-sm text-blue-800">
+<pre>config={{
+    amount: 50,        // Amount in local currency
+    currency: 'GBP',      //  ZAR, EUR, GBP, supported
+    // ... other config
+}}</pre>
+                                </div>
+                                <p class="text-blue-600 text-sm mt-2">Supported currencies: <strong>USD,ZAR, EUR, GBP</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TypeScript Support -->
+                    <div class="bg-purple-50 border-l-4 border-purple-400 rounded-r-xl p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-purple-700">TypeScript Support</h4>
+                                <p class="text-purple-600 text-sm mt-1">For TypeScript projects, create a type declaration file <code class="bg-purple-100 px-1 rounded">src/types/coinley-pay.d.ts</code>:</p>
+                                <div class="bg-purple-100 rounded-lg p-3 mt-2 font-mono text-sm text-purple-800 overflow-x-auto">
+<pre>declare module 'coinley-pay' {
+  import { ComponentType } from 'react';
+
+  export interface PaymentConfig {
+    amount: number;
+    currency?: string;
+    customerEmail?: string;
+    merchantName?: string;
+    merchantWalletAddresses?: Record&lt;string, string&gt;;
+    metadata?: Record&lt;string, unknown&gt;;
+  }
+
+  export interface RedesignedCoinleyPaymentProps {
+    publicKey: string;
+    apiUrl: string;
+    config: PaymentConfig;
+    onSuccess: (paymentId: string, txHash: string, details: unknown) =&gt; void;
+    onError: (error: string) =&gt; void;
+    onClose: () =&gt; void;
+    isOpen: boolean;
+    theme?: 'light' | 'dark';
+  }
+
+  export const RedesignedCoinleyPayment: ComponentType&lt;RedesignedCoinleyPaymentProps&gt;;
+
+  export class PaymentAPI {
+    constructor(apiUrl: string, publicKey: string);
+    api: { get: (url: string) =&gt; Promise&lt;{ data: any }&gt; };
+  }
+}
+
+declare module 'coinley-pay/dist/style.css';</pre>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
