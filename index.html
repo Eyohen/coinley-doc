@@ -2454,148 +2454,79 @@ Content-Type: application/json</code></pre>
                         </ol>
                     </div>
 
-                    <!-- API Configuration Section -->
+                    <!-- Using Callback URL in Payment Creation -->
                     <div class="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Configuring Webhooks via API</h3>
-                        <p class="text-gray-500 mb-6">You can also configure webhooks programmatically using the Coinley API. All endpoints require authentication with your merchant JWT token.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Using Callback URL (Recommended)</h3>
+                        <p class="text-gray-500 mb-6">The simplest way to receive webhooks is to pass a <code class="bg-gray-100 px-2 py-1 rounded">callbackUrl</code> when creating a payment. Coinley will automatically send payment status updates to this URL.</p>
 
-                        <div class="space-y-6">
-                            <!-- Get Webhook Config -->
-                            <div class="border-l-4 border-blue-400 pl-4">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-mono font-bold">GET</span>
-                                    <code class="text-gray-700 font-mono text-sm">/api/merchants/webhook</code>
-                                </div>
-                                <p class="text-gray-500 text-sm mb-3">Get your current webhook configuration and secret.</p>
-                                <div class="bg-gray-50 rounded-lg p-4">
-                                    <p class="text-xs text-gray-400 mb-2">Response:</p>
-                                    <pre class="text-gray-600 text-sm"><code>{
-  "success": true,
-  "data": {
-    "webhookUrl": "https://api.yoursite.com/webhooks/coinley",
-    "webhookSecret": "whsec_xxxxxxxxxxxxxxxx",
-    "isActive": true,
-    "createdAt": "2025-01-19T10:00:00.000Z"
-  }
-}</code></pre>
-                                </div>
-                            </div>
-
-                            <!-- Configure Webhook -->
-                            <div class="border-l-4 border-green-400 pl-4">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-mono font-bold">POST</span>
-                                    <code class="text-gray-700 font-mono text-sm">/api/merchants/webhook</code>
-                                </div>
-                                <p class="text-gray-500 text-sm mb-3">Configure or update your webhook URL.</p>
-                                <div class="bg-gray-50 rounded-lg p-4 mb-3">
-                                    <p class="text-xs text-gray-400 mb-2">Request Body:</p>
-                                    <pre class="text-gray-600 text-sm"><code>{
-  "webhookUrl": "https://api.yoursite.com/webhooks/coinley"
-}</code></pre>
-                                </div>
-                                <div class="bg-gray-50 rounded-lg p-4">
-                                    <p class="text-xs text-gray-400 mb-2">Response:</p>
-                                    <pre class="text-gray-600 text-sm"><code>{
-  "success": true,
-  "message": "Webhook configured successfully",
-  "data": {
-    "webhookUrl": "https://api.yoursite.com/webhooks/coinley",
-    "webhookSecret": "whsec_xxxxxxxxxxxxxxxx"
-  }
-}</code></pre>
-                                </div>
-                            </div>
-
-                            <!-- Test Webhook -->
-                            <div class="border-l-4 border-purple-400 pl-4">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-mono font-bold">POST</span>
-                                    <code class="text-gray-700 font-mono text-sm">/api/merchants/webhook/test</code>
-                                </div>
-                                <p class="text-gray-500 text-sm mb-3">Send a test webhook event to your configured URL to verify it's working.</p>
-                                <div class="bg-gray-50 rounded-lg p-4">
-                                    <p class="text-xs text-gray-400 mb-2">Response:</p>
-                                    <pre class="text-gray-600 text-sm"><code>{
-  "success": true,
-  "message": "Test webhook sent successfully",
-  "data": {
-    "webhookUrl": "https://api.yoursite.com/webhooks/coinley",
-    "responseStatus": 200,
-    "responseTime": 245
-  }
-}</code></pre>
-                                </div>
-                            </div>
-
-                            <!-- View Webhook Logs -->
-                            <div class="border-l-4 border-blue-400 pl-4">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-mono font-bold">GET</span>
-                                    <code class="text-gray-700 font-mono text-sm">/api/merchants/webhook/logs?page=1&limit=20</code>
-                                </div>
-                                <p class="text-gray-500 text-sm mb-3">View webhook delivery history and debug failed deliveries.</p>
-                                <div class="bg-gray-50 rounded-lg p-4">
-                                    <p class="text-xs text-gray-400 mb-2">Response:</p>
-                                    <pre class="text-gray-600 text-sm"><code>{
-  "success": true,
-  "data": {
-    "logs": [
-      {
-        "id": "uuid",
-        "event": "payment_success",
-        "status": "delivered",
-        "responseCode": 200,
-        "timestamp": "2025-01-19T10:30:00.000Z"
-      }
-    ],
-    "pagination": { "page": 1, "limit": 20, "total": 45 }
-  }
-}</code></pre>
-                                </div>
-                            </div>
-
-                            <!-- Regenerate Secret -->
-                            <div class="border-l-4 border-orange-400 pl-4">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-mono font-bold">POST</span>
-                                    <code class="text-gray-700 font-mono text-sm">/api/merchants/webhook/regenerate-secret</code>
-                                </div>
-                                <p class="text-gray-500 text-sm mb-3">Generate a new webhook secret. Use this if you suspect your secret has been compromised.</p>
-                                <div class="bg-gray-50 rounded-lg p-4">
-                                    <p class="text-xs text-gray-400 mb-2">Response:</p>
-                                    <pre class="text-gray-600 text-sm"><code>{
-  "success": true,
-  "message": "Webhook secret regenerated",
-  "data": {
-    "webhookSecret": "whsec_newxxxxxxxxxxxxxx"
-  }
-}</code></pre>
+                        <!-- How it works -->
+                        <div class="bg-green-50 border-l-4 border-green-400 rounded-r-2xl p-5 mb-6">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-green-900 mb-1">How It Works</h4>
+                                    <p class="text-green-700 text-sm">
+                                        1. Include <code class="bg-green-100 px-1 rounded">callbackUrl</code> in your payment request<br>
+                                        2. Add any custom data in the <code class="bg-green-100 px-1 rounded">metadata</code> object<br>
+                                        3. When payment completes, Coinley POSTs to your callback URL with all data including your metadata
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- cURL Examples -->
-                        <div class="mt-8 bg-purple-50 rounded-2xl p-5 border-l-4 border-purple-400">
-                            <h4 class="font-semibold text-lg mb-3">Quick Setup with cURL</h4>
-                            <p class="text-gray-500 text-sm mb-4">Base URL: <code class="bg-purple-100 px-2 py-1 rounded">https://hub.coinley.io</code></p>
-                            <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code># 1. Get your webhook secret
-curl -X GET "https://hub.coinley.io/api/merchants/webhook" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+                        <!-- Code Example -->
+                        <h4 class="font-semibold text-lg mb-3">Payment Configuration Example</h4>
+                        <div class="bg-purple-50 rounded-2xl p-5 border-l-4 border-purple-400 mb-6">
+                            <pre class="text-gray-700 font-mono text-sm overflow-x-auto"><code>// When creating a payment with Coinley SDK
+const paymentConfig = {
+  amount: 99.99,
+  currency: 'USDT',
+  network: 'polygon',
+  customerEmail: 'customer@example.com',
 
-# 2. Configure your webhook URL
-curl -X POST "https://hub.coinley.io/api/merchants/webhook" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"webhookUrl": "https://api.yoursite.com/webhooks/coinley"}'
+  // Your webhook endpoint - Coinley will POST here on payment completion
+  callbackUrl: 'https://api.yoursite.com/webhooks/coinley',
 
-# 3. Test the webhook
-curl -X POST "https://hub.coinley.io/api/merchants/webhook/test" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+  // Custom metadata - will be returned in the webhook payload
+  metadata: {
+    orderId: 'ORD-12345',
+    customerName: 'John Doe',
+    productName: 'Premium Subscription',
+    internalRef: 'SUB-2025-001'
+  }
+};</code></pre>
+                        </div>
 
-# 4. Check webhook logs
-curl -X GET "https://hub.coinley.io/api/merchants/webhook/logs?page=1&limit=10" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"</code></pre>
+                        <!-- What You Receive -->
+                        <h4 class="font-semibold text-lg mb-3">Webhook Payload You'll Receive</h4>
+                        <p class="text-gray-500 text-sm mb-3">When payment succeeds, Coinley sends a POST request to your <code class="bg-gray-100 px-1 rounded">callbackUrl</code>:</p>
+                        <div class="bg-gray-50 rounded-2xl p-5">
+                            <pre class="text-gray-600 text-sm overflow-x-auto"><code>{
+  "event": "payment_success",
+  "merchantId": "uuid-here",
+  "transactionId": "txn-uuid-here",
+  "amount": "99.99",
+  "currency": "USDT",
+  "tokenSymbol": "USDT",
+  "network": "polygon",
+  "txHash": "0xabc123def456...",
+  "senderAddress": "0x742d35Cc6634...",
+  "merchantWallet": "0xYourWallet...",
+  "status": "completed",
+
+  // Your custom metadata is returned here
+  "metadata": {
+    "orderId": "ORD-12345",
+    "customerName": "John Doe",
+    "productName": "Premium Subscription",
+    "internalRef": "SUB-2025-001",
+    "callbackUrl": "https://api.yoursite.com/webhooks/coinley"
+  },
+
+  "timestamp": "2025-02-13T10:30:00.000Z"
+}</code></pre>
                         </div>
                     </div>
 
@@ -2621,6 +2552,11 @@ curl -X GET "https://hub.coinley.io/api/merchants/webhook/logs?page=1&limit=10" 
   "senderAddress": "0x742d35Cc...",
   "merchantWallet": "0xYourWallet...",
   "status": "completed",
+  "metadata": {
+    "orderId": "your-order-id",
+    "customerName": "Customer Name",
+    "callbackUrl": "https://yoursite.com/webhook"
+  },
   "timestamp": "2025-01-19T10:30:00.000Z"
 }</code></pre>
                             </div>
